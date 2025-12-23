@@ -458,7 +458,6 @@ from collections import Counter
 import json
 
 df = pd.read_csv("cve_cwe_findings.csv")
-df_human = pd.read_csv("human_pr_cve_cwe_findings.csv")
 
 def parse_list_column(val):
     try:
@@ -470,22 +469,14 @@ result_dict = {}
 id_keys = ['cves', 'cwes', 'gos', 'git_id']
 for key in id_keys: 
     uniques = []
-    uniques_human = []
     for index, row in df.iterrows(): 
         if row[key] != '[]':
             inter_list = parse_list_column(row[key])
             for cve in inter_list:
                 uniques.append(cve)
-    for index, row in df_human.iterrows():
-        if row[key] != '[]':
-            inter_list = parse_list_column(row[key])
-            for id in inter_list:
-                uniques_human.append(id)
     unique_counter = Counter(uniques)
-    unique_counter_human = Counter(uniques_human)
     result_dict[key] = {
-        "agent": list(unique_counter.keys()),
-        "human": list(unique_counter_human.keys())
+        "agent": list(unique_counter.keys())
     }
 
 with open("all_ids.json", "w") as f: 

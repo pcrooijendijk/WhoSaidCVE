@@ -73,7 +73,6 @@ plt.show()
 # %%
 import pandas as pd
 
-# 1. Load your files
 df_cwe = pd.read_csv("results_cwes.csv")
 df_cve = pd.read_csv("results_cves.csv")
 df_go = pd.read_csv("results_gos_final.csv")
