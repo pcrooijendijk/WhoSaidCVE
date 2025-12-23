@@ -1,0 +1,9 @@
+source_column,unique_cves,unique_cwes,total_cve_mentions,total_cwe_mentions
+pr_timeline.message,14,0,22,0
+pull_request.body,20,1,21,1
+pr_commits.message,14,1,17,1
+pr_review_comments.body,9,0,14,0
+pull_request.title,13,1,13,1
+pr_comments.body,5,0,8,0
+issue.body,7,1,8,1
+pr_reviews.body,5,1,5,1
