@@ -1,0 +1,2039 @@
+[
+  {
+    "id": "PR_kwDOOj42Ac6WEmBL",
+    "number": 13,
+    "title": "Feature/jontiritilli/domo file embed",
+    "body": "",
+    "createdAt": "2025-05-13T22:39:46Z",
+    "updatedAt": "2025-07-06T15:43:20Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/13",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "updated basic"
+          }
+        },
+        {
+          "commit": {
+            "message": "updated basic"
+          }
+        },
+        {
+          "commit": {
+            "message": "updated crawler"
+          }
+        },
+        {
+          "commit": {
+            "message": "functional crawler"
+          }
+        },
+        {
+          "commit": {
+            "message": "functional crawler"
+          }
+        },
+        {
+          "commit": {
+            "message": "working on integrating context"
+          }
+        },
+        {
+          "commit": {
+            "message": "updated crawler"
+          }
+        },
+        {
+          "commit": {
+            "message": "updated cawl_config to use magic"
+          }
+        },
+        {
+          "commit": {
+            "message": "add Domo embeddings client and integrate"
+          }
+        },
+        {
+          "commit": {
+            "message": "cleanup headers and naming. Add query function to Domo"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix chunking strategy for Domo"
+          }
+        },
+        {
+          "commit": {
+            "message": "chunk strategy for Domo updated. Cleanup"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6WHzhO",
+    "number": 14,
+    "title": "Add MseeP.ai badge",
+    "body": "Hi there,\n\nThis pull request shares a security update on mcp-crawl4ai-rag.\n\nWe also have an entry for mcp-crawl4ai-rag in our directory, MseeP.ai, where we provide regular security and trust updates on your app.\n\nWe invite you to add our badge for your MCP server to your README to help your users learn from a third party that provides ongoing validation of mcp-crawl4ai-rag.\n\nYou can easily take control over your listing for free: visit it at https://mseep.ai/app/coleam00-mcp-crawl4ai-rag.\n\nYours Sincerely,\n\nLawrence W. Sinclair\nCEO/SkyDeck AI\nFounder of MseeP.ai\n*MCP servers you can trust*\n\n---\n\n[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/coleam00-mcp-crawl4ai-rag-badge.png)](https://mseep.ai/app/coleam00-mcp-crawl4ai-rag)\n\n\nHere are our latest evaluation results of mcp-crawl4ai-rag\n\n## Security Scan Results\n\n**Security Score:** 100/100\n\n**Risk Level:** low\n\n**Scan Date:** 2025-05-08\n\n\nScore starts at 100, deducts points for security issues, and adds points for security best practices\n\n\nThis security assessment was conducted by MseeP.ai, an independent security validation service for MCP servers. Visit our [website](https://mseep.ai) to learn more about our security reviews.\n\n",
+    "createdAt": "2025-05-14T08:50:39Z",
+    "updatedAt": "2025-06-16T12:03:57Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/14",
+    "full": {
+      "comments": [
+        {
+          "body": "I appreciate this but I wouldn't want a badge at the very top of the repo README!",
+          "author": {
+            "login": "coleam00"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Add MseeP.ai badge to README.md"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6WoXYq",
+    "number": 19,
+    "title": "Dev",
+    "body": "",
+    "createdAt": "2025-05-18T20:47:47Z",
+    "updatedAt": "2025-05-19T15:34:25Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/19",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "improved context retrieval"
+          }
+        },
+        {
+          "commit": {
+            "message": "fixed 429 issue calling invoke model"
+          }
+        },
+        {
+          "commit": {
+            "message": "modified workers, and improved functions to crawl"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: agregar ingestion de archivos PDF, CSV y Excel como herramientas MCP\n\nSe añaden herramientas ingest_pdf, ingest_csv e ingest_excel con chunking, generación de embeddings y carga en Supabase\nSe implementan utilidades en utils.py para extracción de texto de PDF (PdfReader/pdfplumber), CSV y Excel (pandas)\nSe actualiza pyproject.toml añadiendo dependencias: pandas, PyPDF2, pdfplumber y chardet\nSe corrige el manejo de None al hacer .strip() en generación de contexto y se vuelven a importar helpers de Bedrock"
+          }
+        },
+        {
+          "commit": {
+            "message": "Mejora de limpieza de texto y robustez en generación de contexto Bedrock\n\nSe agrega la función strip_link_only_lines en utils.py para eliminar líneas que contienen únicamente enlaces Markdown o URLs, reduciendo ruido y duplicidad en los chunks procesados.\nSe integra este preprocesamiento en los flujos de crawling (crawl_single_page y smart_crawl_url), aplicando la limpieza antes de la fragmentación del contenido.\nSe corrige el manejo del resultado de invoke_bedrock_model en la generación de contexto: ahora se valida el tipo de retorno y se asegura que siempre se procese como string, evitando errores cuando Bedrock retorna una lista en vez de un string.\nSe documentan y mantienen buenas prácticas de logging y manejo de errores.\nSe actualiza la gestión de dependencias en pyproject.toml para asegurar la presencia de librerías de parsing y limpieza de texto."
+          }
+        },
+        {
+          "commit": {
+            "message": "added pipeline"
+          }
+        },
+        {
+          "commit": {
+            "message": "multi image supports"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6XxId0",
+    "number": 22,
+    "title": "Fix TypeError: 'NoneType' object is not callable in ASGI application …",
+    "body": "## Problem\r\nThe MCP server was failing to start with the following error:\r\n```\r\nERROR:    Exception in ASGI application\r\n...\r\nTypeError: 'NoneType' object is not callable\r\n```\r\nThis error occurred in both stdio and SSE transport modes, preventing the server from functioning properly.\r\n## Root Cause\r\nThe issue was caused by several compatibility problems between the codebase and MCP SDK 1.7.1:\r\n1. Incorrect Context import: Code was importing Context from mcp.server instead of mcp.server.fastmcp\r\n2. Wrong context access pattern: Using ctx.request_context.lifespan_context instead of the correct ctx.session.lifespan_context\r\n3. FastMCP initialization mismatch: Attempting to pass host and port parameters to run_sse_async() method instead of the FastMCP constructor",
+    "createdAt": "2025-05-27T11:48:21Z",
+    "updatedAt": "2025-05-27T12:03:59Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/22",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Fix TypeError: 'NoneType' object is not callable in ASGI application - Fixed incorrect Context import from mcp.server to mcp.server.fastmcp - Updated context access pattern from ctx.request_context.lifespan_context to ctx.session.lifespan_context - Corrected FastMCP initialization to use host/port as constructor parameters instead of run_sse_async parameters - Fixed compatibility issues with MCP SDK 1.7.1"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add comprehensive test suite with pytest, GitHub Actions CI/CD, and testing documentation"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6YL2YS",
+    "number": 23,
+    "title": "feat: Enhance RAG pipeline with metadata, query expansion, and re-ran…",
+    "body": "…king\r\n\r\nI've made several enhancements to the RAG pipeline:\r\n\r\n1.  **Metadata Enrichment:**\r\n    - `extract_section_info` now generates hierarchical header paths (e.g., \"H1 > H2\") and extracts keywords using Term Frequency (TF) from document chunks. These are stored in the `metadata` field in Supabase.\r\n\r\n2.  **Query Expansion:**\r\n    - Your queries are now expanded using an LLM (configurable via `MODEL_CHOICE` env var).\r\n    - The original query and expanded queries are used to search the vector database, and results are consolidated.\r\n\r\n3.  **Re-ranking:**\r\n    - I've added a re-ranking step after the initial retrieval.\r\n    - An LLM (configurable via `RERANKER_MODEL_CHOICE`, falling back to `MODEL_CHOICE`) scores the relevance of retrieved documents to the original query.\r\n    - Results are then sorted based on these relevance scores.\r\n\r\n**Important Notes:**\r\n\r\n-   **Unit Tests:** I've created unit tests for these new features in `tests/test_rag_enhancements.py`. However, due to a Python version mismatch (your project requires >=3.12, but the environment has 3.10.17), I **could not execute** these tests. They must be run in an appropriate environment to verify correctness.\r\n-   **Documentation:** I attempted to update `.env.example` and `README.md` to reflect new configuration options and features, but I encountered some issues. These documentation files need to be updated manually to guide you on the new environment variables (`RERANKER_MODEL_CHOICE`) and pipeline capabilities.\r\n\r\nI've delivered the core functional enhancements to the RAG pipeline. Further work is required to run the created tests and update the project documentation.",
+    "createdAt": "2025-05-29T21:12:31Z",
+    "updatedAt": "2025-05-31T19:30:02Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/23",
+    "full": {
+      "comments": [
+        {
+          "body": "Closing this upon request",
+          "author": {
+            "login": "coleam00"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: Enhance RAG pipeline with metadata, query expansion, and re-ranking\n\nI've made several enhancements to the RAG pipeline:\n\n1.  **Metadata Enrichment:**\n    - `extract_section_info` now generates hierarchical header paths (e.g., \"H1 > H2\") and extracts keywords using Term Frequency (TF) from document chunks. These are stored in the `metadata` field in Supabase.\n\n2.  **Query Expansion:**\n    - Your queries are now expanded using an LLM (configurable via `MODEL_CHOICE` env var).\n    - The original query and expanded queries are used to search the vector database, and results are consolidated.\n\n3.  **Re-ranking:**\n    - I've added a re-ranking step after the initial retrieval.\n    - An LLM (configurable via `RERANKER_MODEL_CHOICE`, falling back to `MODEL_CHOICE`) scores the relevance of retrieved documents to the original query.\n    - Results are then sorted based on these relevance scores.\n\n**Important Notes:**\n\n-   **Unit Tests:** I've created unit tests for these new features in `tests/test_rag_enhancements.py`. However, due to a Python version mismatch (your project requires >=3.12, but the environment has 3.10.17), I **could not execute** these tests. They must be run in an appropriate environment to verify correctness.\n-   **Documentation:** I attempted to update `.env.example` and `README.md` to reflect new configuration options and features, but I encountered some issues. These documentation files need to be updated manually to guide you on the new environment variables (`RERANKER_MODEL_CHOICE`) and pipeline capabilities.\n\nI've delivered the core functional enhancements to the RAG pipeline. Further work is required to run the created tests and update the project documentation."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6YZk-3",
+    "number": 27,
+    "title": "Update README.md",
+    "body": "Added instructions for Claude code setup",
+    "createdAt": "2025-05-31T15:00:38Z",
+    "updatedAt": "2025-06-16T12:04:22Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/27",
+    "full": {
+      "comments": [
+        {
+          "body": "Thanks @ajaygunalan!",
+          "author": {
+            "login": "coleam00"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Update README.md\n\nAdded instructions for Claude code setup"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6Yd_GL",
+    "number": 28,
+    "title": "Dev",
+    "body": "",
+    "createdAt": "2025-06-01T10:38:20Z",
+    "updatedAt": "2025-06-01T10:39:13Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/28",
+    "full": {
+      "comments": [
+        {
+          "body": "Merging Dev into Main",
+          "author": {
+            "login": "sean-esk"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "add ui scaffold"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add testing framework setup with pytest and Vitest, including configuration files and initial test cases for both Python and React components. Updated dependencies in pyproject.toml and package.json to support testing. Added mock clients and environment variable fixtures for testing purposes."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add API service layer and corresponding tests for MCP server management, crawling operations, RAG queries, document uploads, and database metrics. Implemented error handling and validation for API requests. Added environment configuration management for the MCP server."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add FastAPI-based API wrapper for MCP server management, including endpoints for starting, stopping, and checking the status of the server. Implemented crawling and RAG query functionalities with corresponding request models. Updated dependencies in pyproject.toml for FastAPI and Uvicorn. Added unit tests for API endpoints and server management."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add initial setup for credential management and configuration in the MCP server. Introduced a new credential service for handling sensitive data with encryption, added database schema for storing credentials, and created a startup script for environment setup. Updated Docker configurations and added a web UI for easier management of settings. Included new documentation for environment variables and setup instructions."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update frontend port in docker-compose and startup scripts from 3000 to 3737; revise README to reflect new project name and enhance feature descriptions for Archon knowledge engine."
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor project structure and update configurations: renamed project to 'archon-ui', updated environment variables documentation, modified index.html title, and improved React rendering method. Removed unused ChatSidebar and SideNavigation components."
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement credential management UI and RAG settings in SettingsPage: Added functionality to load, save, and manage API keys and RAG settings. Introduced a new credentials service for handling sensitive data, including options for adding and deleting credentials. Enhanced UI with loading states and error handling. Updated API wrapper to support credential filtering by category."
+          }
+        },
+        {
+          "commit": {
+            "message": "Integrate Toast notifications into SettingsPage: Added ToastProvider to App component and implemented toast notifications for success and error messages during settings management, credential addition, and deletion. Created a new ToastContext for managing toast messages across the application."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add unit tests for MCPPage and MCPService: Implemented comprehensive tests for server status display, server control actions, log streaming, and configuration management. Enhanced error handling and toast notifications in the MCPPage component. Created a new test suite for mcpService to validate server management and log functionalities."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update configurations and add test coverage: Modified .gitignore to include coverage files, updated tsconfig to include test directory, and enhanced vite.config.ts and vitest.config.ts for testing setup. Added new tests for App and MCPPage components, along with a README for the test directory structure and setup file for Vitest."
+          }
+        },
+        {
+          "commit": {
+            "message": "Enhance MCPPage tests and setup: Added a new debug test suite for MCPPage to validate rendering and loading states. Updated the test setup file to mock `scrollIntoView` for compatibility with jsdom. Refactored existing MCPPage tests for clarity and improved structure."
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove MCPPage debug test suite: Deleted the MCPPage.debug.test.tsx file as part of a cleanup process. Updated MCPService tests to improve structure and clarity, including renaming the test suite and consolidating server management tests. Enhanced endpoint verification for starting, stopping, and getting server status, while adding error handling for fetch failures."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update README to enhance web interface section: Added details about the MCP Dashboard, real-time log streaming, and improved server management descriptions. Updated quick start instructions for clarity on accessing the web UI and connecting AI assistants."
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor KnowledgeBasePage and integrate knowledge base service: Updated KnowledgeBasePage to utilize the new knowledgeBaseService for fetching, adding, and deleting knowledge items. Enhanced UI with loading states, error handling, and added functionality for testing knowledge items with RAG queries. Introduced new modals for adding knowledge sources and confirming deletions. Added comprehensive tests for KnowledgeBasePage and knowledgeBaseService to ensure functionality and error handling."
+          }
+        },
+        {
+          "commit": {
+            "message": "Rename project from \"crawl4ai-mcp\" to \"archon\" in pyproject.toml. Refactor api_wrapper.py to implement a new CrawlingContext class for managing crawling operations, including initialization and cleanup. Update API endpoints to utilize the new context for crawling functions and add a delete_source function in crawl4ai_mcp.py for removing sources and associated data. Enhance error handling and response parsing across various endpoints."
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement WebSocket service for real-time knowledge item updates: Added a new WebSocketService class to manage WebSocket connections and events. Integrated WebSocket functionality into KnowledgeBasePage for real-time updates of knowledge items. Enhanced API wrapper with WebSocket endpoints for streaming knowledge item updates and crawling status. Updated utility functions to handle OpenAI API key retrieval dynamically. Improved error handling and connection management in the WebSocket implementation."
+          }
+        },
+        {
+          "commit": {
+            "message": "Enhance sources table and API integration: Added title and metadata JSONB columns to the sources table for improved organization. Updated API wrapper to utilize new title and metadata fields, enhancing data retrieval and processing. Refactored source information update logic to include generated titles and metadata. Improved crawling functions to access and store metadata effectively."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update docker-compose and pyproject.toml: Added new port mapping for the application and included additional dependencies for PDF processing and document handling. Enhanced MCP service with new tool management features and improved error handling in the API wrapper. Updated UI components to support new tool functionalities and added testing capabilities for tool execution."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update transport configuration in docker-compose and MCPPage: Changed default transport from 'stdio' to 'sse' in docker-compose.yml. Enhanced MCPPage to allow users to select between 'sse' and 'stdio' transports via radio buttons, updating the configuration display accordingly. Updated README to include detailed instructions for transport selection and configuration for both transport methods."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6YuUaN",
+    "number": 30,
+    "title": "feat: Add multi-provider AI support (OpenAI, Ollama, Gemini, DeepSeek, Anthropic) - Enable free/local deployment options",
+    "body": "## 🚀 Multi-Provider AI Support - Cost-Free & Privacy-First Options\r\n\r\nThis PR adds support for 5 AI providers, enabling users to run the MCP server **completely free** or at significantly reduced costs.\r\n\r\n### 💰 **Cost Benefits**\r\n- **100% Free**: Use Ollama for completely local deployment (no API costs)\r\n- **Free Tier Friendly**: Google Gemini offers generous free quotas  \r\n- **Cost Reduction**: DeepSeek offers very affordable API rates\r\n- **Flexibility**: Mix providers (e.g., Ollama for embeddings + free Gemini for completions)\r\n\r\n### 🔒 **Privacy Benefits**\r\n- **Local-only option** with Ollama - no data leaves your machine\r\n- **Self-hosted models** for sensitive enterprise use cases\r\n- **Reduced vendor lock-in** with multiple provider options\r\n\r\n### 🎯 **Supported Providers**\r\n\r\n| Provider | Embeddings | Completions | Cost | Privacy |\r\n|----------|------------|-------------|------|---------|\r\n| **Ollama** | ✅ (768d) | ✅ | **FREE** | **Local** |\r\n| **Gemini** | ✅ (768d) | ✅ | **Free tier available** | Cloud |\r\n| **OpenAI** | ✅ (1536d) | ✅ | Paid | Cloud |\r\n| **DeepSeek** | ❌ | ✅ | **Very cheap** | Cloud |\r\n| **Anthropic** | ❌ | ✅ | Paid | Cloud |\r\n\r\n### 🛠 **Technical Improvements**\r\n- **Backward compatible** - existing OpenAI configs work unchanged\r\n- **Async architecture** - proper async/await throughout\r\n- **Provider abstraction** - clean interface for future providers\r\n- **Flexible embedding dimensions** - supports 768, 1024, 1536 dimensions\r\n- **Graceful fallbacks** - handles providers without embedding support\r\n\r\n### 📋 **Configuration Example**\r\n```bash\r\n# Completely free local setup\r\nAI_PROVIDER=ollama\r\nOLLAMA_BASE_URL=http://localhost:11434\r\n\r\n# Free tier cloud setup  \r\nAI_PROVIDER=gemini\r\nGEMINI_API_KEY=your_free_gemini_key\r\n\r\n# Existing OpenAI setup (unchanged)\r\nAI_PROVIDER=openai  # or omit (default)\r\nOPENAI_API_KEY=your_openai_key\r\n```\r\n\r\n### 🎯 **Target Users**\r\n- **Broke Vibe Coders** like me 🙂\r\n\r\n### ✅ **Testing**\r\n- [x] All providers tested with embeddings and completions\r\n- [x] Backward compatibility verified\r\n- [x] Async performance improvements confirmed\r\n- [x] Error handling and fallbacks working\r\n\r\nThis change democratizes access to the RAG capabilities by removing the barrier of required paid API access while maintaining full feature parity.",
+    "createdAt": "2025-06-03T00:52:18Z",
+    "updatedAt": "2025-06-19T06:11:41Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/30",
+    "full": {
+      "comments": [
+        {
+          "body": "Thank you for this PR @Samso9th! I would want to implement different providers differently though, so I'm am curious your thoughts on these points:\r\n\r\n1. I like your documentation and the providers you've chosen, but I don't really want to have a separate code file for each provider. I'd rather just rely on the OpenAI API compatibility that these providers have. \r\n\r\n2. And then I want to have a separation of embedding models and large language models, so that you can choose one for the embeddings and then another for the LLM. This will make it so that we can use OpenRouter, but not just default to zero vectors like you're doing. We could actually use OpenAI for embeddings and OpenRouter for the LLM, for example. \r\n\r\n3. If you could be more clear and maybe elaborate more on the async improvements you did, I would appreciate that!",
+          "author": {
+            "login": "coleam00"
+          }
+        },
+        {
+          "body": "I appreciate the feedback @coleam00, I've completely restructured the implementation to address your points:\r\n\r\n**OpenAI API Compatibility**: I consolidated everything into a single `OpenAICompatibleProvider` that handles OpenAI, DeepSeek, Ollama, and OpenRouter using the OpenAI client library. Only kept separate files for Gemini and Anthropic since they have different APIs (i really need Gemini). With this; we have reduced the codebase significantly.\r\n\r\n**Embedding/LLM Separation**: Implemented exactly what you described with a new `ProviderManager` class. You can now do `EMBEDDING_PROVIDER=openai` and `LLM_PROVIDER=openrouter` to use OpenAI embeddings with OpenRouter completions. No more zero vectors - proper embeddings from one provider, completions from another. Also enables cost optimization like using expensive OpenAI embeddings with cheap DeepSeek completions.\r\n\r\n**Async Improvements**: Added proper async context management throughout, replaced synchronous HTTP requests with aiohttp sessions, implemented concurrent request handling for embedding batches, and added async-aware error handling with proper resource cleanup. This enables non-blocking I/O and better scalability.\r\n\r\nThe maintains full backward compatibility while adding the dual-provider functionality you requested for. The architecture is much cleaner now with less code duplication.\r\n\r\nAlso you can check this [doc](https://github.com/Samso9th/mcp-crawl4ai-rag/blob/more-ai-providers/IMPLEMENTATION_SUMMARY.md) for a general summary",
+          "author": {
+            "login": "Samso9th"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "suport more ai providers"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor"
+          }
+        },
+        {
+          "commit": {
+            "message": "reduce linter"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix linter"
+          }
+        },
+        {
+          "commit": {
+            "message": "remove test files"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update IMPLEMENTATION_SUMMARY.md"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update IMPLEMENTATION_SUMMARY.md"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update IMPLEMENTATION_SUMMARY.md"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update IMPLEMENTATION_SUMMARY.md"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6YwIwV",
+    "number": 31,
+    "title": "Dev",
+    "body": "",
+    "createdAt": "2025-06-03T06:23:34Z",
+    "updatedAt": "2025-06-03T06:23:59Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/31",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "add ui scaffold"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add testing framework setup with pytest and Vitest, including configuration files and initial test cases for both Python and React components. Updated dependencies in pyproject.toml and package.json to support testing. Added mock clients and environment variable fixtures for testing purposes."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add API service layer and corresponding tests for MCP server management, crawling operations, RAG queries, document uploads, and database metrics. Implemented error handling and validation for API requests. Added environment configuration management for the MCP server."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add FastAPI-based API wrapper for MCP server management, including endpoints for starting, stopping, and checking the status of the server. Implemented crawling and RAG query functionalities with corresponding request models. Updated dependencies in pyproject.toml for FastAPI and Uvicorn. Added unit tests for API endpoints and server management."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add initial setup for credential management and configuration in the MCP server. Introduced a new credential service for handling sensitive data with encryption, added database schema for storing credentials, and created a startup script for environment setup. Updated Docker configurations and added a web UI for easier management of settings. Included new documentation for environment variables and setup instructions."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update frontend port in docker-compose and startup scripts from 3000 to 3737; revise README to reflect new project name and enhance feature descriptions for Archon knowledge engine."
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor project structure and update configurations: renamed project to 'archon-ui', updated environment variables documentation, modified index.html title, and improved React rendering method. Removed unused ChatSidebar and SideNavigation components."
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement credential management UI and RAG settings in SettingsPage: Added functionality to load, save, and manage API keys and RAG settings. Introduced a new credentials service for handling sensitive data, including options for adding and deleting credentials. Enhanced UI with loading states and error handling. Updated API wrapper to support credential filtering by category."
+          }
+        },
+        {
+          "commit": {
+            "message": "Integrate Toast notifications into SettingsPage: Added ToastProvider to App component and implemented toast notifications for success and error messages during settings management, credential addition, and deletion. Created a new ToastContext for managing toast messages across the application."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add unit tests for MCPPage and MCPService: Implemented comprehensive tests for server status display, server control actions, log streaming, and configuration management. Enhanced error handling and toast notifications in the MCPPage component. Created a new test suite for mcpService to validate server management and log functionalities."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update configurations and add test coverage: Modified .gitignore to include coverage files, updated tsconfig to include test directory, and enhanced vite.config.ts and vitest.config.ts for testing setup. Added new tests for App and MCPPage components, along with a README for the test directory structure and setup file for Vitest."
+          }
+        },
+        {
+          "commit": {
+            "message": "Enhance MCPPage tests and setup: Added a new debug test suite for MCPPage to validate rendering and loading states. Updated the test setup file to mock `scrollIntoView` for compatibility with jsdom. Refactored existing MCPPage tests for clarity and improved structure."
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove MCPPage debug test suite: Deleted the MCPPage.debug.test.tsx file as part of a cleanup process. Updated MCPService tests to improve structure and clarity, including renaming the test suite and consolidating server management tests. Enhanced endpoint verification for starting, stopping, and getting server status, while adding error handling for fetch failures."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update README to enhance web interface section: Added details about the MCP Dashboard, real-time log streaming, and improved server management descriptions. Updated quick start instructions for clarity on accessing the web UI and connecting AI assistants."
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor KnowledgeBasePage and integrate knowledge base service: Updated KnowledgeBasePage to utilize the new knowledgeBaseService for fetching, adding, and deleting knowledge items. Enhanced UI with loading states, error handling, and added functionality for testing knowledge items with RAG queries. Introduced new modals for adding knowledge sources and confirming deletions. Added comprehensive tests for KnowledgeBasePage and knowledgeBaseService to ensure functionality and error handling."
+          }
+        },
+        {
+          "commit": {
+            "message": "Rename project from \"crawl4ai-mcp\" to \"archon\" in pyproject.toml. Refactor api_wrapper.py to implement a new CrawlingContext class for managing crawling operations, including initialization and cleanup. Update API endpoints to utilize the new context for crawling functions and add a delete_source function in crawl4ai_mcp.py for removing sources and associated data. Enhance error handling and response parsing across various endpoints."
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement WebSocket service for real-time knowledge item updates: Added a new WebSocketService class to manage WebSocket connections and events. Integrated WebSocket functionality into KnowledgeBasePage for real-time updates of knowledge items. Enhanced API wrapper with WebSocket endpoints for streaming knowledge item updates and crawling status. Updated utility functions to handle OpenAI API key retrieval dynamically. Improved error handling and connection management in the WebSocket implementation."
+          }
+        },
+        {
+          "commit": {
+            "message": "Enhance sources table and API integration: Added title and metadata JSONB columns to the sources table for improved organization. Updated API wrapper to utilize new title and metadata fields, enhancing data retrieval and processing. Refactored source information update logic to include generated titles and metadata. Improved crawling functions to access and store metadata effectively."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update docker-compose and pyproject.toml: Added new port mapping for the application and included additional dependencies for PDF processing and document handling. Enhanced MCP service with new tool management features and improved error handling in the API wrapper. Updated UI components to support new tool functionalities and added testing capabilities for tool execution."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update transport configuration in docker-compose and MCPPage: Changed default transport from 'stdio' to 'sse' in docker-compose.yml. Enhanced MCPPage to allow users to select between 'sse' and 'stdio' transports via radio buttons, updating the configuration display accordingly. Updated README to include detailed instructions for transport selection and configuration for both transport methods."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update README and MCPPage component: Revamped README to reflect the new Archon UI branding and provide a comprehensive overview of features, architecture, and development setup. Enhanced MCPPage with detailed documentation comments outlining its functionalities, including server control, log management, and tool testing. Improved code readability and added comments for better understanding of the component's structure and operations."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge pull request #1 from sean-eskerium/dev\n\nDev"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add document upload functionality and test document: Introduced a new API endpoint for uploading documents with validation for file size and type. Enhanced the document processing tool to handle various formats and extract metadata, including AI-generated titles and descriptions. Added a test markdown document to demonstrate the upload functionality and its features."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge pull request #2 from sean-eskerium/dev\n\nMerge in Dev"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add ARCHON_TASKS.md file: Created a new markdown file to document tasks related to the Archon project, establishing a foundation for task management and tracking."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add CrawlingProgressCard component and integrate crawling progress tracking: Introduced a new CrawlingProgressCard component for displaying real-time crawling progress, including status updates, percentage completion, and error handling. Implemented a crawlProgressService for managing WebSocket connections and progress updates. Enhanced KnowledgeBasePage to utilize the new component for tracking multiple crawl operations, with functions for handling progress updates, completion, and errors. Added tests for CrawlingProgressCard to ensure correct rendering and functionality across different states."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: consolidate migrations and add archon_tasks.sql"
+          }
+        },
+        {
+          "commit": {
+            "message": "test: fix import path for app in conftest"
+          }
+        },
+        {
+          "commit": {
+            "message": "test: install supabase client and fix health check imports"
+          }
+        },
+        {
+          "commit": {
+            "message": "ci: update Dockerfile to install api and test extras"
+          }
+        },
+        {
+          "commit": {
+            "message": "cleanup old migrations"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add /api/mcp/status health-check endpoint with TDD"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: scaffold MCP tool definitions for task management"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore: clean migration folder and add tasks schema failing test"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore: cleanup old migration files, keep only consolidated migrations"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add task management HTTP endpoints with error handling"
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor CrawlingProgressCard and enhance WebSocket integration: Simplified the CrawlingProgressCard component to directly update state from props, removing unnecessary WebSocket listener setup. Improved the ToastProvider by implementing glassmorphism styles for toast notifications, enhancing visual appeal. Updated KnowledgeBasePage to include detailed logging for crawl progress and error handling, ensuring robust tracking of crawl operations. Adjusted WebSocket and API services to dynamically construct URLs based on the current host and protocol, improving deployment flexibility."
+          }
+        },
+        {
+          "commit": {
+            "message": "Enhance README with real-time communication architecture details and update WebSocket integration in the application: Added a new section in README to document WebSocket endpoints, network configuration, and troubleshooting steps for real-time communication. Updated MainLayout to check for OpenAI API key on mount and show a toast notification if missing. Refactored KnowledgeBasePage to streamline progress updates using a unified callback approach and improved error handling. Revamped crawlProgressService to implement a new streamProgress method for better WebSocket management and automatic reconnection. Updated API wrapper to align with new WebSocket patterns, ensuring consistent progress tracking and message handling."
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor crawling progress handling and update Docker configuration: Simplified the CrawlingProgressCard component to directly use props for progress data, removing unnecessary local state management. Enhanced the MCP server configuration to ensure all credentials are sourced from the database, logging errors appropriately. Updated docker-compose.yml to clarify environment variable usage, focusing on Supabase credentials. Improved progress reporting in crawling functions to provide real-time updates during the crawling process."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'dev'\nMerging dev into main after getting websockets working."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge origin/dev into feature/tasks"
+          }
+        },
+        {
+          "commit": {
+            "message": "Enhance README and add comprehensive WebSocket documentation: Updated the README to clarify real-time communication features, including detailed descriptions of WebSocket endpoints and key functionalities. Introduced a new document, UIandServerWebSockets.md, outlining best practices, patterns, and troubleshooting for WebSocket integration in the Archon application. This addition aims to provide developers with a thorough understanding of implementing real-time features in full-stack applications."
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(docker): remove invalid --system flag from pip install"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(sql): support Supabase editor by using DROP/CREATE for task_status enum"
+          }
+        },
+        {
+          "commit": {
+            "message": "Enhance README and add comprehensive WebSocket documentation: Updated the README to clarify real-time communication features, including detailed descriptions of WebSocket endpoints and key functionalities. Introduced a new document, UIandServerWebSockets.md, outlining best practices, patterns, and troubleshooting for WebSocket integration in the Archon application. This addition aims to provide developers with a thorough understanding of implementing real-time features in full-stack applications."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'dev' into feature/tasks\nMerging Dev"
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor Docker and pytest configurations: Removed version specification from docker-compose.yml for simplicity. Updated pytest.ini to enhance asyncio support with new fixture scopes and added a marker for asyncio tests. Refactored test setup in conftest.py to include async and sync clients for improved testing of FastAPI endpoints. Updated test cases in test_api_wrapper.py to utilize async testing patterns, ensuring compatibility with the new async client structure."
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement retry logic for OpenAI API key check in MainLayout: Enhanced the existing key check functionality by adding retry logic with exponential backoff, allowing up to three attempts to retrieve the API key. Introduced a delay before the initial check to ensure backend readiness. Updated error logging to include retry attempts for better debugging."
+          }
+        },
+        {
+          "commit": {
+            "message": "Refactor MCP server architecture and introduce modular design: Replaced the legacy MCP server implementation in `crawl4ai_mcp.py` with a new modular server located in `mcp_server.py`. Updated the API to query available tools directly from the running server, enhancing the tool retrieval process. Added comprehensive tools for project and task management in the new `tasks_module.py` and `rag_module.py`, ensuring better organization and scalability. Included deprecation notices for the old server structure to guide users towards the new implementation."
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement project management features with new tabs and data visualization: Introduced a comprehensive ProjectPage component that integrates DocsTab, FeaturesTab, DataTab, and TasksTab for enhanced project management. Added DataTab for visualizing data relationships and FeaturesTab for planning features. Updated SideNavigation to link to the Projects page, improving navigation. Enhanced the MCPPage with tool filtering capabilities and improved UI elements for better user experience."
+          }
+        },
+        {
+          "commit": {
+            "message": "adding docusauras"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add project management features and refactor components: Introduced new ProjectPage with routing to Projects, integrated react-dnd for drag-and-drop functionality in TasksTab, and added validation schemas for project and task management. Updated FeaturesTab and TasksTab for improved UI and functionality. Enhanced package.json and package-lock.json with new dependencies for better project management capabilities."
+          }
+        },
+        {
+          "commit": {
+            "message": "merging project task updates."
+          }
+        },
+        {
+          "commit": {
+            "message": "Add scrollbar hiding and card flip animations in CSS: Introduced a new class to hide scrollbars while allowing scrolling, and added styles for card flip animations, enhancing the UI experience in the application."
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove default tutorials and add architecture documentation, update sidebar"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge Docusaurus documentation into main"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove default Docusaurus tutorial content"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore(docs): generate comprehensive Docusaurus documentation site"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(docs): remove extra pages and relocate config to docs folder"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore(docs): configure docs service to serve Docusaurus on port 3838"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove default Docusaurus blog content"
+          }
+        },
+        {
+          "commit": {
+            "message": "Fix sidebarPath in docusaurus.config.js to remove redundant ./docs/ prefix"
+          }
+        },
+        {
+          "commit": {
+            "message": "cleanup demo docs."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(docs): add comprehensive documentation pages and update Docusaurus config"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(docs): correct Getting Started and properly mount docs service"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore(docs): add intro landing page to fix broken links"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove version specification from docker-compose.yml to streamline configuration."
+          }
+        },
+        {
+          "commit": {
+            "message": "Update .gitignore to include docs/node_modules: Added docs/node_modules/ to the .gitignore file to prevent unnecessary files from being tracked, ensuring a cleaner repository."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'feature/docusauraus' of https://github.com/sean-eskerium/mcp-crawl4ai-rag into feature/docusauraus\nMerge document changes from Agent0"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'feature/tasks' into feature/docusauraus\nMerger features into docusauras branch"
+          }
+        },
+        {
+          "commit": {
+            "message": "update docs"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'feature/docusauraus' of https://github.com/sean-eskerium/mcp-crawl4ai-rag into feature/docusauraus\nmerge latest docs"
+          }
+        },
+        {
+          "commit": {
+            "message": "updated docs"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove empty documentation files from the repository."
+          }
+        },
+        {
+          "commit": {
+            "message": "chore(gitignore): ignore Claude Taskmaster and AI project mgmt files"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(security): add security headers and rate limiting middleware to FastAPI backend"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(websocket): scaffold reconnection, heartbeat, and message queuing for WebSocket reliability"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(mcp): scaffold error handling, health checks, and circuit breaker for MCP server"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(api): add retry logic to frontend API service layer"
+          }
+        },
+        {
+          "commit": {
+            "message": "resolve: merge origin/main into feature/docusauraus"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(docs): add intro.md to resolve Docusaurus broken link error"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(api): move retry function to top level to resolve TypeScript syntax error"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(docker): restore docs service to production build context and port mapping"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(docker): remove duplicate volumes/networks and fix YAML structure"
+          }
+        },
+        {
+          "commit": {
+            "message": "updates to docker compose to fix formatting."
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(api): remove duplicate nested retry function to resolve TypeScript syntax error"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(api): rewrite API service file to resolve all syntax and build errors"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(docker): update Dockerfile and docker-compose for new architecture; add documentation build process and adjust environment variables"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(api): remove ProjectPage component and enhance delete_source function with detailed logging and error handling"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(docs): implement dark mode theme and enhance UI elements for better visibility and aesthetics; update MCP logo and adjust styles for various components"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(docs): clean up custom.css by removing unused CSS variables and enhancing background styles for improved dark mode support"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(docs): update HomepageFeatures component and CSS for improved layout and styling; reduce SVG size and enhance sidebar transparency"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(docs): enhance API reference and getting started documentation for smart web crawling; include automatic content type detection, detailed progress tracking, and updated examples"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(rag_module): enhance document and code example storage process in Supabase; implement source creation before document insertion to avoid foreign key constraints, and streamline data preparation for improved efficiency"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(docs): update README and documentation structure; enhance content organization, improve clarity of features, and remove obsolete WebSocket documentation to streamline user experience"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(layout): implement backend readiness check before validating OpenAI API key; enhance loading strategy in KnowledgeBasePage for improved user experience; refactor SettingsPage loader for better alignment; update API wrapper to include source metadata and improve data transformation for frontend"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'feature/docusauraus'\nMerge working branch"
+          }
+        },
+        {
+          "commit": {
+            "message": "reorganizing python library to a folder."
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(docs): update file paths in documentation and docker-compose for Python project structure; adjust references to source files and tests to reflect new organization under the 'python' directory"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6ZBI2G",
+    "number": 33,
+    "title": "claude-code-jc",
+    "body": "",
+    "createdAt": "2025-06-04T12:42:45Z",
+    "updatedAt": "2025-06-16T12:16:18Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/33",
+    "full": {
+      "comments": [
+        {
+          "body": "@veracityproducts Would you be able to provide a description of this PR?",
+          "author": {
+            "login": "coleam00"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: Enhance RAG pipeline with metadata, query expansion, and re-ranking\n\nI've made several enhancements to the RAG pipeline:\n\n1.  **Metadata Enrichment:**\n    - `extract_section_info` now generates hierarchical header paths (e.g., \"H1 > H2\") and extracts keywords using Term Frequency (TF) from document chunks. These are stored in the `metadata` field in Supabase.\n\n2.  **Query Expansion:**\n    - Your queries are now expanded using an LLM (configurable via `MODEL_CHOICE` env var).\n    - The original query and expanded queries are used to search the vector database, and results are consolidated.\n\n3.  **Re-ranking:**\n    - I've added a re-ranking step after the initial retrieval.\n    - An LLM (configurable via `RERANKER_MODEL_CHOICE`, falling back to `MODEL_CHOICE`) scores the relevance of retrieved documents to the original query.\n    - Results are then sorted based on these relevance scores.\n\n**Important Notes:**\n\n-   **Unit Tests:** I've created unit tests for these new features in `tests/test_rag_enhancements.py`. However, due to a Python version mismatch (your project requires >=3.12, but the environment has 3.10.17), I **could not execute** these tests. They must be run in an appropriate environment to verify correctness.\n-   **Documentation:** I attempted to update `.env.example` and `README.md` to reflect new configuration options and features, but I encountered some issues. These documentation files need to be updated manually to guide you on the new environment variables (`RERANKER_MODEL_CHOICE`) and pipeline capabilities.\n\nI've delivered the core functional enhancements to the RAG pipeline. Further work is required to run the created tests and update the project documentation."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge pull request #1 from veracityproducts/enhance-rag-pipeline\n\nfeat: Enhance RAG pipeline with metadata, query expansion, and re-ran…"
+          }
+        },
+        {
+          "commit": {
+            "message": "claude code updates"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update .env.example"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update README.md"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update README.md"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6ZKVpA",
+    "number": 36,
+    "title": "Closes coleam00/mcp-crawl4ai-rag#35",
+    "body": "Closes #35 \r\n\r\nThe command when running the Docker image has been changed from\r\n\r\nThe command `uv run src/crawl4ai_mcp.py` creates a virtual environment and redownloads the Python packages before running the program.\r\n\r\nThe new command `python src/crawl4ai_mcp.py` runs using the system-wide installed packages which was previously downloaded in `uv pip install --system -e .`\r\n\r\nUsing `docker ps -s`, we see this reduces the running container's size to `71.8MB` from the initial `6.01GB` (which contains mainly duplicate packages from the `7.37GB` image).\r\n",
+    "createdAt": "2025-06-05T09:07:13Z",
+    "updatedAt": "2025-06-05T15:39:40Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/36",
+    "full": {
+      "comments": [
+        {
+          "body": "Thank you so much for this! Can't believe I didn't catch this haha",
+          "author": {
+            "login": "coleam00"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Fixed Dockerfile command\n\nNow uses system-wide packages instead of redownloading dependencies"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6ZYLTr",
+    "number": 40,
+    "title": "Local Ingestion Improvements - Path Optimization & Duplicate Prevention",
+    "body": "This pull request introduces a new feature: ingest_local_file, designed for seamless ingestion of local documentation into the RAG (Retrieval-Augmented Generation) system — ideal for internal knowledge bases.\r\n\r\n## Key Features\r\n### Local file ingestion\r\n\r\n- New ingest_local_file function:\r\n\r\n> - Supports both single files and entire directories\r\n> - Recursively handles subfolders\r\n> - Automatically extracts code examples\r\n> - Generates contextual summaries for improved relevance\r\n\r\n### Smart path handling\r\n\r\n- Truncates absolute paths to avoid unnecessary duplication\r\n- Example:\r\n> - /project1/Knowledges/data.md and /project2/Knowledges/data.md are treated as the same resource\r\n> - Enhances storage efficiency and search accuracy\r\n\r\n### Robust cleanup and consistency\r\n- Old entries are fully removed before re-ingestion\r\n- Prevents duplicates due to changes (e.g., chunk size, file version)\r\n- Ensures consistent indexing across document versions\r\n\r\n## Typical Use Cases\r\n- Ingesting local technical documentation\r\n- Incremental updates of project knowledge bases\r\n- Shared documentation between projects with no duplication\r\n- Version control and tracking of documentation changes\r\n\r\n## Usage in my projects\r\nThis feature ensures a single source of truth in the RAG across all projects, even when working with isolated or evolving documentation.\r\n\r\nTypical use:\r\n- Ingesting .txt files from context7.com, downloaded manually to avoid API limits\r\n- Ingesting AI-generated documentation and guides specific to the project, updated at each stage of progress\r\n\r\nThis enables a constantly enriched and up-to-date RAG aligned with real project evolution.",
+    "createdAt": "2025-06-06T11:34:43Z",
+    "updatedAt": "2025-06-16T12:05:20Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/40",
+    "full": {
+      "comments": [
+        {
+          "body": "Nice work @fabrice-cekome! This is outside of the scope for what I want to do for the MCP server right now, but I appreciate this implementation!",
+          "author": {
+            "login": "coleam00"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Ajout de l'ingestion locale"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6ZezXS",
+    "number": 41,
+    "title": "Enhance 429 Too Many Requests error handling",
+    "body": "\r\nThe MCP server should consider request number of tokens and be able to handle if the number even exceeds. \r\n\r\nI specified the MODEL as `gpt-4o-mini` in the `.env` file. The problem of this setting gets the error below on the runtime:\r\n\r\n```bash\r\nError generating contextual embedding: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o-mini in organization \r\norg-xxxxxxxxxxxxxxxx on tokens per min (TPM): Limit 200000, Used 195663, Requested 7592. Please try again in 976ms. Visit \r\nhttps://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}. \r\nUsing original chunk instead.\r\n                    INFO     HTTP Request: POST                  _client.py:1025\r\n                             https://api.openai.com/v1/chat/completions \"HTTP/1.1 429 Too Many Requests\"\r\n```\r\n\r\nChaning the code to apply below resolved the error gone:\r\n- Add explicit detection of 429 (Too Many Requests) exceptions\r\n- Implement retry logic based on Retry-After header or message delay\r\n- Integrate retry count and wait time with existing retry logic\r\n",
+    "createdAt": "2025-06-07T04:39:00Z",
+    "updatedAt": "2025-07-04T11:03:11Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/41",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Enhance 429 Too Many Requests error handling\n\n- Add explicit detection of 429 (Too Many Requests) exceptions\n- Implement retry logic based on Retry-After header or message delay\n- Integrate retry count and wait time with existing retry logic"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'coleam00:main' into fix/rate_limits"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6ZfXqo",
+    "number": 42,
+    "title": "Add comprehensive PDF and OpenAPI ingestion capabilities",
+    "body": "Implement complete document processing pipeline with 4 new MCP tools:\r\n- ingest_pdf: Extract and chunk PDF documents with page awareness and fallback methods\r\n- ingest_openapi: Parse OpenAPI specs with 4 configurable chunking strategies\r\n- search_api_endpoints: Semantic search for API endpoints with filtering\r\n- list_ingested_apis: Discovery tool for available API documentation\r\n\r\nFeatures:\r\n• PDF processing with pdfplumber primary extraction and PyPDF2 fallback • OpenAPI parsing with full $ref resolution using Prance library • Support for endpoint, schema, combined, and operation chunking strategies • Integration with existing RAG strategies (contextual embeddings, hybrid search, reranking) • Comprehensive error handling and logging throughout • Page-aware PDF chunking with configurable word counts and overlap • Complete test suite with 100% pass rate across 7 scenarios\r\n\r\nDocumentation:\r\n• Updated README with detailed tool documentation and usage examples • Added extensive configuration options and recommended settings • Created comprehensive workflows and integration patterns • Updated CLAUDE.md with architectural details for future development\r\n\r\nTesting:\r\n• Created robust test suite with colored output and detailed reporting • Generated sample test data for validation (PDFs, OpenAPI specs) • Validated all chunking strategies and error handling scenarios • Confirmed integration with existing vector database and RAG infrastructure\r\n\r\n🤖 Generated with [Claude Code](https://claude.ai/code)",
+    "createdAt": "2025-06-07T07:08:59Z",
+    "updatedAt": "2025-06-08T00:31:00Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/42",
+    "full": {
+      "comments": [
+        {
+          "body": "Apologies - issues with uv install options. retracting. ",
+          "author": {
+            "login": "williape"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Add comprehensive PDF and OpenAPI ingestion capabilities\n\nImplement complete document processing pipeline with 4 new MCP tools:\n- ingest_pdf: Extract and chunk PDF documents with page awareness and fallback methods\n- ingest_openapi: Parse OpenAPI specs with 4 configurable chunking strategies\n- search_api_endpoints: Semantic search for API endpoints with filtering\n- list_ingested_apis: Discovery tool for available API documentation\n\nFeatures:\n• PDF processing with pdfplumber primary extraction and PyPDF2 fallback\n• OpenAPI parsing with full $ref resolution using Prance library\n• Support for endpoint, schema, combined, and operation chunking strategies\n• Integration with existing RAG strategies (contextual embeddings, hybrid search, reranking)\n• Comprehensive error handling and logging throughout\n• Page-aware PDF chunking with configurable word counts and overlap\n• Complete test suite with 100% pass rate across 7 scenarios\n\nDocumentation:\n• Updated README with detailed tool documentation and usage examples\n• Added extensive configuration options and recommended settings\n• Created comprehensive workflows and integration patterns\n• Updated CLAUDE.md with architectural details for future development\n\nTesting:\n• Created robust test suite with colored output and detailed reporting\n• Generated sample test data for validation (PDFs, OpenAPI specs)\n• Validated all chunking strategies and error handling scenarios\n• Confirmed integration with existing vector database and RAG infrastructure\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6ZsKqq",
+    "number": 45,
+    "title": "refactor: modularize codebase and add comprehensive RAG functionality",
+    "body": "## Summary\nThis PR represents a complete refactoring of the crawl4ai MCP server, transforming it from a single monolithic file into a well-structured, modular application with comprehensive RAG (Retrieval-Augmented Generation) capabilities and proper testing infrastructure.\n\n## Motivation and Context\n\nThe original implementation was a single 1,054-line file that was becoming difficult to maintain and extend. This refactoring addresses several key issues:\n- **Maintainability**: Code is now organized into logical modules following vertical slice architecture\n- **Testability**: Comprehensive test suite with tests co-located with their respective modules\n- **Extensibility**: Clear separation of concerns makes it easy to add new features\n- **Developer Experience**: Added proper tooling, linting, and development workflows\n\n## Changes Made\n\n### Architecture & Structure\n- ✨ Migrated from monolithic `crawl4ai_mcp.py` to modular package structure\n- 📁 Implemented vertical slice architecture with co-located tests\n- 🏗️ Created clear service, tool, and utility layers\n- 📦 Properly packaged as `crawl4ai_mcp` with namespace imports\n\n### Core Features\n- 🤖 **RAG Server Implementation**: Full MCP server with crawling and search capabilities\n- 🔍 **Smart Crawling**: Depth control, URL filtering, and metadata tracking\n- 🧠 **Semantic Search**: Embedding-based search with reranking algorithms\n- 💻 **Code Search**: Specialized search for code examples and documentation\n\n### Developer Experience\n- 📚 Added comprehensive development documentation (`CLAUDE.md`)\n- 🛠️ Integrated UV package manager for dependency management\n- ✅ Added pytest-based test suite with async support\n- 🎨 Configured ruff for linting and code formatting\n- 🔍 Set up mypy for type checking\n- 📋 Created PRP (Project Refinement Protocol) framework\n\n### Services Added\n- `services/crawling.py`: Async web crawling with Crawl4AI\n- `services/database.py`: SQLite persistence layer\n- `services/embeddings.py`: Text embedding generation\n- `services/search.py`: Search and RAG query implementation\n\n### Tools Added\n- `crawl_single_page`: Single page crawling\n- `smart_crawl_url`: Intelligent multi-page crawling\n- `perform_rag_query`: RAG query execution\n- `search_code_examples`: Code-specific search\n- `get_available_sources`: List crawled sources\n\n### Utilities Added\n- `text_processing.py`: Text chunking and processing\n- `reranking.py`: Search result ranking algorithms\n- `metadata.py`: Metadata extraction utilities\n\n## Type of Change\n\n- [ ] Bug fix (non-breaking change which fixes an issue)\n- [x] New feature (non-breaking change which adds functionality)\n- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)\n- [x] Documentation update\n- [x] Performance improvement\n- [x] Code refactoring\n\n## Testing\n\n### How has this been tested?\n- ✅ Comprehensive unit test suite with 15 test files\n- ✅ All tests passing (119 tests total)\n- ✅ Async tests for crawling functionality\n- ✅ Mock-based tests for external dependencies\n\n### Test configuration details\n- Python 3.11+\n- pytest with async support\n- Test fixtures in `conftest.py`\n- Tests co-located with implementation files\n\n### Instructions for reviewers to test\n```bash\n# Install dependencies\nuv sync\n\n# Run tests\nuv run pytest\n\n# Run with coverage\nuv run pytest --cov=src\n\n# Run linting\nuv run ruff check .\n\n# Run type checking\nuv run mypy .\n```\n\n## Screenshots/Recordings\nN/A - Backend service changes only\n\n## Breaking Changes\n\nWhile the core functionality remains the same, import paths have changed:\n- Old: `from src.crawl4ai_mcp import server`\n- New: `from crawl4ai_mcp.mcp_server import server`\n\nThe CLI entry point remains the same: `crawl4ai-mcp`\n\n## Performance Impact\n\n- ✅ Async operations throughout for better concurrency\n- ✅ Efficient text chunking with configurable parameters\n- ✅ Database indexing for faster searches\n- ✅ Caching of embeddings to avoid recomputation\n\n## Security Considerations\n\n- ✅ Input validation on all user-provided URLs\n- ✅ Safe SQL query construction (no raw string interpolation)\n- ✅ Proper error handling to avoid information leakage\n- ✅ No hardcoded secrets or credentials\n\n## Checklist\n\n- [x] My code follows the project's style guidelines\n- [x] I have performed a self-review\n- [x] I have commented hard-to-understand areas\n- [x] I have made corresponding changes to the documentation\n- [x] My changes generate no new warnings\n- [x] I have added tests that prove my fix is effective\n- [x] New and existing unit tests pass locally\n- [x] Any dependent changes have been merged\n\n## Dependencies\n\n- [ ] This PR depends on #XXX\n- [x] No dependencies\n\n## Deploy Notes\nNo special deployment requirements. The package can be installed directly with:\n```bash\nuv pip install -e .\n```\n\n## Additional Notes\n\n### Future Improvements\nWhile this PR significantly improves the codebase, there are areas for future enhancement:\n- Complete type annotations (currently at ~70% coverage)\n- Increase test coverage from 57% to 80%+\n- Add integration tests for end-to-end workflows\n- Consider adding more AI provider options\n\n### Development Workflow\nThis PR also introduces a comprehensive development workflow documented in `CLAUDE.md`, including:\n- Coding standards and conventions\n- Testing requirements\n- Git workflow (develop → main)\n- Claude.ai integration for AI-assisted development\n\nThe PRP (Project Refinement Protocol) framework provides templates for:\n- Feature development\n- Code refactoring\n- Performance optimization\n- Bug fixes\n\nThis refactoring lays a solid foundation for future development while maintaining backward compatibility for existing users.",
+    "createdAt": "2025-06-09T13:56:47Z",
+    "updatedAt": "2025-07-14T12:48:31Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/45",
+    "full": {
+      "comments": [
+        {
+          "body": "Wish I saw this earlier, your refactor looks a ton better than mine (was quick and dirty).",
+          "author": {
+            "login": "btyeung"
+          }
+        },
+        {
+          "body": "What a PR haha, thanks @Wirasm! It's going to take a while to review this, I am thinking maybe there would be some opinionated reachitectures that I would want to do differently, so we will see. Even if I rearchitect things a bit different, I would love to use a lot of this work as a base though!",
+          "author": {
+            "login": "coleam00"
+          }
+        },
+        {
+          "body": "I looked into this project thinking to add support for anything else then Supabase (in my case PostgreSQL + Qdrant) but not doable until refactored with some amount of abstraction, nice change 👍 ",
+          "author": {
+            "login": "fpytloun"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: add PRP framework with templates and AI docs"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add code review command with comprehensive checklist and report template"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add documentation for uv tools, anthropic messages API, and parallel PRP creation"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: add UV and pytest setup instructions to refactor plan and create Claude coding guidelines"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: initial implementation of RAG server with crawling and search capabilities"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: replace print statements with logging and fix database column names"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: consolidate crawling services and add source info tracking"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: update imports to use crawl4ai_mcp package namespace and add metadata utilities"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore: add type hints to test functions and remove unused datetime imports"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6aS_3W",
+    "number": 50,
+    "title": "Add Professional Packaging Infrastructure and CI/CD Pipeline for PyPI Distribution",
+    "body": "# 📦 Add Professional Packaging Infrastructure and CI/CD Pipeline\n\nThis PR transforms the project into a professionally packaged Python project with comprehensive testing and CI/CD infrastructure, making it ready for PyPI distribution.\n\n## 🎯 Overview\n\nThis PR adds a complete packaging and testing ecosystem that enables:\n- **Professional Distribution**: Package can be built, installed, and distributed via PyPI\n- **Cross-Platform Testing**: Automated testing on Ubuntu, Windows, and macOS  \n- **Modern Tooling**: Uses UV for fast, reliable dependency management\n- **Quality Assurance**: Comprehensive packaging tests and validation\n- **Instant Usage**: Users can run `uvx mcp-crawl4ai-rag` without installation\n\n## 📋 Key Changes Made\n\n### 1. **Entry Point Configuration**\n- ✅ Added `[project.scripts]` section to `pyproject.toml`\n- ✅ Configured `\"mcp-crawl4ai-rag\"` entry point to launch `crawl4ai_mcp:main`\n- ✅ Users can now run `mcp-crawl4ai-rag` command after installation\n\n### 2. **Professional Package Structure**\n- ✅ Reorganized code into proper `src/crawl4ai_mcp/` package structure\n- ✅ Added `__init__.py` with proper imports and version information\n- ✅ Fixed relative imports to use package-qualified imports\n- ✅ Maintains backward compatibility while enabling proper packaging\n\n### 3. **Comprehensive CI/CD Pipeline** (`.github/workflows/`)\n- ✅ **Multi-platform testing**: Ubuntu, Windows, macOS\n- ✅ **Multi-version testing**: Python 3.12 and 3.13\n- ✅ **Modern tooling**: UV for dependency management and package installation\n- ✅ **Three specialized jobs**:\n  - `test-packaging`: Full packaging lifecycle testing\n  - `test-import`: Minimal import verification\n  - `validate-config`: Configuration validation\n- ✅ **PyPI Deployment**: Automated publishing on tag creation\n\n### 4. **Professional Testing Suite** (`tests/test_packaging.py`)\n- ✅ **Package Building**: Tests wheel generation with `python -m build`\n- ✅ **Import Validation**: Verifies main function is importable\n- ✅ **Installation Testing**: Tests package installation and import\n- ✅ **Configuration Validation**: Validates pyproject.toml structure\n- ✅ **Cross-platform compatibility**: Windows and Unix-specific approaches\n\n### 5. **Build System Configuration**\n- ✅ Added `[build-system]` configuration for setuptools\n- ✅ Proper `[tool.setuptools]` package discovery configuration\n- ✅ Package data inclusion for all Python files\n\n## 🚀 User Benefits\n\n### **⚡ Instant Run (Recommended)**\n```bash\n# Run directly without installation - UV handles everything!\nuvx mcp-crawl4ai-rag\n```\n**Perfect for**: Testing, one-time usage, or keeping your system clean\n\n### **📦 Traditional Installation**\n```bash\n# Install globally\npip install mcp-crawl4ai-rag\n\n# Then run anywhere\nmcp-crawl4ai-rag\n```\n**Perfect for**: Regular usage, integration with other tools\n\n### **🏃‍♂️ UV Installation (Fastest)**\n```bash\n# Install with UV (faster than pip)\nuv pip install mcp-crawl4ai-rag\n\n# Run the server\nmcp-crawl4ai-rag\n```\n**Perfect for**: UV users who want the fastest installation\n\n## 🔧 Technical Highlights\n\n### **UV-First Approach**\n- Modern Python package manager for speed and reliability\n- Consistent across development, testing, and CI environments\n- Proper virtual environment handling and caching\n- **uvx support**: Users can run the server instantly without installation\n\n### **Cross-Platform Compatibility**\n- **Windows**: PowerShell shell, UTF-8 encoding, platform-specific file handling\n- **macOS/Linux**: Bash shell with native wildcard expansion\n- **Platform Detection**: Smart handling of OS-specific requirements\n\n### **Comprehensive Test Coverage**\n1. **Configuration Validation**: pyproject.toml structure and entry points\n2. **Build Testing**: Wheel generation and integrity\n3. **Installation Testing**: Package installation across platforms\n4. **Import Testing**: Module importability and function availability\n5. **Entry Point Testing**: Command availability in PATH\n\n## 📊 Test Matrix\n\n| Platform | Python 3.12 | Python 3.13 |\n|----------|--------------|--------------| \n| Ubuntu Latest | ✅ | ✅ |\n| Windows Latest | ✅ | ✅ |\n| macOS Latest | ✅ | ✅ |\n\n**Total**: 6 test combinations + specialized validation jobs\n\n## 🛠️ Files Added/Modified\n\n- ✅ `pyproject.toml` - Added build system and entry point configuration\n- ✅ `.github/workflows/build-test.yml` - Complete CI/CD pipeline\n- ✅ `.github/workflows/deploy-pypi.yml` - PyPI deployment workflow\n- ✅ `tests/test_packaging.py` - Comprehensive packaging test suite\n- ✅ `test_packaging_local.sh` - Local testing script\n- ✅ `src/crawl4ai_mcp/__init__.py` - Package initialization\n- ✅ `src/crawl4ai_mcp/crawl4ai_mcp.py` - Main module (restructured)\n- ✅ `src/crawl4ai_mcp/utils.py` - Utilities module (moved)\n- ✅ `DEPLOYMENT.md` - Deployment and usage instructions\n\n## 🎉 Ready for Production\n\nThis PR makes the project ready for:\n- ✅ **PyPI Distribution**: Professional packaging standards\n- ✅ **Instant Execution**: Single-command usage with `uvx`\n- ✅ **User Installation**: Simple `pip install` workflow\n- ✅ **CI/CD Integration**: Automated quality assurance\n- ✅ **Cross-platform Deployment**: Reliable operation everywhere\n\n## 🔌 MCP Client Integration\n\nThe `uvx` approach makes integration incredibly simple:\n\n### **Claude Desktop**\n```json\n{\n  \"mcpServers\": {\n    \"crawl4ai-rag\": {\n      \"command\": \"uvx\",\n      \"args\": [\"mcp-crawl4ai-rag\"],\n      \"env\": {\n        \"TRANSPORT\": \"stdio\"\n      }\n    }\n  }\n}\n```\n\n### **Benefits of `uvx` Approach**\n- ✅ **Zero Installation Friction** - Try immediately without setup\n- ✅ **Always Latest Version** - UV fetches the newest release automatically\n- ✅ **Isolated Execution** - No global package pollution\n- ✅ **Consistent Across Platforms** - Same command works everywhere\n\n## 🧪 Testing\n\nAll tests can be run locally with:\n```bash\n# Quick local test\n./test_packaging_local.sh\n\n# Or run the full test suite\nuv run python tests/test_packaging.py\n```\n\nThe MCP server can now be distributed, installed, and used as a professional Python package with confidence in its reliability across all major platforms. Users can start using it immediately with a single `uvx` command!\n\n---\n\n**Note**: This PR includes recent PyPI packaging standards and practices for modern Python distribution, making the package ready for immediate publication to PyPI.",
+    "createdAt": "2025-06-12T23:11:02Z",
+    "updatedAt": "2025-06-16T12:02:12Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/50",
+    "full": {
+      "comments": [
+        {
+          "body": "@coleam00 Thank you for your work! I started looking at the code because I wanted to run with uvx from pypi, then saw there were several PR's and no tests. Since the PR's are idle, I'm going to try and pull them into this new testable environment so they can be further reviewed once they pass basic tests.",
+          "author": {
+            "login": "rsp2k"
+          }
+        },
+        {
+          "body": "Thank you so much for this PR @rsp2k ! This MCP has started as something more experimental that I later want to turn into Archon V2 (lot of work happening for that behind the scenes), hence quite a few pending PRs and no tests.\r\n\r\nThe plan is to move this into Archon at some point and there I'll have a comprehensive test suite and will certainly be incorporating what you have done here, so thank you!",
+          "author": {
+            "login": "coleam00"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Add packaging infrastructure and CI/CD pipeline (#1)\n\n* Add project.scripts entry point for mcp-crawl4ai-rag\n\n- Add [project.scripts] section to pyproject.toml\n- Configure \"mcp-crawl4ai-rag\" entry point to launch crawl4ai_mcp:main\n- This allows the package to be installed and run as a command line script\n\n* Add basic packaging tests\n\n- Create test_packaging.py with comprehensive packaging validation\n- Tests package building, installation, and entry point functionality\n- Validates pyproject.toml configuration\n- Provides clear pass/fail reporting\n\n* Add comprehensive GitHub Actions workflow for build/package testing\n\n- Multi-OS testing (Ubuntu, Windows, macOS)\n- Multi-Python version testing (3.12, 3.13)\n- Uses uv for dependency management (matching project setup)\n- Tests package building, installation, and entry point functionality\n- Validates pyproject.toml configuration\n- Uploads build artifacts for inspection\n- Includes import testing and config validation jobs\n\n* Add local test script for quick packaging validation\n\n- Bash script to run packaging tests locally before pushing\n- Validates pyproject.toml configuration\n- Runs the Python packaging tests\n- Tests the build process with either uv or pip\n- Provides clear feedback and early validation\n\n* Update pyproject.toml with proper build system and src layout configuration\n\n- Add [build-system] section with setuptools backend\n- Configure [tool.setuptools] for src layout \n- Specify package directory mapping\n- Ensure proper package discovery for entry point resolution\n\n* Create package __init__.py to expose main function\n\n- Add __init__.py to create proper Python package structure\n- Import and expose main function for entry point access\n- Set package version and exports\n\n* Move utils.py into crawl4ai_mcp package directory\n\n- Move utils.py to src/crawl4ai_mcp/utils.py for proper package structure\n- Required for the entry point to work correctly with setuptools\n\n* finish moving source\n\n* Update workflow to use uv consistently across all jobs\n\n- Add uv setup to test-import and validate-config jobs\n- Replace pip install with uv pip install in validation tools\n- Add consistent caching configuration\n- Use uv run python for executing validation scripts\n\n* Fix UV virtual environment error in validate-config job\n\n- Add --system flag to uv pip install command\n- This allows installation into the system Python environment in CI\n- Fixes error: No virtual environment found\n\n* finish moving source\n\n* finish moving source\n\n* finish moving source\n\n* Fix ModuleNotFoundError in validate-config job\n\n- Change from 'uv run python -c' to 'python -c' for validation scripts\n- uv run creates isolated environment without access to --system installed packages\n- Regular python command uses system Python with tomli available\n\n* Update test_packaging.py to use uv instead of pip\n\n- Replace subprocess call to pip with uv pip install\n- Change python -m build to uv run python -m build\n- Maintain all existing test functionality\n- Fix inconsistent dependency management in tests\n\n* Add arch-latest to test-packaging job matrix\n\n- Include Arch Linux testing alongside Ubuntu, Windows, and macOS\n- Provides broader Linux distribution coverage for packaging tests\n- Ensures compatibility across different Linux environments\n\n* Fix Windows Unicode encoding issue by using PowerShell\n\n- Set default shell to PowerShell for Windows runners to handle Unicode properly\n- Update Windows entry point test to use PowerShell commands (Get-Command)\n- Prevents UnicodeEncodeError with emoji characters in test output\n- Maintains bash for Unix systems (Ubuntu, macOS, Arch)\n\n* Fix Python Unicode encoding by setting PYTHONIOENCODING\n\n- Add PYTHONIOENCODING=utf-8 environment variable to force UTF-8 encoding\n- This ensures Python can properly handle Unicode characters on Windows\n- Fixes UnicodeEncodeError when printing emoji characters in test output\n\n* Fix Windows file locking issue in test_entry_point_after_install\n\n- Use platform-specific approach: subprocess test on Windows, temp directory on Unix\n- Avoids Windows file locking issues with .pyd files in temporary directories\n- Maintains thorough testing on Unix systems while working around Windows limitations\n- Uses uv run python subprocess to test import after installation on Windows\n\n* Fix PowerShell wildcard expansion for wheel installation\n\n- Split package installation into separate Unix/Windows steps\n- Use PowerShell Get-ChildItem to properly find wheel files on Windows\n- Add error handling for missing wheel files\n- Maintains original wildcard behavior on Unix systems\n\n* Remove arch-latest runner (not officially supported)\n\n- Remove arch-latest from test matrix as it's not an official GitHub Actions runner\n- Keep the three official runners: ubuntu-latest, windows-latest, macos-latest\n- This prevents hanging jobs waiting for unavailable runners\n- Still provides comprehensive cross-platform testing coverage\n\n---------\n\nCo-authored-by: Ryan Malloy <ryan@supported.systems>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add uvx client setup instructions with environment variables"
+          }
+        },
+        {
+          "commit": {
+            "message": "Reorder MCP client configurations to show uvx first"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add PyPI deployment workflow with TestPyPI support"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add PyPI deployment documentation"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6aTVV_",
+    "number": 51,
+    "title": "Tools module",
+    "body": "",
+    "createdAt": "2025-06-13T00:20:29Z",
+    "updatedAt": "2025-06-13T00:21:10Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/51",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Add packaging infrastructure and CI/CD pipeline (#1)\n\n* Add project.scripts entry point for mcp-crawl4ai-rag\n\n- Add [project.scripts] section to pyproject.toml\n- Configure \"mcp-crawl4ai-rag\" entry point to launch crawl4ai_mcp:main\n- This allows the package to be installed and run as a command line script\n\n* Add basic packaging tests\n\n- Create test_packaging.py with comprehensive packaging validation\n- Tests package building, installation, and entry point functionality\n- Validates pyproject.toml configuration\n- Provides clear pass/fail reporting\n\n* Add comprehensive GitHub Actions workflow for build/package testing\n\n- Multi-OS testing (Ubuntu, Windows, macOS)\n- Multi-Python version testing (3.12, 3.13)\n- Uses uv for dependency management (matching project setup)\n- Tests package building, installation, and entry point functionality\n- Validates pyproject.toml configuration\n- Uploads build artifacts for inspection\n- Includes import testing and config validation jobs\n\n* Add local test script for quick packaging validation\n\n- Bash script to run packaging tests locally before pushing\n- Validates pyproject.toml configuration\n- Runs the Python packaging tests\n- Tests the build process with either uv or pip\n- Provides clear feedback and early validation\n\n* Update pyproject.toml with proper build system and src layout configuration\n\n- Add [build-system] section with setuptools backend\n- Configure [tool.setuptools] for src layout \n- Specify package directory mapping\n- Ensure proper package discovery for entry point resolution\n\n* Create package __init__.py to expose main function\n\n- Add __init__.py to create proper Python package structure\n- Import and expose main function for entry point access\n- Set package version and exports\n\n* Move utils.py into crawl4ai_mcp package directory\n\n- Move utils.py to src/crawl4ai_mcp/utils.py for proper package structure\n- Required for the entry point to work correctly with setuptools\n\n* finish moving source\n\n* Update workflow to use uv consistently across all jobs\n\n- Add uv setup to test-import and validate-config jobs\n- Replace pip install with uv pip install in validation tools\n- Add consistent caching configuration\n- Use uv run python for executing validation scripts\n\n* Fix UV virtual environment error in validate-config job\n\n- Add --system flag to uv pip install command\n- This allows installation into the system Python environment in CI\n- Fixes error: No virtual environment found\n\n* finish moving source\n\n* finish moving source\n\n* finish moving source\n\n* Fix ModuleNotFoundError in validate-config job\n\n- Change from 'uv run python -c' to 'python -c' for validation scripts\n- uv run creates isolated environment without access to --system installed packages\n- Regular python command uses system Python with tomli available\n\n* Update test_packaging.py to use uv instead of pip\n\n- Replace subprocess call to pip with uv pip install\n- Change python -m build to uv run python -m build\n- Maintain all existing test functionality\n- Fix inconsistent dependency management in tests\n\n* Add arch-latest to test-packaging job matrix\n\n- Include Arch Linux testing alongside Ubuntu, Windows, and macOS\n- Provides broader Linux distribution coverage for packaging tests\n- Ensures compatibility across different Linux environments\n\n* Fix Windows Unicode encoding issue by using PowerShell\n\n- Set default shell to PowerShell for Windows runners to handle Unicode properly\n- Update Windows entry point test to use PowerShell commands (Get-Command)\n- Prevents UnicodeEncodeError with emoji characters in test output\n- Maintains bash for Unix systems (Ubuntu, macOS, Arch)\n\n* Fix Python Unicode encoding by setting PYTHONIOENCODING\n\n- Add PYTHONIOENCODING=utf-8 environment variable to force UTF-8 encoding\n- This ensures Python can properly handle Unicode characters on Windows\n- Fixes UnicodeEncodeError when printing emoji characters in test output\n\n* Fix Windows file locking issue in test_entry_point_after_install\n\n- Use platform-specific approach: subprocess test on Windows, temp directory on Unix\n- Avoids Windows file locking issues with .pyd files in temporary directories\n- Maintains thorough testing on Unix systems while working around Windows limitations\n- Uses uv run python subprocess to test import after installation on Windows\n\n* Fix PowerShell wildcard expansion for wheel installation\n\n- Split package installation into separate Unix/Windows steps\n- Use PowerShell Get-ChildItem to properly find wheel files on Windows\n- Add error handling for missing wheel files\n- Maintains original wildcard behavior on Unix systems\n\n* Remove arch-latest runner (not officially supported)\n\n- Remove arch-latest from test matrix as it's not an official GitHub Actions runner\n- Keep the three official runners: ubuntu-latest, windows-latest, macos-latest\n- This prevents hanging jobs waiting for unavailable runners\n- Still provides comprehensive cross-platform testing coverage\n\n---------\n\nCo-authored-by: Ryan Malloy <ryan@supported.systems>"
+          }
+        },
+        {
+          "commit": {
+            "message": "move tools to their own module"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6apuy2",
+    "number": 53,
+    "title": "test",
+    "body": "",
+    "createdAt": "2025-06-16T06:47:41Z",
+    "updatedAt": "2025-06-16T11:55:20Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/53",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "test"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6bDsFc",
+    "number": 54,
+    "title": "feat: Make LLM API concurrency and throttling configurable via env variables",
+    "body": "## Make OpenAI LLM API Throttling and Concurrency Configurable via Environment Variables\r\n\r\n### What & Why\r\n\r\nThis PR introduces **configurable throttling and concurrency controls** for all OpenAI LLM API calls in the MCP server.\r\nPreviously, the server used hardcoded limits for API concurrency. This resulted in rate limit errors for some users, especially on free or low-tier plans, or when multiple requests were triggered in parallel.\r\n\r\n#### **Original Rate Limit Error Example**\r\n\r\nUsers (including myself, on a tier 1 account) experienced the following error message when rate limits were exceeded:\r\n\r\n```\r\nError generating contextual embedding: Error code: 429 - {\r\n  'error': {\r\n    'message': 'Rate limit reached for gpt-4.1-nano in organization org-xxxxxxxxxxxxxxxxxxxx on tokens per min (TPM): Limit 200000, Used 200000, Requested 5770. Please try again in 1.731s. Visit https://platform.openai.com/account/rate-limits to learn more.',\r\n    'type': 'tokens',\r\n    'param': None,\r\n    'code': 'rate_limit_exceeded'\r\n  }\r\n}. Using original chunk instead.\r\n```\r\n\r\n(*Organization ID and other details are anonymized for privacy.*)\r\n\r\n#### **Solution**\r\n\r\nTo address this, two new environment variables are now supported:\r\n\r\n* **`LLM_MAX_CONCURRENCY`** (default: `3`):\r\n  Maximum number of parallel OpenAI API requests (applies globally to all LLM/embedding tasks).\r\n* **`LLM_REQUEST_DELAY`** (default: `0`):\r\n  Optional delay (in seconds) after each OpenAI API request, for additional throttling if required.\r\n\r\nAll ThreadPoolExecutors and async logic that previously used hardcoded worker counts now read these variables. A global semaphore mechanism enforces concurrency and per-request delay for all LLM calls (embeddings, completions, summaries, etc.).\r\n\r\n### How to Configure\r\n\r\nSet these environment variables in your deployment (or `.env`):\r\n\r\n```bash\r\nLLM_MAX_CONCURRENCY=2     # Number of parallel OpenAI requests (suggest 1–3 for free/low-tier plans)\r\nLLM_REQUEST_DELAY=0.5     # Optional delay (in seconds) after each request\r\n```\r\n\r\nUnset variables will use defaults (`LLM_MAX_CONCURRENCY=3`, `LLM_REQUEST_DELAY=0`), ensuring backward compatibility.\r\n\r\n### Backward Compatibility\r\n\r\n* Existing deployments are unaffected if new variables are not set (safe defaults apply).\r\n* No breaking changes; this is an opt-in enhancement for resource control.\r\n\r\n### Testing & Verification\r\n\r\n* **Verified fix:**\r\n\r\n  * Reproduced the exact rate limit error (`Error code: 429 - ... rate_limit_exceeded ...`) as a tier 1 (free/low-tier) user.\r\n  * Built a new Docker image and re-ran the tool with:\r\n\r\n    * `LLM_MAX_CONCURRENCY=2`\r\n    * `LLM_REQUEST_DELAY=0.5`\r\n  * Confirmed no further rate limit errors, and tool operated smoothly under new configuration.\r\n* **Automated tests:**\r\n\r\n  * All `pytest` suites pass with the new logic and environment settings.\r\n* **Documentation:**\r\n\r\n  * `README.md` now includes details and usage guidance for the new environment variables.\r\n\r\n### Reviewer Actions\r\n\r\n* Review concurrency/throttling logic (`src/utils.py`) and global semaphore implementation.\r\n* Confirm OpenAI API limits are respected under various env variable settings.\r\n* Review `README.md` changes for clarity.\r\n* Test with different API tiers as desired.\r\n\r\n### Key Changelog\r\n\r\n* Add `LLM_MAX_CONCURRENCY` and `LLM_REQUEST_DELAY` env variables.\r\n* Refactor all OpenAI API call sites to use new concurrency/throttling.\r\n* Improve error handling for rate limits.\r\n* Update documentation.\r\n\r\n---\r\n\r\n**This PR improves robustness and flexibility for all users by letting deployments tune API load as needed, reducing risk of rate limit errors and making the MCP server adaptable for any OpenAI plan.**\r\n\r\n---\r\n",
+    "createdAt": "2025-06-18T11:31:19Z",
+    "updatedAt": "2025-08-05T09:15:23Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/54",
+    "full": {
+      "comments": [
+        {
+          "body": "Fixes #52",
+          "author": {
+            "login": "Shaurya-Sethi"
+          }
+        },
+        {
+          "body": "why not just edit in openrouter or local source?",
+          "author": {
+            "login": "Chillbruhhh"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: make LLM API concurrency and throttling configurable via env"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge pull request #2 from Shaurya-Sethi/codex/add-configurable-concurrency-and-throttling-for-openai-api\n\nAdd configurable LLM request throttling"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'main' into configurable-throttle"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6bTs1B",
+    "number": 55,
+    "title": "Add Azure AI Foundry (Azure OpenAI) Support",
+    "body": "## Description\r\n\r\nThis pull request introduces support for using Azure AI Foundry (Azure OpenAI Service) as an alternative backend for LLM and embedding operations in the Crawl4AI RAG MCP Server. Now it's possible to configure the server to use your Azure OpenAI deployments instead of the default OpenAI API.\r\n\r\n## Motivation\r\n\r\nThe primary motivations for this change are to offer greater flexibility and control by enabling the use of Azure OpenAI Service. This allows to:\r\n*   Leverage an existing Microsoft Azure infrastructure and billing.\r\n*   Potentially manage costs for LLM and embedding operations differently.\r\n*   Align with specific compliance and data governance frameworks available within Azure.\r\n\r\nAn additional consideration may be the evolving landscape of data privacy and retention in AI services. For instance, recent discussions, such as those highlighted by Theo - t3.gg ([OpenAI's privacy disaster (it isn’t their fault)](https://www.youtube.com/watch?v=rQ9ZMK0rpIs)) concerning legal proceedings like The New York Times lawsuit, underscore the importance of understanding data handling policies. OpenAI has also provided its perspective on such matters (see [OpenAI's response on their blog](https://openai.com/index/response-to-nyt-data-demands/)). By offering Azure OpenAI as an alternative, comes an additional option to select a service provider whose data processing and retention policies, within the Azure ecosystem, that aligns with specific requirements and comfort levels, particularly when dealing with sensitive information.\r\n\r\n## Key Changes\r\n\r\n*   **`src/utils.py`**:\r\n    *   Modified to conditionally initialize an `AzureOpenAI` client if Azure-specific environment variables are provided (`AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_VERSION`).\r\n    *   Updated functions (`create_embeddings_batch`, `create_embedding`, `generate_contextual_embedding`, `generate_code_example_summary`, `extract_source_summary`) to use the Azure client for API calls if it's initialized and relevant deployment names (`AZURE_OPENAI_CHAT_DEPLOYMENT`, `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`) are set.\r\n    *   Includes fallback logic to the standard OpenAI client if Azure is not configured or if Azure API calls fail.\r\n*   **`README.md`**:\r\n    *   Updated the \"Configuration\" section to include documentation for the new Azure OpenAI environment variables:\r\n        *   `AZURE_OPENAI_API_KEY`\r\n        *   `AZURE_OPENAI_ENDPOINT`\r\n        *   `AZURE_OPENAI_API_VERSION`\r\n        *   `AZURE_OPENAI_CHAT_DEPLOYMENT`\r\n        *   `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`\r\n    *   Provided clear instructions on how to set up these variables and notes on their behavior (priority, fallback, compatibility).\r\n*   **`tests/test_utils.py`** (if including tests):\r\n    *   Added unit tests to verify the Azure OpenAI integration, including successful calls via Azure, fallback to standard OpenAI when Azure is not configured, and fallback during Azure API errors.\r\n\r\n## How to Configure for Azure OpenAI\r\n\r\n1.  Set the following environment variables in the `.env` file:\r\n    *   `AZURE_OPENAI_API_KEY`: Your Azure OpenAI API key.\r\n    *   `AZURE_OPENAI_ENDPOINT`: Your Azure OpenAI resource endpoint (e.g., `https://your-resource.openai.azure.com/`).\r\n    *   `AZURE_OPENAI_API_VERSION`: The API version for your Azure OpenAI service (e.g., `2023-07-01-preview`).\r\n    *   `AZURE_OPENAI_CHAT_DEPLOYMENT`: The name of your chat model deployment in Azure.\r\n    *   `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`: The name of your embedding model deployment in Azure.\r\n\r\nThe server will automatically prioritize Azure OpenAI if these core variables are correctly configured.\r\n\r\n## Considerations\r\n\r\n*   This implementation adds Azure OpenAI as an alternative; the existing OpenAI API functionality remains the default.\r\n*   Always ensure chosen Azure model deployments are compatible with the expected functionalities (e.g., embedding dimensions).\r\n\r\n---\r\n*A note on development: The Azure integration was initiated with AI assistance (Jules, Google AI) and then thoroughly reviewed, tested, and refined by me (@caiorg).*\r\n\r\nFeedback and review are welcome!",
+    "createdAt": "2025-06-19T20:05:42Z",
+    "updatedAt": "2025-06-20T04:56:14Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/55",
+    "full": {
+      "comments": [
+        {
+          "body": "Changed to draft due to some rebasing inconsistencies. Working on it.",
+          "author": {
+            "login": "caiorg"
+          }
+        },
+        {
+          "body": "Reviewed and fixed!\r\nTook some time to do some more testing to make sure everything works as expected.",
+          "author": {
+            "login": "caiorg"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: Integrate Azure AI Studio for OpenAI models\n\nThis commit introduces support for using Azure AI Studio as an alternative to OpenAI for generating embeddings and chat completions.\n\nKey changes:\n- I modified `src/utils.py` to include logic for using Azure OpenAI services if Azure-specific environment variables are set. The system gracefully falls back to the standard OpenAI API if Azure credentials are not provided or if Azure calls fail.\n- I added new environment variables:\n    - `AZURE_OPENAI_API_KEY`\n    - `AZURE_OPENAI_ENDPOINT`\n    - `AZURE_OPENAI_CHAT_DEPLOYMENT`\n    - `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`\n- I updated `README.md` to document the new Azure AI Studio integration, including setup instructions for the new environment variables.\n- I added unit tests in `tests/test_utils.py` to cover the new Azure integration logic and fallback mechanisms. Note: I was unable to run the tests due to Python environment version limitations, but the tests are structured to validate the implementation."
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: Update Azure AI Studio to Azure AI Foundry\n\nThis commit updates the documentation to reflect the correct product name \"Azure AI Foundry\".\n\n- I replaced \"Azure AI Studio\" with \"Azure AI Foundry\" in README.md.\n- No code comment changes were necessary in src/utils.py as they did not specifically reference \"Azure AI Studio\"."
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: Align Azure OpenAI configuration with official SDK\n\nThis commit refactors the Azure OpenAI integration in `src/utils.py` to more closely align with the official openai-python SDK's recommendations for Azure endpoints.\n\nKey changes:\n- Modified `src/utils.py`:\n    - The `AzureOpenAI` client is now instantiated with `api_key`, `azure_endpoint`, and `api_version`.\n    - Introduced a new environment variable `AZURE_OPENAI_API_VERSION` which is now required for Azure client initialization.\n    - Ensured that `AZURE_OPENAI_CHAT_DEPLOYMENT` and `AZURE_OPENAI_EMBEDDING_DEPLOYMENT` are correctly used as the `model` parameter in API calls.\n    - Maintained fallback logic to standard OpenAI if Azure configuration is incomplete or if Azure API calls fail.\n- Updated `README.md`:\n    - Documented the new `AZURE_OPENAI_API_VERSION` environment variable.\n    - Clarified the role of deployment name variables.\n    - Updated example configurations.\n- Updated `tests/test_utils.py`:\n    - Aligned tests with the new Azure client instantiation and the `AZURE_OPENAI_API_VERSION` environment variable.\n    - Ensured test mocks and assertions reflect the refactored logic. (I'm currently unable to run the tests due to Python environment limitations)."
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'main' into azure-ai-studio-integration"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: Improve clarity of Azure AI Foundry config in README.md\n\nConsolidates Azure OpenAI environment variables into the main\n.env example and adds a dedicated notes section for clarity."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6bsCBI",
+    "number": 59,
+    "title": "Add claude GitHub actions 1750691771855",
+    "body": "",
+    "createdAt": "2025-06-23T15:17:22Z",
+    "updatedAt": "2025-06-23T15:17:38Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/59",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "new version"
+          }
+        },
+        {
+          "commit": {
+            "message": "Delete .env.old"
+          }
+        },
+        {
+          "commit": {
+            "message": "Create CLAUDE.md"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add comprehensive Docker support for local Qwen3-Embedding models via Ollama\n\n- Updated Dockerfile to include Git for repository parsing functionality\n- Added extensive Docker Compose configurations with GPU support\n- Created build scripts for different deployment scenarios\n- Enhanced .dockerignore with comprehensive exclusions\n- Implemented health check endpoint in MCP server\n- Added embedding truncation logic for model compatibility\n- Fixed SSE communication errors in parse_github_repository\n- Updated environment configuration templates for Ollama support\n- Added documentation for local embedding models setup\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Optimize Qwen3-Embedding with MRL support and enhance Docker deployment\n\n- Implement MRL (Matryoshka Representation Learning) for configurable embedding dimensions\n- Add 'dimensions' parameter to eliminate 4096→1536 truncation overhead\n- Increase OpenAI client timeout to 120s for local Ollama connections\n- Optimize concurrency settings for local Ollama performance\n- Update build-and-push.bat to auto-deploy with docker-compose.published.yml\n- Add comprehensive health checks and service status verification\n- Create start-published.bat script for published image deployment\n- Enhance error handling and troubleshooting guidance\n\nPerformance improvements:\n- Direct 1536-dimension generation (vs 4096→truncate)\n- Reduced network transfer and computational overhead\n- Better timeout handling for local embedding generation\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Migrate to Qwen3-Embedding-0.6B for native 1024D embeddings\n\n- Update all configurations to use dengcao/Qwen3-Embedding-0.6B:Q8_0\n- Change EMBEDDING_DIMENSIONS from 1536 to 1024 for optimal performance\n- Enhance validation logic to distinguish 0.6B vs 8B model usage\n- Prioritize 0.6B model download in Docker Compose configurations\n- Optimize embedding generation messages for no-truncation scenario\n- Improve build-and-push.bat with better health checks and deployment flow\n\nBenefits:\n• 87% smaller model (639MB vs 4.7GB)\n• Native 1024D output eliminates truncation overhead\n• Better performance with same embedding quality\n• Optimal PostgreSQL HNSW index compatibility\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update comprehensive application documentation\n\nMajor documentation updates reflecting recent improvements:\n\n## README.md Updates\n- Prioritize Qwen3-Embedding-0.6B as default model choice\n- Add Docker Hub deployment options and published image usage\n- Include comprehensive troubleshooting section for HTTP 503 errors\n- Update configuration examples with native 1024D embeddings\n- Add performance optimization guidelines for dev vs production\n- Enhanced installation options with docker-compose workflows\n\n## CLAUDE.md Updates (completed previously)\n- Updated Local Ollama configuration with 0.6B priority\n- Added concurrency settings preventing API overload\n- Enhanced Docker Compose setup instructions\n- Comprehensive troubleshooting for 503 service errors\n- Updated performance recommendations with model guidance\n\n## .env.example Updates\n- Updated model selection comments to highlight 0.6B recommendation\n- Added concurrency optimization settings as defaults\n- Improved inline documentation for better user guidance\n- Emphasized local Ollama benefits for privacy and cost efficiency\n\n## Key Documentation Improvements\n- Native 1024D embedding support eliminates truncation overhead\n- 87% model size reduction (639MB vs 4.7GB) with comparable quality\n- Comprehensive 503 error prevention and resolution strategies\n- Clear migration paths from OpenAI to local Ollama models\n- Production-ready deployment guidance with health checks\n\nBenefits for users:\n• Clearer setup instructions with multiple deployment options\n• Better troubleshooting guidance for common production issues\n• Optimized default settings preventing API rate limiting\n• Enhanced local model integration for privacy-focused deployments\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Create crawled_pages_1024d.sql"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add comprehensive cross-platform support and optimize deployment\n\n- Add Shell (.sh) versions of all Windows batch scripts for Linux/macOS compatibility\n- Remove redundant 8B embedding model from Docker Compose configurations (focus on efficient 0.6B model)\n- Fix build script naming inconsistency (corrected Docker image tag)\n- Remove hardcoded environment variables from docker-compose.published.yml\n- Add robust fallback system documentation and configuration examples\n- Create batch processing utilities with cross-platform shell scripts\n- Add container logs export functionality for debugging\n- Streamline deployment with focus on Qwen3-Embedding-0.6B (639MB vs 4.7GB)\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement comprehensive rate limiting and circuit breaker system to eliminate HTTP 503 errors\n\n## Key Features:\n\n### 1. Client Singleton Pattern\n- OpenAI clients now cached and reused (TTL: 1 hour)\n- Eliminates connection overhead from repeated client creation\n- Reduces API server load significantly\n\n### 2. Automatic Rate Limiting\n- Global semaphore limits concurrent requests (MAX_CONCURRENT_REQUESTS=5)\n- Per-endpoint rate limiting with configurable delays (RATE_LIMIT_DELAY=0.5s)\n- Prevents API overload that causes 503 Service Unavailable errors\n\n### 3. Circuit Breaker Protection\n- Detects consecutive failures (CIRCUIT_BREAKER_THRESHOLD=3)\n- Opens circuit breaker for 5 minutes after repeated 503s\n- Forces automatic fallback to backup models when primary is overloaded\n\n### 4. Enhanced Retry Logic\n- Exponential backoff with jitter prevents thundering herd effect\n- Intelligent error detection (503, 429, 500, timeout)\n- Increased max retry delay to 15 seconds\n\n### 5. Connection Pooling\n- HTTP connection reuse within OpenAI clients\n- Configurable request timeout (REQUEST_TIMEOUT=30s)\n- Reduced TCP connection establishment overhead\n\n## Performance Impact:\n- ~80% reduction in 503 Service Unavailable errors\n- ~50% reduction in connection establishment time\n- Graceful degradation under high load conditions\n- Automatic recovery when API servers stabilize\n\n## New Configuration Variables:\n- MAX_CONCURRENT_REQUESTS=5 (global request limit)\n- RATE_LIMIT_DELAY=0.5 (min delay between requests)\n- CIRCUIT_BREAKER_THRESHOLD=3 (failures before fallback)\n- REQUEST_TIMEOUT=30 (per-request timeout)\n- CLIENT_CACHE_TTL=3600 (client reuse duration)\n\nWorks seamlessly with existing fallback models for maximum reliability.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Reorganize environment configuration files for better clarity and usability\n\n## Improvements:\n\n### 1. Logical Section Organization\n- **SERVER CONFIGURATION**: Host, port, transport settings\n- **DATABASE CONNECTIONS**: Supabase and Neo4j settings\n- **AI MODEL CONFIGURATION**: Primary models, fallbacks, and optional models\n- **FEATURE FLAGS & RAG STRATEGIES**: All feature toggles grouped together\n- **PERFORMANCE & OPTIMIZATION**: Rate limiting, concurrency, and processing settings\n\n### 2. Enhanced Documentation\n- Clear section headers with visual separators\n- Inline comments explaining each variable purpose\n- Grouped related configurations together\n- Distinguished between required and optional settings\n\n### 3. Better Variable Naming\n- Consistent naming conventions\n- Clear distinction between primary and fallback models\n- Logical grouping of related parameters\n\n### 4. Rate Limiting Integration\n- New anti-503 system variables properly documented\n- Clear separation between legacy and new concurrency controls\n- Performance impact and recommended values explained\n\n### 5. Template Structure\n- .env.example: Clean template with placeholder values\n- .env: Production-ready configuration with actual values\n- Both files now follow identical structure for consistency\n\nThis reorganization makes it much easier to understand and configure the MCP server,\nespecially for new users setting up the system for the first time.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove batch_crawler references and update CLAUDE.md documentation\n\n- Remove all references to batch_crawler directory and scripts\n- Update environment configuration section with new organized structure\n- Remove 8B embedding model references in favor of optimized 0.6B model\n- Update deployment scripts to include cross-platform (.sh) versions\n- Enhance rate limiting documentation with new anti-503 system\n- Add comprehensive fallback system documentation\n- Update testing section with new test_fallback.py script\n- Reorganize performance recommendations for current system\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove batch_crawler directory and all associated files\n\nComplete removal of batch processing utilities:\n- batch_crawler_*.py (multiple variants)\n- Windows and shell automation scripts\n- Configuration and log files\n- Documentation and examples\n\nThis cleanup aligns with the updated CLAUDE.md documentation\nand focuses the project on core MCP server functionality.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement centralized configuration system and enhance deployment infrastructure\n\nMajor changes:\n- Replace dotenv with centralized Config class for better environment handling\n- Add comprehensive .env.example documentation with migration guide\n- Enhance Docker container health checks and logging with emoji indicators\n- Implement configurable model parameters (EMBEDDING_MODEL, RERANKING_MODEL, etc.)\n- Add client caching system with TTL for improved performance\n- Add new configuration examples and test infrastructure\n\nBreaking changes:\n- EMBEDDING_MODEL, EMBEDDING_DIMENSIONS, RERANKING_MODEL now configurable (were hardcoded)\n- Requires .env update for existing installations\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Claude PR Assistant workflow"
+          }
+        },
+        {
+          "commit": {
+            "message": "Claude Code Review workflow"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6bsCyZ",
+    "number": 60,
+    "title": "Add claude GitHub actions 1750691771849",
+    "body": "",
+    "createdAt": "2025-06-23T15:18:35Z",
+    "updatedAt": "2025-06-23T15:19:01Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/60",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "new version"
+          }
+        },
+        {
+          "commit": {
+            "message": "Delete .env.old"
+          }
+        },
+        {
+          "commit": {
+            "message": "Create CLAUDE.md"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add comprehensive Docker support for local Qwen3-Embedding models via Ollama\n\n- Updated Dockerfile to include Git for repository parsing functionality\n- Added extensive Docker Compose configurations with GPU support\n- Created build scripts for different deployment scenarios\n- Enhanced .dockerignore with comprehensive exclusions\n- Implemented health check endpoint in MCP server\n- Added embedding truncation logic for model compatibility\n- Fixed SSE communication errors in parse_github_repository\n- Updated environment configuration templates for Ollama support\n- Added documentation for local embedding models setup\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Optimize Qwen3-Embedding with MRL support and enhance Docker deployment\n\n- Implement MRL (Matryoshka Representation Learning) for configurable embedding dimensions\n- Add 'dimensions' parameter to eliminate 4096→1536 truncation overhead\n- Increase OpenAI client timeout to 120s for local Ollama connections\n- Optimize concurrency settings for local Ollama performance\n- Update build-and-push.bat to auto-deploy with docker-compose.published.yml\n- Add comprehensive health checks and service status verification\n- Create start-published.bat script for published image deployment\n- Enhance error handling and troubleshooting guidance\n\nPerformance improvements:\n- Direct 1536-dimension generation (vs 4096→truncate)\n- Reduced network transfer and computational overhead\n- Better timeout handling for local embedding generation\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Migrate to Qwen3-Embedding-0.6B for native 1024D embeddings\n\n- Update all configurations to use dengcao/Qwen3-Embedding-0.6B:Q8_0\n- Change EMBEDDING_DIMENSIONS from 1536 to 1024 for optimal performance\n- Enhance validation logic to distinguish 0.6B vs 8B model usage\n- Prioritize 0.6B model download in Docker Compose configurations\n- Optimize embedding generation messages for no-truncation scenario\n- Improve build-and-push.bat with better health checks and deployment flow\n\nBenefits:\n• 87% smaller model (639MB vs 4.7GB)\n• Native 1024D output eliminates truncation overhead\n• Better performance with same embedding quality\n• Optimal PostgreSQL HNSW index compatibility\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update comprehensive application documentation\n\nMajor documentation updates reflecting recent improvements:\n\n## README.md Updates\n- Prioritize Qwen3-Embedding-0.6B as default model choice\n- Add Docker Hub deployment options and published image usage\n- Include comprehensive troubleshooting section for HTTP 503 errors\n- Update configuration examples with native 1024D embeddings\n- Add performance optimization guidelines for dev vs production\n- Enhanced installation options with docker-compose workflows\n\n## CLAUDE.md Updates (completed previously)\n- Updated Local Ollama configuration with 0.6B priority\n- Added concurrency settings preventing API overload\n- Enhanced Docker Compose setup instructions\n- Comprehensive troubleshooting for 503 service errors\n- Updated performance recommendations with model guidance\n\n## .env.example Updates\n- Updated model selection comments to highlight 0.6B recommendation\n- Added concurrency optimization settings as defaults\n- Improved inline documentation for better user guidance\n- Emphasized local Ollama benefits for privacy and cost efficiency\n\n## Key Documentation Improvements\n- Native 1024D embedding support eliminates truncation overhead\n- 87% model size reduction (639MB vs 4.7GB) with comparable quality\n- Comprehensive 503 error prevention and resolution strategies\n- Clear migration paths from OpenAI to local Ollama models\n- Production-ready deployment guidance with health checks\n\nBenefits for users:\n• Clearer setup instructions with multiple deployment options\n• Better troubleshooting guidance for common production issues\n• Optimized default settings preventing API rate limiting\n• Enhanced local model integration for privacy-focused deployments\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Create crawled_pages_1024d.sql"
+          }
+        },
+        {
+          "commit": {
+            "message": "Add comprehensive cross-platform support and optimize deployment\n\n- Add Shell (.sh) versions of all Windows batch scripts for Linux/macOS compatibility\n- Remove redundant 8B embedding model from Docker Compose configurations (focus on efficient 0.6B model)\n- Fix build script naming inconsistency (corrected Docker image tag)\n- Remove hardcoded environment variables from docker-compose.published.yml\n- Add robust fallback system documentation and configuration examples\n- Create batch processing utilities with cross-platform shell scripts\n- Add container logs export functionality for debugging\n- Streamline deployment with focus on Qwen3-Embedding-0.6B (639MB vs 4.7GB)\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement comprehensive rate limiting and circuit breaker system to eliminate HTTP 503 errors\n\n## Key Features:\n\n### 1. Client Singleton Pattern\n- OpenAI clients now cached and reused (TTL: 1 hour)\n- Eliminates connection overhead from repeated client creation\n- Reduces API server load significantly\n\n### 2. Automatic Rate Limiting\n- Global semaphore limits concurrent requests (MAX_CONCURRENT_REQUESTS=5)\n- Per-endpoint rate limiting with configurable delays (RATE_LIMIT_DELAY=0.5s)\n- Prevents API overload that causes 503 Service Unavailable errors\n\n### 3. Circuit Breaker Protection\n- Detects consecutive failures (CIRCUIT_BREAKER_THRESHOLD=3)\n- Opens circuit breaker for 5 minutes after repeated 503s\n- Forces automatic fallback to backup models when primary is overloaded\n\n### 4. Enhanced Retry Logic\n- Exponential backoff with jitter prevents thundering herd effect\n- Intelligent error detection (503, 429, 500, timeout)\n- Increased max retry delay to 15 seconds\n\n### 5. Connection Pooling\n- HTTP connection reuse within OpenAI clients\n- Configurable request timeout (REQUEST_TIMEOUT=30s)\n- Reduced TCP connection establishment overhead\n\n## Performance Impact:\n- ~80% reduction in 503 Service Unavailable errors\n- ~50% reduction in connection establishment time\n- Graceful degradation under high load conditions\n- Automatic recovery when API servers stabilize\n\n## New Configuration Variables:\n- MAX_CONCURRENT_REQUESTS=5 (global request limit)\n- RATE_LIMIT_DELAY=0.5 (min delay between requests)\n- CIRCUIT_BREAKER_THRESHOLD=3 (failures before fallback)\n- REQUEST_TIMEOUT=30 (per-request timeout)\n- CLIENT_CACHE_TTL=3600 (client reuse duration)\n\nWorks seamlessly with existing fallback models for maximum reliability.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Reorganize environment configuration files for better clarity and usability\n\n## Improvements:\n\n### 1. Logical Section Organization\n- **SERVER CONFIGURATION**: Host, port, transport settings\n- **DATABASE CONNECTIONS**: Supabase and Neo4j settings\n- **AI MODEL CONFIGURATION**: Primary models, fallbacks, and optional models\n- **FEATURE FLAGS & RAG STRATEGIES**: All feature toggles grouped together\n- **PERFORMANCE & OPTIMIZATION**: Rate limiting, concurrency, and processing settings\n\n### 2. Enhanced Documentation\n- Clear section headers with visual separators\n- Inline comments explaining each variable purpose\n- Grouped related configurations together\n- Distinguished between required and optional settings\n\n### 3. Better Variable Naming\n- Consistent naming conventions\n- Clear distinction between primary and fallback models\n- Logical grouping of related parameters\n\n### 4. Rate Limiting Integration\n- New anti-503 system variables properly documented\n- Clear separation between legacy and new concurrency controls\n- Performance impact and recommended values explained\n\n### 5. Template Structure\n- .env.example: Clean template with placeholder values\n- .env: Production-ready configuration with actual values\n- Both files now follow identical structure for consistency\n\nThis reorganization makes it much easier to understand and configure the MCP server,\nespecially for new users setting up the system for the first time.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove batch_crawler references and update CLAUDE.md documentation\n\n- Remove all references to batch_crawler directory and scripts\n- Update environment configuration section with new organized structure\n- Remove 8B embedding model references in favor of optimized 0.6B model\n- Update deployment scripts to include cross-platform (.sh) versions\n- Enhance rate limiting documentation with new anti-503 system\n- Add comprehensive fallback system documentation\n- Update testing section with new test_fallback.py script\n- Reorganize performance recommendations for current system\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Remove batch_crawler directory and all associated files\n\nComplete removal of batch processing utilities:\n- batch_crawler_*.py (multiple variants)\n- Windows and shell automation scripts\n- Configuration and log files\n- Documentation and examples\n\nThis cleanup aligns with the updated CLAUDE.md documentation\nand focuses the project on core MCP server functionality.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Implement centralized configuration system and enhance deployment infrastructure\n\nMajor changes:\n- Replace dotenv with centralized Config class for better environment handling\n- Add comprehensive .env.example documentation with migration guide\n- Enhance Docker container health checks and logging with emoji indicators\n- Implement configurable model parameters (EMBEDDING_MODEL, RERANKING_MODEL, etc.)\n- Add client caching system with TTL for improved performance\n- Add new configuration examples and test infrastructure\n\nBreaking changes:\n- EMBEDDING_MODEL, EMBEDDING_DIMENSIONS, RERANKING_MODEL now configurable (were hardcoded)\n- Requires .env update for existing installations\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Claude PR Assistant workflow"
+          }
+        },
+        {
+          "commit": {
+            "message": "Claude Code Review workflow"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6b_Lm_",
+    "number": 62,
+    "title": "fix https://github.com/coleam00/mcp-crawl4ai-rag/issues/38 Error for …",
+    "body": "…'code_examples' when scraping pages without code #38",
+    "createdAt": "2025-06-25T05:40:50Z",
+    "updatedAt": "2025-07-27T09:42:47Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/62",
+    "full": {
+      "comments": [],
+      "reviews": [
+        {
+          "body": "",
+          "author": {
+            "login": "maxmaxow"
+          },
+          "inline_comments": []
+        }
+      ],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "fix https://github.com/coleam00/mcp-crawl4ai-rag/issues/38 Error for 'code_examples' when scraping pages without code #38"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6cVMGC",
+    "number": 64,
+    "title": "Added functionality to create RAG for local Repo instead of url",
+    "body": "Modularises and refactors original github repo crawler to ensure we reutilize code. The added functionality is meant for developers to be able to crawl private repos or in-dev repos and feed their Knowledge Bases with it for the hallucination detector, the end result is for new code to be able to developed and tested safely and for those who want to use their private Repos to not share their information with external LLMs.",
+    "createdAt": "2025-06-27T01:16:17Z",
+    "updatedAt": "2025-06-27T01:16:17Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/64",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Added functionality to create RAG for local Repo instead of url"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6c-GtV",
+    "number": 67,
+    "title": "Fix FastMCP initialization for stdio transport",
+    "body": "- Add TRANSPORT environment variable check\r\n- Skip host/port parameters for stdio transport\r\n- Maintain backward compatibility with SSE transport\r\n- Fix TypeError when using stdio transport mode\r\n\r\n🤖 Generated with [Claude Code](https://claude.ai/code)",
+    "createdAt": "2025-07-01T20:08:55Z",
+    "updatedAt": "2025-07-01T20:08:55Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/67",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Fix FastMCP initialization for stdio transport\n\n- Add TRANSPORT environment variable check\n- Skip host/port parameters for stdio transport\n- Maintain backward compatibility with SSE transport\n- Fix TypeError when using stdio transport mode\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6dSYqE",
+    "number": 68,
+    "title": "Enable Knowledge Graph features in Docker",
+    "body": "## Summary\r\n\r\nAdds Git support to the Docker container to enable repository parsing and hallucination detection features.\r\n\r\n## Changes\r\n\r\n- **Dockerfile**: Added Git installation for GitHub repo cloning  \r\n- **README**: Updated documentation to reflect Docker compatibility with knowledge graph features\r\n\r\n## Impact\r\n\r\n- Enables `parse_github_repository` and `check_ai_script_hallucinations` tools in Docker\r\n- Removes deployment method limitations—**all features now work in both Docker and direct Python installations**\r\n\r\n### Before\r\n\r\n- Knowledge graph features only worked with direct Python installation\r\n\r\n### After\r\n\r\n- All features work in Docker containers\r\n\r\n---\r\n\r\nThis update removes the previous limitation where users had to choose between Docker convenience and knowledge graph functionality.",
+    "createdAt": "2025-07-03T15:06:18Z",
+    "updatedAt": "2025-08-17T16:02:19Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/68",
+    "full": {
+      "comments": [
+        {
+          "body": "## Retracting PR - Additional Issues Discovered\r\n\r\nRetracting this PR after discovering that my changes only partially solve the Docker compatibility issues.\r\n\r\nWhile the Git installation successfully enables `parse_github_repository` to work in Docker, I've found that `check_ai_script_hallucinations` still has fundamental problems. The tool only accepts file paths and expects files to exist within the container's filesystem, but users typically need to analyze scripts that are generated dynamically or exist on the host system.\r\n\r\nThis results in \"Script not found\" errors for any real-world Docker usage, since the files don't exist inside the container.\r\n\r\nI want to implement a more complete solution that includes both the Git support and an HTTP API endpoint for hallucination detection. The API would accept script content directly (via POST request body) rather than requiring file system access, making it truly container-friendly.\r\n\r\nI'll close this PR and submit a new one that addresses both issues properly.\r\n---",
+          "author": {
+            "login": "Shaurya-Sethi"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Update Dockerfile with minimal system dependencies for MCP server and knowledge graph support"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: clarify that Docker version fully supports knowledge graph features"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6d0R9j",
+    "number": 69,
+    "title": "feat: added docker compose building system",
+    "body": "",
+    "createdAt": "2025-07-07T19:49:10Z",
+    "updatedAt": "2025-07-07T19:49:10Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/69",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: added docker compose building system"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6eVjuY",
+    "number": 71,
+    "title": "thus(digital) - Fix internal link parsing in crawl_recursive_internal_links",
+    "body": "  ## Summary\r\n  - Fix internal link parsing in `crawl_recursive_internal_links` function\r\n  - Resolve issue where relative paths were being incorrectly processed during recursive crawling\r\n  - Prevent duplicate URLs and failed crawls caused by malformed internal link handling\r\n\r\n  ## Problem\r\n  The crawler was not handling internal links correctly, causing issues with relative path resolution during recursive crawling. This led to duplicate URLs and failed crawl attempts with gibberish in the vector db \r\n\r\n  ## Solution\r\n  - Added proper URL correction logic for internal links\r\n  - Check if normalized URL is substring of internal link href\r\n  - Extract relative path by removing base URL from internal link\r\n  - Reconstruct proper URL by combining base URL with relative path\r\n  - Maintain consistency with existing variable names\r\n\r\n  ## Changes\r\n  - Enhanced URL resolution in `crawl_recursive_internal_links` function\r\n  - Added detailed comments explaining the fix\r\n  - Cleaned up debug logging and unnecessary comments\r\n\r\n  ## Test plan\r\n  - [x] Verify URL resolution works correctly for relative paths\r\n  - [x] Confirm no duplicate URLs are generated\r\n  - [x] Test recursive crawling completes successfully\r\n\r\n  ---\r\n  *by Seth Havens - thus(digital) ltd - thusdigital.com*",
+    "createdAt": "2025-07-10T16:00:59Z",
+    "updatedAt": "2025-07-11T09:19:07Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/71",
+    "full": {
+      "comments": [
+        {
+          "body": "@coleam00 hope this helps - great work dude!",
+          "author": {
+            "login": "thusdigital"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Fix internal link parsing in crawl_recursive_internal_links\n\nResolved issue where relative paths were being incorrectly processed during recursive crawling, causing duplicate URLs and failed crawls.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6egtbu",
+    "number": 72,
+    "title": "Improve GitHub repository source_id extraction",
+    "body": "## Summary\n- Enhanced source_id extraction for GitHub repositories to use full repo path format\n- Refactored source_id extraction into a dedicated utility function with special GitHub handling\n\n## Changes\n- Added `extract_source_id()` function in `utils.py` with GitHub-specific logic\n- Updated all source_id extraction calls to use the new centralized function\n- GitHub repos now get source_ids like `github.com/user/repo` instead of just `github.com`\n\n## Benefits\n- Better source filtering precision when querying RAG data from specific GitHub repositories\n- Consistent source_id extraction logic across the codebase\n- Cleaner separation of concerns with dedicated utility function\n\n## Test Results\n- Tested with mcp-mem0 repository ingestion\n- Confirmed source_id correctly shows as `github.com/thusdigital/mcp-mem0`\n- Hybrid search and filtering work correctly with the new format\n\nby Seth Havens - thus(digital) ltd - thusdigital.com\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+    "createdAt": "2025-07-11T14:46:18Z",
+    "updatedAt": "2025-07-11T14:46:18Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/72",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Fix internal link parsing in crawl_recursive_internal_links\n\nResolved issue where relative paths were being incorrectly processed during recursive crawling, causing duplicate URLs and failed crawls.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "thusdigital - feat: use full GitHub repo URLs as source_id instead of domain\n\n- Add extract_source_id() helper function to detect GitHub URLs\n- For GitHub URLs, extract user/repo from path (e.g., 'github.com/user/repo')\n- For other URLs, maintain existing domain-based behavior\n- Update all source_id assignments in utils.py and crawl4ai_mcp.py\n- Enables fine-grained filtering by specific GitHub repositories\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6e1XYE",
+    "number": 73,
+    "title": "feat: Umfassende MCP Tools Verbesserungen und Tests",
+    "body": "## 🎯 Zusammenfassung\n\nDieser PR bringt umfassende Verbesserungen und Tests für die MCP Crawl4AI-RAG Tools.\n\n## ✅ Durchgeführte Tests\n\n### Erfolgreich getestete Tools:\n- ✅ smart_crawl_url - 11+ Seiten gecrawlt, 39+ Chunks gespeichert\n- ✅ crawl_single_page - Einzelseiten-Crawling funktioniert\n- ✅ perform_rag_query - Hybrid-Suche mit Reranking\n- ✅ search_code_examples - Code-Extraktion und Kategorisierung\n- ✅ get_available_sources - 4 Quellen verfügbar\n- ✅ query_knowledge_graph - Neo4j-Integration aktiv\n- ✅ Lazy Loading - CrossEncoder und Knowledge Graph nur bei Bedarf geladen\n\n### Identifizierte Probleme:\n- ⚠️ parse_github_repository - Git-Installation im Docker Container erforderlich\n- ⚠️ check_ai_script_hallucinations - Pfad-Handling-Problem\n- ⚠️ Reranking sehr streng kalibriert (funktioniert, aber konservativ)\n\n## 🔧 Implementierte Verbesserungen\n\n1. Lazy Loading Optimierung - Schwere Komponenten nur bei Bedarf laden\n2. Supabase-Integration - Vollständige Datenbankstruktur verifiziert\n3. Knowledge Graph - Neo4j-Integration für Hallucination-Detection\n4. Performance-Monitoring - Umfassende Tool-Tests durchgeführt\n5. Dokumentation - Ausführliche Fork-Dokumentation hinzugefügt\n\n## 📊 Test-Ergebnisse\n\n### Pipecat Dokumentation Crawl:\n- Seiten gecrawlt: 11+\n- Content-Chunks: 39+\n- Code-Beispiele: 4+\n- Quellen: 4 (docs.pipecat.ai, flows.pipecat.ai, etc.)\n\n### RAG-Suche Performance:\n- Hybrid-Suche: Funktioniert\n- Reranking: Aktiv, aber streng kalibriert\n- Similarity-Scores: 0.5-0.7 für relevante Ergebnisse\n\n## 🚀 Nächste Schritte\n\n1. Git-Installation im Docker-Image für Repository-Parsing\n2. Reranking-Kalibrierung weniger streng einstellen\n3. Pfad-Handling für Hallucination-Detection reparieren\n\n## 📚 Dokumentation\n\nSiehe FORK_README.md für detaillierte Dokumentation aller Änderungen und Tests.\n\n## 🤝 Rückwärtskompatibilität\n\nAlle Änderungen sind rückwärtskompatibel und brechen keine bestehende Funktionalität.",
+    "createdAt": "2025-07-14T16:35:36Z",
+    "updatedAt": "2025-07-14T18:17:32Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/73",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: Verbesserte MCP Tools mit umfassendem Testing\n\n- Getestete alle MCP Tools auf Funktionalität\n- Reranking-Verhalten analysiert und dokumentiert\n- Lazy Loading für bessere Performance implementiert\n- Supabase-Integration verifiziert\n- Knowledge Graph-Funktionalität getestet\n- Dokumentation für Fork-Erstellung hinzugefügt\n\nFixes:\n- Reranking funktioniert, aber sehr streng kalibriert\n- Git-Installation für Repository-Parsing erforderlich\n- Pfad-Handling für Hallucination-Detection verbessert\n\nTests durchgeführt:\n- smart_crawl_url: ✅ 11+ Seiten gecrawlt\n- perform_rag_query: ✅ Hybrid-Suche funktioniert\n- search_code_examples: ✅ Code-Extraktion erfolgreich\n- query_knowledge_graph: ✅ Neo4j-Integration aktiv\n- get_available_sources: ✅ 4 Quellen verfügbar"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: Umfassende Fork-Dokumentation hinzugefügt\n\n- Detaillierte Beschreibung aller durchgeführten Tests\n- Dokumentation der Verbesserungen und Bug-Fixes\n- Roadmap für zukünftige Entwicklungen\n- Kontaktinformationen und Beitragsleitfaden\n- Technische Dokumentation der Supabase-Integration\n- Übersicht aller MCP Tools mit Status"
+          }
+        },
+        {
+          "commit": {
+            "message": "test: Füge Pipecat Test-Skript für Hallucination Detection hinzu\n\n- Erstellt umfassendes Test-Skript mit Pipecat Components\n- Testet OpenAI LLM Service, Cartesia TTS, Daily Transport\n- Inkludiert Pipeline-Erstellung und Task-Runner\n- Bereit für Hallucination Detection Testing\n- Demonstriert typische Pipecat-Verwendung"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: Löse Issue #56 - Git in Docker Container\n\nFixes #56: https://github.com/coleam00/mcp-crawl4ai-rag/issues/56\n\n## 🎯 Problem gelöst:\n- parse_github_repository Tool funktioniert jetzt in Docker\n- Git-Installation in Container implementiert\n- Mehrere optimierte Docker-Lösungen bereitgestellt\n\n## ✅ Implementierte Lösungen:\n\n### 1. Standard Dockerfile (Empfohlen)\n- Basiert auf python:3.12-slim statt python:3.12\n- Fügt Git via apt-get hinzu\n- Reduziert Image-Größe von 11GB auf ~1.5GB\n- Optimiert für Stabilität und Kompatibilität\n\n### 2. Alpine Dockerfile (Kleinste Größe)\n- Basiert auf python:3.12-alpine\n- Fügt Git via apk hinzu\n- Image-Größe: ~800MB\n- Schnellste Build-Zeit\n\n### 3. Multi-stage Dockerfile (Optimal)\n- Separiert Build- und Runtime-Dependencies\n- Image-Größe: ~1.2GB\n- Optimiert für Produktion\n\n### 4. GitHub API Alternative\n- Git-freie Alternative via GitHub API\n- Für Umgebungen ohne Git-Installation\n- Verwendet GitHub Archive-Download\n\n## 🔧 Sofort-Lösung:\n- Git kann in laufenden Container installiert werden\n- Kein Rebuild erforderlich für Tests\n- Dokumentiert in DOCKER_SOLUTIONS.md\n\n## 📊 Performance-Verbesserungen:\n- 85% kleinere Images (11GB → 1.5GB)\n- Schnellere Build-Zeiten\n- Bessere Layer-Optimierung\n- Proper Cleanup implementiert\n\n## 🧪 Getestet mit:\n- ✅ parse_github_repository Tool\n- ✅ Alle MCP Tools\n- ✅ Supabase Integration\n- ✅ Knowledge Graph Features\n- ✅ Pipecat Repository Parsing"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: Translate Fork README to English\n\n- Translate comprehensive fork documentation to English\n- Maintain all technical details and structure\n- Ensure international accessibility\n- Keep all links and references intact\n- Ready for broader community contribution"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6e2X3X",
+    "number": 74,
+    "title": "🚀 Performance Fix: Implement Lazy Loading to Resolve MCP Server Timeout Issues",
+    "body": "# 🚀 Fix: Implement Lazy Loading for Heavy Components to Resolve Timeout Issues\n\n## Overview\n\nThis PR implements lazy loading for heavy components to resolve widespread MCP server timeout and disconnect issues. **Reduces startup time from 10+ seconds to <1 second**.\n\n**Fixes:** Performance Issue - MCP Server Timeout/Disconnect Due to Slow Startup (linked issue)\n\n## Problem Solved\n\nMultiple users have reported timeout/disconnect issues:\n- Cursor IDE: \"list offering action\" then stops communicating\n- Claude Desktop: Server exits early during initialization  \n- Various MCP clients: \"Request timed out\" errors\n\n**Root cause:** Heavy components (PyTorch, Neo4j, AST parsing) loaded during startup.\n\n## Solution: Lazy Loading Implementation\n\n### Key Changes\n\n1. **Added lazy loading wrapper functions:**\n```python\n# Global lazy-loaded components\n_reranking_model = None\n_knowledge_validator = None\n_repo_extractor = None\n\ndef get_reranking_model():\n    \"\"\"Lazy load the reranking model only when needed.\"\"\"\n    global _reranking_model\n    if _reranking_model is None:\n        from sentence_transformers import CrossEncoder\n        _reranking_model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')\n    return _reranking_model\n\ndef get_knowledge_validator():\n    \"\"\"Lazy load the knowledge validator only when needed.\"\"\"\n    global _knowledge_validator\n    if _knowledge_validator is None:\n        from knowledge_graphs.knowledge_graph_validator import KnowledgeGraphValidator\n        _knowledge_validator = KnowledgeGraphValidator()\n    return _knowledge_validator\n\ndef get_repo_extractor():\n    \"\"\"Lazy load the repository extractor only when needed.\"\"\"\n    global _repo_extractor\n    if _repo_extractor is None:\n        from knowledge_graphs.parse_repo_into_neo4j import RepositoryExtractor\n        _repo_extractor = RepositoryExtractor()\n    return _repo_extractor\n```\n\n2. **Modified lifespan function to only initialize essentials:**\n```python\n@asynccontextmanager\nasync def crawl4ai_lifespan(app: FastAPI):\n    \"\"\"Lifespan manager for the FastAPI app - now with lazy loading.\"\"\"\n    # Only initialize essential components at startup\n    global crawler, supabase\n    \n    # Initialize crawler (fast)\n    crawler = AsyncWebCrawler(\n        browser_type=\"chromium\",\n        headless=True,\n        verbose=False\n    )\n    await crawler.astart()\n    \n    # Initialize Supabase (fast)\n    supabase = create_client(\n        os.getenv(\"SUPABASE_URL\"),\n        os.getenv(\"SUPABASE_SERVICE_KEY\")\n    )\n    \n    # Heavy components are now lazy-loaded when needed\n    print(\"MCP server initialized with lazy loading\")\n    \n    yield\n    \n    # Cleanup\n    if crawler:\n        await crawler.aclose()\n```\n\n3. **Updated tool functions to use lazy loading:**\n- `perform_rag_query()` → uses `get_reranking_model()`\n- `check_ai_script_hallucinations()` → uses `get_knowledge_validator()`\n- `parse_github_repository()` → uses `get_repo_extractor()`\n\n## Performance Results\n\n| Metric | Before | After | Improvement |\n|--------|--------|-------|-------------|\n| Startup Time | 10+ seconds | <1 second | **10x faster** |\n| Memory (initial) | High | Low | Reduced footprint |\n| User Experience | Timeouts/Disconnects | Instant availability | **Fixed** |\n\n## Testing\n\n✅ **Docker rebuild test:** Server starts instantly  \n✅ **Cursor integration:** No more timeout issues  \n✅ **All tools functional:** Lazy loading works correctly  \n✅ **Memory optimization:** Reduced initial memory usage  \n\n## Files Modified\n\n- `src/crawl4ai_mcp.py` - Main implementation with lazy loading\n\n## Backward Compatibility\n\n✅ **Fully backward compatible** - All existing functionality preserved  \n✅ **No breaking changes** - API remains the same  \n✅ **Improved reliability** - Better error handling  \n\n## Impact\n\nThis fix resolves issues for:\n- **Cursor IDE users** - No more \"client closed\" errors\n- **Claude Desktop users** - Servers no longer exit early\n- **Docker deployments** - Faster container startup\n- **All MCP clients** - Eliminates timeout issues\n\n## Related Issues\n\nThis addresses multiple community reports:\n- [MCP Server constantly restarting](https://thinktank.ottomator.ai/t/mcp-server-constantly-restarting/6169)\n- [MCP Timeout Issues](https://github.com/cline/cline/issues/1306)\n- [MCP Server built in Cursor won't run with Claude Desktop](https://forum.cursor.com/t/mcp-server-built-in-cursor-wont-run-with-claude-desktop/78885)\n\n---\n\n**Ready for review and merge!** 🚀 ",
+    "createdAt": "2025-07-14T18:20:56Z",
+    "updatedAt": "2025-07-14T18:34:59Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/74",
+    "full": {
+      "comments": [
+        {
+          "body": "Removed unessesary files.",
+          "author": {
+            "login": "Silverstar187"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: Verbesserte MCP Tools mit umfassendem Testing\n\n- Getestete alle MCP Tools auf Funktionalität\n- Reranking-Verhalten analysiert und dokumentiert\n- Lazy Loading für bessere Performance implementiert\n- Supabase-Integration verifiziert\n- Knowledge Graph-Funktionalität getestet\n- Dokumentation für Fork-Erstellung hinzugefügt\n\nFixes:\n- Reranking funktioniert, aber sehr streng kalibriert\n- Git-Installation für Repository-Parsing erforderlich\n- Pfad-Handling für Hallucination-Detection verbessert\n\nTests durchgeführt:\n- smart_crawl_url: ✅ 11+ Seiten gecrawlt\n- perform_rag_query: ✅ Hybrid-Suche funktioniert\n- search_code_examples: ✅ Code-Extraktion erfolgreich\n- query_knowledge_graph: ✅ Neo4j-Integration aktiv\n- get_available_sources: ✅ 4 Quellen verfügbar"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: Umfassende Fork-Dokumentation hinzugefügt\n\n- Detaillierte Beschreibung aller durchgeführten Tests\n- Dokumentation der Verbesserungen und Bug-Fixes\n- Roadmap für zukünftige Entwicklungen\n- Kontaktinformationen und Beitragsleitfaden\n- Technische Dokumentation der Supabase-Integration\n- Übersicht aller MCP Tools mit Status"
+          }
+        },
+        {
+          "commit": {
+            "message": "test: Füge Pipecat Test-Skript für Hallucination Detection hinzu\n\n- Erstellt umfassendes Test-Skript mit Pipecat Components\n- Testet OpenAI LLM Service, Cartesia TTS, Daily Transport\n- Inkludiert Pipeline-Erstellung und Task-Runner\n- Bereit für Hallucination Detection Testing\n- Demonstriert typische Pipecat-Verwendung"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: Löse Issue #56 - Git in Docker Container\n\nFixes #56: https://github.com/coleam00/mcp-crawl4ai-rag/issues/56\n\n## 🎯 Problem gelöst:\n- parse_github_repository Tool funktioniert jetzt in Docker\n- Git-Installation in Container implementiert\n- Mehrere optimierte Docker-Lösungen bereitgestellt\n\n## ✅ Implementierte Lösungen:\n\n### 1. Standard Dockerfile (Empfohlen)\n- Basiert auf python:3.12-slim statt python:3.12\n- Fügt Git via apt-get hinzu\n- Reduziert Image-Größe von 11GB auf ~1.5GB\n- Optimiert für Stabilität und Kompatibilität\n\n### 2. Alpine Dockerfile (Kleinste Größe)\n- Basiert auf python:3.12-alpine\n- Fügt Git via apk hinzu\n- Image-Größe: ~800MB\n- Schnellste Build-Zeit\n\n### 3. Multi-stage Dockerfile (Optimal)\n- Separiert Build- und Runtime-Dependencies\n- Image-Größe: ~1.2GB\n- Optimiert für Produktion\n\n### 4. GitHub API Alternative\n- Git-freie Alternative via GitHub API\n- Für Umgebungen ohne Git-Installation\n- Verwendet GitHub Archive-Download\n\n## 🔧 Sofort-Lösung:\n- Git kann in laufenden Container installiert werden\n- Kein Rebuild erforderlich für Tests\n- Dokumentiert in DOCKER_SOLUTIONS.md\n\n## 📊 Performance-Verbesserungen:\n- 85% kleinere Images (11GB → 1.5GB)\n- Schnellere Build-Zeiten\n- Bessere Layer-Optimierung\n- Proper Cleanup implementiert\n\n## 🧪 Getestet mit:\n- ✅ parse_github_repository Tool\n- ✅ Alle MCP Tools\n- ✅ Supabase Integration\n- ✅ Knowledge Graph Features\n- ✅ Pipecat Repository Parsing"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: Translate Fork README to English\n\n- Translate comprehensive fork documentation to English\n- Maintain all technical details and structure\n- Ensure international accessibility\n- Keep all links and references intact\n- Ready for broader community contribution"
+          }
+        },
+        {
+          "commit": {
+            "message": "Clean up temporary files"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6e2gxD",
+    "number": 75,
+    "title": "🚀 Performance Fix: Implement Lazy Loading to Resolve MCP Server Timeout Issues",
+    "body": "# 🚀 Performance Fix: Implement Lazy Loading to Resolve MCP Server Timeout Issues\n\n## Overview\n\nThis PR implements lazy loading for heavy components to resolve widespread MCP server timeout and disconnect issues. **Reduces startup time from 10+ seconds to <1 second**.\n\n## Problem Solved\n\nMultiple users have reported timeout/disconnect issues across different MCP clients:\n- **Cursor IDE**: Shows \"list offering action\" then stops communicating\n- **Claude Desktop**: Server exits early during initialization  \n- **Various MCP clients**: \"Request timed out\" errors\n\n**Root cause**: Heavy components (PyTorch CrossEncoder, Neo4j Knowledge Graph, AST parsing) loaded during startup, causing 5-10 second delays that trigger client timeouts.\n\n## Solution: Lazy Loading Implementation\n\n### Key Changes\n\n1. **Added lazy loading wrapper functions**:\n   - `get_reranking_model()` - Loads CrossEncoder only when needed\n   - `get_knowledge_validator()` - Loads Neo4j only when needed\n   - `get_repo_extractor()` - Loads AST parser only when needed\n\n2. **Modified lifespan function** to only load essential components:\n   - AsyncWebCrawler (lightweight)\n   - Supabase client (fast)\n   - Heavy components loaded on-demand\n\n3. **Updated tool functions** to use lazy loading:\n   - `perform_rag_query()` → uses `get_reranking_model()`\n   - `check_ai_script_hallucinations()` → uses `get_knowledge_validator()`\n   - `parse_github_repository()` → uses `get_repo_extractor()`\n\n## Performance Results\n\n- **Before**: 10+ second startup time → Client timeouts\n- **After**: <1 second startup time → No more timeouts\n- **Memory**: Only loads components when actually used\n- **Compatibility**: Zero breaking changes\n\n## Testing\n\n- ✅ **Docker rebuild**: Confirmed <1 second startup\n- ✅ **Cursor IDE**: No more \"list offering action\" timeouts\n- ✅ **All tools**: Work correctly when called\n- ✅ **Memory usage**: Optimized resource consumption\n\n## Impact\n\nThis fix resolves the most common issue reported by users - MCP server timeouts during startup. It makes the server much more reliable and responsive across all MCP clients.\n\n## Backward Compatibility\n\n- ✅ No breaking changes to existing functionality\n- ✅ All tools work exactly as before\n- ✅ Same API interface maintained\n- ✅ Existing configurations remain valid",
+    "createdAt": "2025-07-14T18:36:56Z",
+    "updatedAt": "2025-08-29T21:09:00Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/75",
+    "full": {
+      "comments": [
+        {
+          "body": "Curious how this is working for you? It has been about 5 weeks and it seems like a good idea.\r\n",
+          "author": {
+            "login": "auraDancer"
+          }
+        },
+        {
+          "body": "its working everyday. \r\nMinor issue is a red dot showing in cursor at times but nevermind: \r\njust uploading it here for you (11 Gigabytes: silverstar3o7/crawl4ai-mcp:latest - you can pull it and try)\r\n\r\nEven made a video about it but its german [LinkedIn](https://www.linkedin.com/posts/oliverspitzkat_ai-coding-techinnovation-activity-7351186721281085440-MQab?utm_source=share&utm_medium=member_desktop&rcm=ACoAABkUgaYB_hiwQHfTI5iU3Uow9OIb4X93Zqk)",
+          "author": {
+            "login": "Silverstar187"
+          }
+        }
+      ],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: implement lazy loading for performance optimization\n\n- Add lazy loading for heavy components (CrossEncoder, Neo4j, AST parser)\n- Reduce startup time from 10+ seconds to <1 second\n- Resolve MCP server timeout issues in Cursor and other clients\n- Maintain backward compatibility with existing functionality\n\nThis fixes the most common issue where MCP servers show 'list offering action'\nthen stop communicating due to slow component initialization."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6fT9GI",
+    "number": 76,
+    "title": "Add MseeP.ai badge",
+    "body": "Hi there,\n\nThis pull request shares a security update on mcp-crawl4ai-rag.\n\nWe also have an entry for mcp-crawl4ai-rag in our directory, MseeP.ai, where we provide regular security and trust updates on your app.\n\nWe invite you to add our badge for your MCP server to your README to help your users learn from a third party that provides ongoing validation of mcp-crawl4ai-rag.\n\nYou can easily take control over your listing for free: visit it at https://mseep.ai/app/coleam00-mcp-crawl4ai-rag.\n\nYours Sincerely,\n\nLawrence W. Sinclair\nCEO/SkyDeck AI\nFounder of MseeP.ai\n*MCP servers you can trust*\n\n---\n\n[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/coleam00-mcp-crawl4ai-rag-badge.png)](https://mseep.ai/app/coleam00-mcp-crawl4ai-rag)\n\n\nHere are our latest evaluation results of mcp-crawl4ai-rag\n\n## Security Scan Results\n\n**Security Score:** 100/100\n\n**Risk Level:** low\n\n**Scan Date:** 2025-06-13\n\n\nScore starts at 100, deducts points for security issues, and adds points for security best practices\n\n\nThis security assessment was conducted by MseeP.ai, an independent security validation service for MCP servers. Visit our [website](https://mseep.ai) to learn more about our security reviews.\n\n",
+    "createdAt": "2025-07-17T06:23:57Z",
+    "updatedAt": "2025-07-17T06:23:57Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/76",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "Add MseeP.ai badge to README.md"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOj42Ac6hdW0V",
+    "number": 77,
+    "title": "Select PR Merges from Coleam00's Origin",
+    "body": "Merging Pull Requests into Crawl4AI\r\n- [x] Patch int casting only (line 79) - PR #22\r\n- [x] Rate limit embeddings - ISSUE #54\r\n- [x] Code examples fix: PR #62\r\n- [x] Create from local repo - PR #64\r\n- [x] Fix internal link parsing - PR #71\r\n- [x] Enhance source_id detection - PR #72",
+    "createdAt": "2025-07-31T03:03:56Z",
+    "updatedAt": "2025-08-01T18:20:40Z",
+    "url": "https://github.com/coleam00/mcp-crawl4ai-rag/pull/77",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: make LLM API concurrency and throttling configurable via env"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge pull request #2 from Shaurya-Sethi/codex/add-configurable-concurrency-and-throttling-for-openai-api\n\nAdd configurable LLM request throttling"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'main' into configurable-throttle"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix https://github.com/coleam00/mcp-crawl4ai-rag/issues/38 Error for 'code_examples' when scraping pages without code #38"
+          }
+        },
+        {
+          "commit": {
+            "message": "Added functionality to create RAG for local Repo instead of url"
+          }
+        },
+        {
+          "commit": {
+            "message": "Fix internal link parsing in crawl_recursive_internal_links\n\nResolved issue where relative paths were being incorrectly processed during recursive crawling, causing duplicate URLs and failed crawls.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "thusdigital - feat: use full GitHub repo URLs as source_id instead of domain\n\n- Add extract_source_id() helper function to detect GitHub URLs\n- For GitHub URLs, extract user/repo from path (e.g., 'github.com/user/repo')\n- For other URLs, maintain existing domain-based behavior\n- Update all source_id assignments in utils.py and crawl4ai_mcp.py\n- Enables fine-grained filtering by specific GitHub repositories\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'pr/62' into origin-pr-enhancments"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'pr/64' into origin-pr-enhancments"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'pr/71' into origin-pr-enhancments"
+          }
+        },
+        {
+          "commit": {
+            "message": "Merge branch 'pr/72' into origin-pr-enhancments"
+          }
+        },
+        {
+          "commit": {
+            "message": "Delete READMESTEF.MD\n\nwhat was this?"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update .env.example\n\nAdd embedding concurrency settings"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update crawl4ai_mcp.py\n\nCast port as integer"
+          }
+        },
+        {
+          "commit": {
+            "message": "Update .env.example\n\nAdd note regarding OpenAI API Tiers"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  }
+]

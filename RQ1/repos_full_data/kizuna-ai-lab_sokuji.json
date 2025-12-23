@@ -1,0 +1,813 @@
+[
+  {
+    "id": "PR_kwDOOZeWys6VupcV",
+    "number": 1,
+    "title": "Feat/browser extension",
+    "body": "",
+    "createdAt": "2025-05-11T09:42:52Z",
+    "updatedAt": "2025-05-11T09:42:59Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/1",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat(extension): initial browser extension setup and structure\n\n- Add browser extension directory structure with manifest.json\n- Create background, content, and fullpage scripts for extension\n- Add extension icons in multiple sizes\n- Update .gitignore to exclude extension build artifacts\n- Improve error logging in AudioContext with JSON.stringify"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: update README with English translations and revised instructions\n\n- Translated the README content from Chinese to English\n- Improved readability with consistent formatting and structure\n- Updated setup and usage instructions for Chrome and Firefox extensions\n- Highlighted key differences between browser extension and desktop app"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(extension): implement audio worklet support for browser extension\n\n- Refactor audio and stream processor worklets to support Chrome extension environment\n- Extract worklet code into separate _worklet.js files for web accessible resources\n- Add Chrome type definitions for TypeScript support\n- Update manifest.json with web_accessible_resources and content_security_policy\n- Configure webpack to copy worklet files to extension build\n- Add test tone asset for audio debugging\n- Improve API key validation with success status field\n- Add test tone playback functionality to MainPanel"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(assets): centralize test-tone asset management\n\n- Remove duplicate test-tone.mp3 from extension/assets\n- Configure webpack to copy test-tone.mp3 from public/assets during build\n- Maintain consistent audio playback functionality in both environments"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(ui): add loading indicator during session initialization\n\n- Add loading state to track session initialization progress\n- Display spinner and 'Initializing...' text during connection process\n- Disable Start Session button while initialization is in progress\n- Add error handling with proper state reset on initialization failure\n- Improve code organization by moving disconnectConversation before connectConversation"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(audio): resolve RealtimeAPI connection error during session end\n\n- Add proper sequence for disconnecting session to prevent race conditions\n- Pause audio recorder before resetting client connection\n- Add small delay to ensure in-flight audio processing completes\n- Add error handling for recorder pause and end operations\n- Fix issue where audio chunks were sent after API disconnection"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(logs): improve log grouping and display for consecutive events\n\n- Add grouping mechanism for consecutive identical events based on event type and item_id\n- Group delta events by event type regardless of item_id\n- Group input_audio_buffer.append events by event type only\n- Store all events in a group for detailed inspection when expanded\n- Add visual counter showing number of grouped events\n- Improve UI with styled event count badge and structured grouped event display\n- Remove redundant count property in favor of using events.length\n- Fix TypeScript errors and improve code organization"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(audio): improve Audio Input Device Turn On/Off functionality\n\n- Add real-time response to input device state changes during active sessions\n- Fix error when using push-to-talk after turning input device on/off\n- Properly initialize recorder when input device is turned on during session\n- Add safety checks to prevent errors when recording state changes\n- Update UI to clearly indicate when input device is turned off\n- Disable push-to-talk button when input device is off\n- Add comprehensive error handling and logging"
+          }
+        },
+        {
+          "commit": {
+            "message": "style(ui): improve responsive layout for small screens\n\n- Add responsive behavior to settings panel to take full width on small screens\n- Preserve space for audio controls when panels are open on small screens\n- Hide button text and show only icons on small screens for all controls\n- Add visual feedback for active panel buttons\n- Fix overflow issues and improve scrolling behavior\n- Ensure proper positioning of audio visualization on small screens"
+          }
+        },
+        {
+          "commit": {
+            "message": "Fix Google Meet audio replacement to play MP3 file correctly using postMessage communication"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(services): implement service abstraction layer for cross-platform support\n\n- Create interface definitions for audio and settings services (IAudioService, ISettingsService)\n- Implement platform-specific service implementations for browser and Electron\n- Add ServiceFactory to dynamically instantiate appropriate services based on environment\n- Update AudioContext and SettingsContext to use the new service layer\n- Extend Chrome type definitions for browser extension compatibility\n- Improve virtual audio device handling in Electron main process\n- Enhance PulseAudio port connection logic with better error handling"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(debug): implement toggle functionality for test tone\n\n- Add state tracking for test tone playback status\n- Modify playTestTone function to toggle between play and stop\n- Clear interruptedTrackIds to allow replaying after stopping\n- Update Debug button text to reflect current state (Debug/Stop Debug)\n- Create proper TypeScript interface for WavStreamPlayer with interruptedTrackIds"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(audio): rename audio output methods to monitoring device terminology\n\n- Rename connectOutput to connectMonitoringDevice in IAudioService interface\n- Rename disconnectOutputs to disconnectMonitoringDevices in IAudioService interface\n- Update implementations in ElectronAudioService and BrowserAudioService\n- Update all references in AudioContext with proper type annotations\n- Improve error messages and documentation to use consistent terminology"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(audio): move virtual audio output setup to service layer\n\n- Add setupVirtualAudioOutput method to IAudioService interface\n- Implement environment-specific logic in ElectronAudioService and BrowserAudioService\n- Remove environment detection from MainPanel component\n- Use ServiceFactory to access the appropriate audio service implementation\n- Improve code organization with better separation of concerns"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(audio): rename output device to monitor device for clarity\n\n- Rename all output device variables and methods to use 'monitor' terminology\n- Update AudioPanel component to use the renamed monitor device variables\n- Update MainPanel component to use the renamed monitor device variables\n- Remove unused AudioContext imports from MainLayout\n- Fix lint warnings related to dependency arrays\n- Update UI text to consistently use 'monitor device' terminology"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(extension): integrate Sokuji with Google Meet\n\n- Simplify Google Meet audio replacer script to focus on Sokuji integration\n- Add iframe support for embedding fullpage.html in Google Meet\n- Add toggle button for showing/hiding the Sokuji application\n- Add microphone permission to manifest.json\n- Include fullpage resources in web_accessible_resources\n- Remove test-tone.mp3 and audio buffer handling code"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(extension): update BrowserAudioService for Google Meet integration\n\n- Replace setSinkId approach with MediaStreamDestination for audio capture\n- Add event listeners to handle audio data requests from injected script\n- Implement message passing between extension and injected script\n- Send audio stream metadata to Google Meet page for real-time audio processing"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: simplify sinkId assignment logic in ElectronAudioService"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: simplify sinkId assignment logic in ElectronAudioService"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(extension): improve virtual audio handling and UI integration\n\n- Refactor content script with more reliable iframe-based UI implementation\n- Replace injected script approach with direct virtual microphone implementation\n- Improve audio context handling in BrowserAudioService with setSinkId\n- Optimize browser extension manifest and webpack configuration\n- Remove deprecated google-meet-audio-replacer and injected-script files\n- Add dedicated virtual-microphone.js implementation for better device control"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(extension): improve virtual audio handling and UI integration\n\n- Refactor content script with more reliable iframe-based UI implementation\n- Replace injected script approach with direct virtual microphone implementation\n- Improve audio context handling in BrowserAudioService with setSinkId\n- Optimize browser extension manifest and webpack configuration\n- Remove deprecated google-meet-audio-replacer and injected-script files\n- Add dedicated virtual-microphone.js implementation for better device control"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(audio): reorganize monitor device connection logic\n\n- Moved monitor device reconnection logic to a more appropriate location within the test tone playback flow in `MainPanel.tsx`.\n- Enhanced logging for `wavStreamPlayer` connection and virtual audio output setup.\n- Simplified and clarified `selectMonitorDevice` logic in `AudioContext.tsx` by removing redundant checks and improving debug outputs."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: implement Chrome side panel support with virtual microphone integration"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: remove side panel bridge and simplify content script communication"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: update virtual audio output to use WavStreamPlayer for PCM data streaming"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(audio): clean up unused code and improve audio handling\n\n- Removed redundant methods and properties in `BrowserAudioService`.\n- Simplified PCM capture logic by removing virtual output-related code.\n- Refactored `MainPanel` to eliminate unnecessary resampling logic.\n- Improved audio processing logic in `virtual-microphone.js`:\n  - Removed test tone generation for zero-audio data.\n  - Cleaned up debug logging and redundant checks."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: integrate WavStreamPlayer into audio services with interrupt tracking"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: implement audio resampling and stereo-to-mono conversion for test tone playback"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(audio): restore proper Space key push-to-talk behavior\n\n- Fix Space key behavior to properly function as push-to-talk (press and hold) instead of toggle mode\\n- Remove key state tracking that was causing incorrect behavior\\n- Simplify recording start/stop logic while maintaining error handling\\n- Improve window blur handling based on recording state rather than key state\\n- Add isRecording to useEffect dependencies to ensure proper state updates\\n- Fix audio test tone playback with proper sample rate handling and stereo to mono conversion"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: remove unused audio service code and comments in MainPanel"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(audio): fix test tone not playing after second stop\n\n- Clear WavStreamPlayer's interruptedTrackIds when clearing interrupted tracks\n- Add implementation to Audio Services to ensure WavStreamPlayer's internal state is reset\n- Fix issue where test tone wouldn't play the third time after being stopped twice"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(audio): enable simultaneous recording and playback\n\n- Remove audio interruption during recording start\n- Allow conversation playback to continue while recording\n- Improve user experience by supporting concurrent audio input and output"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(audio): improve virtual microphone for browser extension\n\n- Replace interval-based PCM capture with direct audio forwarding in BrowserAudioService\n- Implement progressive chunking for large audio files to prevent message size errors\n- Fix sample rate mismatch between audio source and virtual microphone (24kHz)\n- Optimize audio queue management to handle multi-minute test tones\n- Increase audio queue capacity from 100 to 5000 samples for large audio files\n- Add smart buffer management to prevent audio drops in virtual microphone\n- Implement chunk reassembly system for fragmented audio data\n- Remove silent audio detection to ensure complete audio transmission"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(virtual-mic): update worklet code reference and initialization\n\n- Update reference from STREAM_PROCESSOR_WORKLET_CODE to StreamProcessorWorkletCode\n- Use imported worklet code from wavtools library instead of duplicating code\n- Improve code reusability and maintainability\n- Fix potential inconsistencies by using the same worklet code as the main app"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(audio): remove redundant audio data conversion\n\n- Remove unnecessary conversion from Int16Array to Float32Array in BrowserAudioService\n- Remove unnecessary conversion from Float32Array back to Int16Array in virtual-microphone\n- Maintain original Int16Array format throughout the audio data pipeline\n- Improve performance by reducing data conversions and memory allocations"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(audio): improve virtual microphone stability and stream processor\n\n- Add AudioContext state management with auto-resume on user interaction\n- Enhance error handling and logging for virtual microphone setup\n- Fix stream processor to continue running when buffer is empty\n- Add detailed logging for audio data processing and state changes\n- Implement MediaStream recreation after AudioContext resume\n- Replace Chinese comments with English in stream processor worklet\n- Add user interaction detection to ensure proper AudioContext initialization"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor(manifest): optimize extension permissions and add version requirements\n\n- Remove unnecessary 'tabs' permission\n- Remove invalid 'audio' permission\n- Add minimum_chrome_version requirement (116) for sidePanel support\n- Add offline_enabled flag to indicate online requirement\n- Update manifest to follow Chrome extension best practices"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(translation): update system instructions for Chinese to Japanese translation\n\n- Change translation direction to specifically Chinese to Japanese\n- Add strict guidelines for literal translation\n- Add explicit rules for handling all types of input\n- Include example translations for reference\n- Remove English/Japanese bidirectional translation logic"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(virtual-mic): improve AudioContext initialization and worklet handling\n\n- Remove premature AudioContext resume attempt during initialization\n- Store workletNode reference on streamPlayer for proper reconnection\n- Add debug logging for getUserMedia constraints and worklet connection\n- Fix issue with workletNode reference in audio chain reconnection logic"
+          }
+        },
+        {
+          "commit": {
+            "message": "style(virtual-mic): remove commented-out code\n\nRemove commented-out AudioContext resume code that is no longer needed since the resume logic is now handled by user interaction events"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(extension): implement tab-specific side panel functionality\n\n- Add tab-specific side panel that only appears in tabs where user clicked the extension icon\n- Implement tab tracking system to manage which tabs should display the side panel\n- Pass tabId as URL parameter to side panel page for targeted audio routing\n- Enhance BrowserAudioService to extract tabId from URL and send audio to specific tab\n- Add fallback mechanism when target tab no longer exists\n- Improve extension README with more accurate technical details\n- Handle new tab creation events to ensure side panels don't appear in new tabs automatically"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore: bump extension version to 0.2.2"
+          }
+        },
+        {
+          "commit": {
+            "message": "ci: add Chrome extension build and release workflow steps"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6VuuCj",
+    "number": 2,
+    "title": "Feat/browser extension",
+    "body": "",
+    "createdAt": "2025-05-11T10:27:47Z",
+    "updatedAt": "2025-05-11T10:27:55Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/2",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "chore(release): bump version to 0.2.3 for Chrome extension release\n\n- Update version from 0.2.2 to 0.2.3 in package.json\n- Update version from 0.2.2 to 0.2.3 in extension/manifest.json\n- Prepare for Chrome extension release zip generation"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs(privacy): add privacy policy for Chrome Web Store"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6YPUOT",
+    "number": 16,
+    "title": "feat(extension): add Zoom support",
+    "body": "## Summary\n\nThis PR implements Zoom support for the Sokuji browser extension, addressing issue #4.\n\n## Changes Made\n\n- Added support for capturing audio from Zoom meetings in the browser\n- Implemented audio replacement functionality similar to the Google Meet integration\n- Updated extension to work properly within the Zoom web client\n- Added content script specifically for Zoom web client pages\n- Updated manifest.json with permissions and content script rules for Zoom domains\n- Implemented audio capture from Zoom's WebRTC streams\n- Added virtual audio device support for Zoom meetings\n\n## Features\n\n- Real-time simultaneous interpretation during Zoom meetings\n- Consistent user experience across different video conferencing platforms\n- Support for various meeting configurations (host, participant, different audio settings)\n- Compatibility with Zoom's security and privacy features\n\n## Testing\n\n- Tested with different Zoom meeting types (regular, webinar, etc.)\n- Verified functionality when switching between different audio sources\n- Ensured compatibility with Zoom's web client updates\n\nCloses #4",
+    "createdAt": "2025-05-30T08:56:26Z",
+    "updatedAt": "2025-05-30T08:56:39Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/16",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat(extension): add Zoom content script and enhance virtual microphone functionality\n\n- Updated manifest.json to include a dedicated content script for Zoom.\n- Modified webpack.config.js to add entry for zoom-content.js.\n- Enhanced virtual-microphone.js with a new MediaDeviceInfo-like object for the virtual microphone, including groupId handling and improved device ID management for Zoom."
+          }
+        },
+        {
+          "commit": {
+            "message": "chore(README): remove outdated badges and add browser extension installation instructions\n\n- Removed TypeScript, React, Electron, and Linux badges from the README.\n- Added a new section detailing the availability of a browser extension and instructions for installing it in developer mode."
+          }
+        },
+        {
+          "commit": {
+            "message": "chore(README): update browser extension section with new badges and links\n\n- Added visual badges for the Chrome Web Store and Product Hunt to the browser extension section.\n- Removed outdated badge section to streamline the README content."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(zoom): implement microphone selection monitoring and auto-selection for Sokuji Virtual Microphone\n\n- Added a function to monitor and auto-select the Sokuji Virtual Microphone in Zoom's audio options.\n- Enhanced virtual-microphone.js to include checks for microphone activity during initialization.\n- Integrated periodic checks and MutationObserver to ensure microphone selection is updated dynamically."
+          }
+        },
+        {
+          "commit": {
+            "message": "fix(zoom): refine virtual microphone functionality and improve audio profile notification\n\n- Removed unused CSS file reference from manifest.json.\n- Enhanced virtual-microphone.js to include checks for active virtual streams during microphone validation.\n- Updated zoom-content.js to streamline script injection logic and added audio profile notification for optimal settings guidance."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(extension): enhance audio profile notification and testing documentation\n\n- Updated AUDIO_PROFILE_NOTIFICATION.md to improve notification handling and added inline CSS for compatibility.\n- Introduced new debugging API methods for checking microphone selection and status information.\n- Revised testing instructions to facilitate manual testing via the browser console and outlined various testing scenarios."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6Ykw-9",
+    "number": 18,
+    "title": "feat: implement UI internationalization (i18n) support with Japanese localization",
+    "body": "## 🌐 UI Internationalization Implementation\n\nThis PR implements comprehensive UI internationalization (i18n) support for the Sokuji application, starting with Japanese localization to address user retention issues identified in Chrome Web Store analytics.\n\n### ✅ What's Implemented\n\n#### i18n Framework Setup\n- ✅ Configured react-i18next for React components\n- ✅ Set up translation file structure (`/locales/[lang]/translation.json`)\n- ✅ Implemented language detection (browser/system preference)\n- ✅ Added language switcher component\n\n#### Text Extraction & Translation\n- ✅ Audited and replaced all hardcoded text in components\n- ✅ Created comprehensive English base translation file\n- ✅ Implemented Japanese translations for all UI strings\n- ✅ Handled dynamic text and pluralization\n\n#### Language Persistence\n- ✅ Store language preference in localStorage/settings\n- ✅ Sync preference between desktop app and extension\n- ✅ Remember user choice across sessions\n\n#### UI Adaptations\n- ✅ Adapted UI layout for longer Japanese text\n- ✅ Tested font rendering and readability\n- ✅ Cultural adaptation of icons/symbols where needed\n\n### 🎯 Impact\n- Addresses high uninstall rates among Japanese users\n- Provides seamless language switching without restart\n- Establishes foundation for future language support (Chinese, Korean, Spanish, French)\n- Expected to reduce Japanese user uninstall rate by 30%\n\n### 🧪 Testing\n- ✅ All UI components render correctly in both English and Japanese\n- ✅ Language switching works seamlessly\n- ✅ Text expansion/contraction handled properly in layouts\n- ✅ Language preference persists across sessions\n\n### 📁 Translation Structure\n```\n/src/locales/\n├── en/\n│   └── translation.json\n├── ja/\n│   └── translation.json\n└── index.js\n```\n\nCloses #15",
+    "createdAt": "2025-06-02T08:36:15Z",
+    "updatedAt": "2025-06-02T08:36:26Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/18",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: add UI internationalization (i18n) support with Japanese localization - Install react-i18next, i18next, and i18next-browser-languagedetector - Upgrade TypeScript to v5.8.3 for react-i18next v15 compatibility - Create translation file structure in /src/locales/ with English and Japanese - Implement i18n configuration with language detection and localStorage persistence - Add LanguageSwitcher component with English/Japanese toggle - Create comprehensive translation keys for common UI elements - Add TypeScript declarations for JSON imports and i18n types - Integrate i18n initialization in App.tsx - Style components for dark theme compatibility - Addresses issue #15 - Phase 1 Japanese localization implementation"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(i18n): clean up unused test components - Remove I18nExample.tsx and SampleEvents.tsx (no longer needed) - Clean up commented SampleEvents reference in LogsPanel.tsx"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(i18n): add Chrome extension internationalization support - Add _locales directory with English and Japanese translations - Update manifest.json to use i18n for name and description - Modify popup.html and popup.js to use chrome.i18n API - Support automatic language detection based on browser locale"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(extension): add support for _locales directory in webpack configuration - Include _locales directory in CopyWebpackPlugin to ensure localization files are copied during build process."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(i18n): add comprehensive language support and service internationalization - Update SettingsPanel with 52 supported languages using ISO codes - Add language code to full name mapping in SettingsContext - Internationalize ElectronSettingsService error messages - Add new translation keys for service messages in both English and Japanese - Support all major world languages for source/target translation"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(i18n): add support for major world languages - Add Chinese (zh), French (fr), Spanish (es), German (de), and Korean (ko) translations - Create comprehensive translation files for all UI components - Update i18n configuration to include new languages - Expand language selector in SettingsPanel with flag emojis - Provide complete translations for all 140+ UI strings - Support 7 major world languages: English, Chinese, Japanese, French, Spanish, German, Korean - Addresses #15 - UI internationalization expansion"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(i18n): add comprehensive support for 23 world languages - Add Chinese Traditional (zh_TW) and Simplified (zh_CN) translations - Add Portuguese Brazil (pt_BR) and Portugal (pt_PT) translations - Add Indonesian (id), Italian (it), Hindi (hi) translations - Add Finnish (fi), Filipino (fil), Swedish (sv) translations - Add Russian (ru), Tamil (ta), Telugu (te) translations - Add Thai (th), Turkish (tr), Ukrainian (uk), Vietnamese (vi) translations - Update i18n configuration to include all 23 languages - Update SettingsPanel language selector with native names and flags - Provide comprehensive translations for major UI components - Support world's most spoken languages for global accessibility - Addresses #15 - UI internationalization major expansion"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add comprehensive Chrome extension i18n support for 55 languages - Add Arabic (ar) translation to main app locales - Create comprehensive Chrome extension locale generation script - Generate 55 language locale files for Chrome extension (_locales) - Include proper translations for Arabic, Chinese (Simplified), Spanish, French, and Japanese - Use English fallbacks for remaining 50 languages - Support all major world languages - Addresses GitHub issue #15 - Chrome extension internationalization"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6ZNEyP",
+    "number": 34,
+    "title": "feat(analytics): integrate PostHog analytics tracking",
+    "body": "## Overview\n\nThis PR implements comprehensive PostHog analytics integration for the Sokuji application, addressing issue #27.\n\n## 🚀 Key Features Implemented\n\n### Analytics Integration\n- ✅ PostHog SDK integration for React/Electron app\n- ✅ Dynamic platform detection (app/extension/web)\n- ✅ Privacy-first configuration with GDPR compliance\n- ✅ Automatic data sanitization for sensitive information\n- ✅ Development mode with opt-out by default\n\n### Event Tracking\n- ✅ Application lifecycle events (startup/shutdown)\n- ✅ Translation session tracking with metrics\n- ✅ Session duration and usage analytics\n- ✅ TypeScript-defined event interfaces for type safety\n\n### Documentation\n- ✅ Comprehensive analytics integration guide\n- ✅ Complete event reference documentation\n- ✅ Unified documentation structure with consistent naming\n- ✅ Privacy and security guidelines\n\n## 📊 Events Currently Implemented\n\n### ✅ Active Events\n- `app_startup` - Application initialization tracking\n- `app_shutdown` - Session duration and cleanup tracking  \n- `translation_session_start` - Translation session initiation\n- `translation_session_end` - Session completion with metrics\n\n### 📋 Events Defined (Ready for Implementation)\n- Audio handling events (device changes, quality metrics)\n- User interaction events (settings, language changes)\n- Performance monitoring events\n- Error tracking events\n- Extension usage events\n\n## 🔒 Privacy & Security\n\n- **No sensitive data tracking**: Audio content, translations, and personal data are automatically filtered\n- **GDPR compliant**: Opt-out by default in development, consent management ready\n- **Data sanitization**: Automatic removal of sensitive fields before transmission\n- **Transparent documentation**: Clear privacy guidelines and data handling policies\n\n## 🛠️ Technical Implementation\n\n### Platform Detection\n- Dynamic detection between Electron app, Chrome extension, and web browser\n- Proper TypeScript typing and error handling\n- Cross-platform compatibility\n\n### Documentation Structure\n- Moved to unified `docs/` directory with consistent naming convention\n- `app-analytics-integration.md` - Setup and configuration guide\n- `app-analytics-events.md` - Comprehensive event reference\n- `extension-audio-profile-notification.md` - Extension feature documentation\n\n### File Changes\n- `src/index.tsx` - PostHog provider setup with platform detection\n- `src/lib/analytics.ts` - Event definitions and analytics utilities\n- `src/App.tsx` - Application lifecycle event tracking\n- `src/components/MainPanel/MainPanel.tsx` - Translation session tracking\n- `docs/` - Comprehensive documentation with consistent naming\n\n## 🧪 Testing & Development\n\n- Development mode with manual capturing control\n- Console commands for testing analytics\n- Debug logging and error handling\n- Performance impact minimization\n\n## 📚 Documentation Updates\n\n- Created unified documentation structure\n- Consistent naming convention: `{component}-{feature}-{type}.md`\n- Comprehensive event reference with examples\n- Privacy and security guidelines\n- Development and testing instructions\n\n## 🎯 Addresses Issue Requirements\n\nThis PR fully addresses the requirements outlined in [issue #27](https://github.com/kizuna-ai-lab/sokuji/issues/27):\n\n- ✅ PostHog integration over GA4 (privacy-focused, real-time insights)\n- ✅ Core event tracking (lifecycle, sessions, interactions)\n- ✅ Privacy compliance (data anonymization, consent management)\n- ✅ Multi-platform support (Electron app + browser extension ready)\n- ✅ Documentation and team training materials\n- ✅ Performance optimization (<1% overhead)\n\n## 🔄 Next Steps\n\nWith this foundation in place, the team can now:\n1. Implement the remaining defined events as needed\n2. Set up PostHog dashboards for key metrics\n3. Add browser extension analytics\n4. Integrate error boundaries for automatic error tracking\n5. Configure A/B testing with PostHog feature flags\n\n## 🔗 Related Issues\n\nCloses #27\n\n## 📋 Checklist\n\n- [x] PostHog SDK integrated and configured\n- [x] Core event tracking implemented\n- [x] Privacy controls and data sanitization\n- [x] Platform detection for app/extension/web\n- [x] Comprehensive documentation\n- [x] TypeScript interfaces for type safety\n- [x] Development tools and testing utilities\n- [x] Performance optimization\n- [x] GDPR compliance considerations",
+    "createdAt": "2025-06-05T13:32:27Z",
+    "updatedAt": "2025-06-05T13:35:40Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/34",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat(analytics): integrate posthog analytics tracking - Install posthog-js SDK for React analytics - Add comprehensive event tracking system with type safety - Implement GDPR-compliant consent management - Create privacy-first configuration with data sanitization - Add consent banner and settings components - Track application lifecycle, user interactions, and performance - Ensure no sensitive data (audio/translations) is collected - Support offline event queuing and error handling - Add comprehensive documentation and usage examples Addresses #27"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(privacy): update privacy policy with enhanced user rights and analytics consent management - Add privacy guarantee section and clarify data handling practices - Ensure GDPR compliance and user control over analytics - Update last modified date and contact information"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: implement PostHog Super Properties for global tracking - Use posthog.register() to set app_version, environment, platform, and user_agent as Super Properties - Remove redundant version and platform parameters from individual events - Simplify event tracking by centralizing common properties - Update analytics documentation with Super Properties usage"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add translation session analytics tracking"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: restore PostHog initialization via PostHogProvider apiKey and options"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: enable translation session analytics and fix useEffect loops"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: resolve useEffect dependency issues in translation session analytics"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: remove redundant platform property from PostHog registration"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: implement platform detection utility for PostHog registration - Add getPlatform function to distinguish between web, app, and extension environments - Update PostHog registration to include platform information"
+          }
+        },
+        {
+          "commit": {
+            "message": "chore: remove outdated analytics and audio profile notification documentation - Delete analytics-integration.md and AUDIO_PROFILE_NOTIFICATION.md files to streamline documentation and eliminate redundancy"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: add reference for PostHog analytics events - Include app-analytics-events.md in the documentation to provide a comprehensive overview of all analytics events"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6ZQPDj",
+    "number": 35,
+    "title": "feat(analytics): add uninstall feedback page to collect user uninstall reasons",
+    "body": "## Description\n\nThis PR implements an uninstall feedback mechanism to collect user reasons when they uninstall the application. This will help us understand user pain points and improve the product based on feedback.\n\n## Changes Made\n\n- Added uninstall feedback page with structured feedback collection\n- Implemented web-based feedback redirect during uninstall process\n- Added privacy controls and opt-out options\n- Created responsive UI for feedback collection\n- Set up data collection mechanism for analytics\n\n## Implementation Approach\n\nThe solution uses a web-based feedback approach that redirects users to a feedback page during the uninstall process. This approach was chosen for:\n- Cross-platform compatibility\n- Easy maintenance and updates\n- Better user experience\n- Privacy compliance\n\n## Features\n\n- ✅ Structured feedback collection with common uninstall reasons\n- ✅ Optional free-form comments section\n- ✅ Privacy-first design with optional participation\n- ✅ Responsive design for all devices\n- ✅ Analytics integration for data collection\n\n## Testing\n\n- [x] Tested feedback form functionality\n- [x] Verified privacy controls work correctly\n- [x] Confirmed responsive design across devices\n- [x] Validated data collection mechanism\n\n## Closes\n\nCloses #19\n\n## Type of Change\n\n- [x] New feature (non-breaking change which adds functionality)\n- [ ] Bug fix (non-breaking change which fixes an issue)\n- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)\n- [x] Documentation update\n\n## Checklist\n\n- [x] My code follows the style guidelines of this project\n- [x] I have performed a self-review of my own code\n- [x] I have commented my code, particularly in hard-to-understand areas\n- [x] I have made corresponding changes to the documentation\n- [x] My changes generate no new warnings\n- [x] New and existing unit tests pass locally with my changes",
+    "createdAt": "2025-06-05T18:29:30Z",
+    "updatedAt": "2025-06-05T18:44:27Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/35",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: add uninstall feedback URL to manifest and background script"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(docs): add uninstall feedback survey page with PostHog integration"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(survey): use PostHog getSurveys API for dynamic survey loading"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: update uninstall feedback URL to point to the correct survey page"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(analytics): enhance PostHog integration with distinct_id handling - Implement distinct_id retrieval from URL, store it in local storage, and update uninstall feedback URL accordingly. Sync distinct_id between frontend and background script for improved user identification."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6bnb_o",
+    "number": 47,
+    "title": "fix: downgrade posthog-js to v1.167.0 to resolve Chrome Web Store review issues",
+    "body": "## Problem\n\nThe Chrome Web Store rejected our extension submission because the newer version of `posthog-js` (v1.250.1) includes a `config.js` string literal in the minified bundle, which the reviewer flagged as \"remotely-hosted code\" violating Manifest V3 policies.\n\n## Solution\n\nThis PR downgrades `posthog-js` from v1.250.1 to v1.167.0 to resolve the Chrome Web Store review issue. The downgrade removes the problematic `config.js` string from the bundle while maintaining analytics functionality.\n\n## Changes\n\n- ⬇️ Downgrade `posthog-js` from `^1.250.1` to `^1.167.0` in root `package.json`\n- ⬇️ Downgrade `posthog-js` from `^1.250.1` to `^1.167.0` in `extension/package.json`\n\n## Impact\n\n- ✅ Resolves Chrome Web Store rejection issue\n- ✅ Maintains analytics functionality with PostHog\n- ✅ Allows extension updates to be published successfully\n- ⚠️ Uses slightly older version of PostHog library (temporary workaround)\n\n## Related Issues\n\n- Upstream issue filed: [PostHog/posthog-js#2034](https://github.com/PostHog/posthog-js/issues/2034)\n\n## Testing\n\n- [ ] Extension builds successfully\n- [ ] PostHog analytics continue to work as expected\n- [ ] Chrome Web Store submission should pass review\n\nThis is a temporary workaround until the upstream issue is resolved in PostHog.",
+    "createdAt": "2025-06-23T08:14:20Z",
+    "updatedAt": "2025-06-23T08:17:10Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/47",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "fix: downgrade posthog-js to v1.167.0 to resolve Chrome Web Store review issues\n\n- Downgrade posthog-js from v1.250.1 to v1.167.0 in root package.json\n- Downgrade posthog-js from v1.250.1 to v1.167.0 in extension/package.json\n- Resolve Chrome Web Store rejection due to 'config.js' string in bundle\n- Prevent 'remotely-hosted code' violation in Manifest V3 extension\n- Reference issue: https://github.com/PostHog/posthog-js/issues/2034"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6ecaEH",
+    "number": 54,
+    "title": "feat(api): Add PalabraAI WebRTC speech-to-speech translation API provider",
+    "body": "This pull request resolves issue #53 by integrating the PalabraAI WebRTC speech-to-speech translation service.\n\n### Summary of Changes\n\nThis PR introduces a new translation provider, PalabraAI, which leverages WebRTC for real-time, low-latency speech-to-speech translation. This is a significant enhancement to Sokuji's real-time capabilities.\n\nThe key changes include:\n\n- **New Provider and Configuration**: Added `PalabraAIProviderConfig` and integrated it into the provider selection system.\n- **WebRTC Client**: Implemented `PalabraAIClient` to handle the WebRTC connection, audio streaming, and session management with the PalabraAI service.\n- **Audio Service Integration**: Updated the audio services to manage bidirectional audio streams required for the WebRTC-based translation.\n- **UI Enhancements**:\n    - Added \"Palabra\" to the provider list in the settings panel.\n    - Implemented provider-specific settings for PalabraAI, including Client ID and Client Secret fields.\n- **Internationalization**: Added new translation keys for the PalabraAI settings and validated them across all supported languages.\n\nThis implementation follows the architecture outlined in the associated issue, providing a true real-time translation alternative to the existing OpenAI and Gemini providers.\n\nCloses #53\n",
+    "createdAt": "2025-07-11T07:45:35Z",
+    "updatedAt": "2025-07-11T07:48:52Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/54",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: integrate PalabraAI support into settings and client operations\n\n- Added PalabraAI as a new provider, including specific settings for client ID, client secret, source and target languages, and voice settings.\n- Implemented session configuration creation for PalabraAI, ensuring compatibility with existing session management.\n- Updated client operations to validate API keys and fetch models for PalabraAI, including necessary client secret handling.\n- Enhanced settings context and provider-specific settings to accommodate PalabraAI configurations.\n- Updated UI components to reflect changes in settings management and API key handling for PalabraAI."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add audio feedback warning and safety checks for passthrough functionality\n\n- Introduced an audio feedback warning component to alert users of potential feedback issues during recording.\n- Implemented safety checks in the MainPanel to prevent audio feedback loops by verifying input and output device configurations.\n- Updated WavRecorder to enhance microphone permission requests with echo cancellation and noise suppression.\n- Added new translation keys for audio feedback warnings in English, improving user experience across the application."
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: remove commented-out initialization code in WavRecorder\n\n- Cleaned up wav_recorder.js by removing unused commented-out code related to AudioWorkletNode initialization.\n- This change improves code readability and maintainability."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: enhance audio handling in PalabraAIClient with custom audio track support\n\n- Introduced LocalAudioTrack for custom audio processing, allowing for improved audio management.\n- Updated appendInputAudio method to handle various audio data types and convert them to AudioBuffer for playback.\n- Implemented fallback mechanism to microphone audio if custom audio setup fails, ensuring reliability.\n- Cleaned up audio resources during disconnection to prevent memory leaks."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: enhance WavRecorder with advanced audio processing options\n\n- Added several Google-specific audio processing features including echo cancellation, auto gain control, noise suppression, high-pass filter, typing noise detection, and audio mirroring settings.\n- These enhancements aim to improve audio quality and reduce feedback during recordings."
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: clean up audio handling in PalabraAIClient\n\n- Removed commented-out code related to audio processing and logging for cleaner output.\n- Introduced a new cleanupRemoteAudio method to manage remote audio resources effectively.\n- Enhanced audio track handling by attaching to a hidden audio element for improved WebRTC functionality."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: update content security policy and improve audio handling\n\n- Added new API endpoints for Palabra AI to the content security policy in manifest.json.\n- Changed default state of isMonitorDeviceOn to false in AudioContext for better initial configuration.\n- Updated logging level from warn to info in BrowserAudioService for empty audio data handling.\n- Enhanced session retrieval logic in PalabraAIClient to handle null sessions more gracefully."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: suppress verbose logs from LiveKit client in PalabraAIClient\n\n- Added setLogLevel function to set the logging level to 'error', reducing log verbosity and suppressing unnecessary logs, including silence detection."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: refactor audio processing in PalabraAIClient to use AudioWorkletNode\n\n- Replaced ScriptProcessorNode with AudioWorkletNode for improved audio processing.\n- Introduced an asynchronous setup for the audio worklet, enhancing the audio handling flow.\n- Added cleanup logic for the worklet URL to prevent memory leaks.\n- Updated PCM data processing to utilize the new worklet structure."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add dynamic worklet path resolution and update logging level in virtual microphone\n\n- Introduced helper functions to determine the correct path for the Palabra AudioWorklet based on the environment (Chrome extension or web).\n- Updated the audio worklet module loading to use the dynamically resolved path.\n- Changed logging level from info to debug in virtual microphone for improved log management."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: update translations for multiple languages with new audio settings and API key validation\n\n- Added new translation keys for client ID, client secret, language settings, voice settings, speech processing, silence threshold, sentence splitter, enabled status, translate partial transcriptions, queue configuration, desired and max queue levels, auto tempo, API key validation, and real-time translation availability.\n- Updated existing translations to include these new keys across various languages, enhancing the localization support for the application."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6eqZAf",
+    "number": 56,
+    "title": "feat: improve audio feedback warning logic and add comprehensive i18n support",
+    "body": "## Summary\n- Improve audio feedback warning display logic to only show when Virtual Speaker Monitor Device is enabled\n- Add comprehensive audioFeedback translations for 29 languages to support global users\n\n## Changes Made\n\n### 🔧 Core Logic Improvements\n- **Enhanced warning condition logic**: Modified `MainPanel.tsx` to only display audio feedback warnings when Virtual Speaker Monitor Device is enabled (`isMonitorDeviceOn`)\n- **Smarter feedback detection**: Warnings now only appear when there's actual audio output that could cause echo/feedback loops\n\n### 🌍 Internationalization Enhancements\n- **Complete i18n coverage**: Added `audioFeedback` translations for 29 languages\n- **Comprehensive warning messages**: Each language includes:\n  - Warning titles and descriptions\n  - Speaker mode specific warnings  \n  - Device information labels\n  - Multiple solution recommendations\n  - Context-appropriate advice for headphone usage\n\n### 📝 Languages Added/Updated\n- **Previously missing languages completed**: Finnish, Filipino, Hindi, Swedish, Tamil, Telugu, Thai, Turkish, Ukrainian, Vietnamese\n- **Enhanced existing languages**: Chinese (CN/TW), Japanese, Korean, European languages (French, German, Spanish, Italian, etc.), and more\n\n## Technical Details\n\nThe warning logic now properly checks three conditions:\n1. User hasn't dismissed the warning (`\\!feedbackWarningDismissed`)\n2. Real Voice Passthrough is enabled (`isRealVoicePassthroughEnabled`) \n3. **Virtual Speaker Monitor Device is enabled** (`isMonitorDeviceOn`) ← Key improvement\n\nThis ensures warnings only appear when audio is actually being output, which is when echo/feedback can occur.\n\n## Test Plan\n- [x] Verify warning only shows when Virtual Speaker Monitor Device is enabled\n- [x] Test warning dismissal functionality\n- [x] Confirm proper translations display for different UI languages\n- [x] Validate warning content accuracy across languages\n\n## Related to Issue #55\n\nThis PR addresses part of the **Phase 1 (Complete)** requirements from issue #55 by implementing enhanced audio feedback warning logic and comprehensive user guidance through improved UI notifications.\n\n**Scope of this PR:**\n- ✅ Enhanced detection logic for when to show audio feedback warnings\n- ✅ Comprehensive multilingual user guidance and recommendations\n- ✅ Smart warning system that only activates when audio output is enabled\n\n**Issue #55 Status:**\n- This PR implements significant improvements to the audio feedback warning system\n- **Issue #55 should remain open** for potential future Phase 2 investigations (software-based AEC solutions)\n- This PR can be merged independently as it provides substantial improvements to user experience\n\nRelated to #55\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+    "createdAt": "2025-07-13T03:08:59Z",
+    "updatedAt": "2025-07-13T06:03:44Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/56",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "chore(docs): remove app analytics and integration documentation\n\n- Deleted `app-analytics-events.md` detailing PostHog event definitions, usage, and implementation guidelines.\n- Removed `app-analytics-integration.md` outlining PostHog configuration, usage, and best practices.\n- Removed `chrome_web_store_response.md` addressing compliance and migration to `posthog-js-lite`.\n\nRationale: Cleaning up outdated or unnecessary documentation related to analytics and compliance."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add audio feedback warning translations for multiple locales\n\n- Added translations for \"audio feedback warning\" feature in Arabic, English, Spanish, Bengali, German, French, Hebrew, Persian, Finnish, Italian, Japanese, Hindi, Indonesian, Dutch, Polish, Korean, and Malay locales.\n- Included relevant warnings, recommendations, and solutions for audio feedback scenarios."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat(locales): add audio feedback warnings and solutions for multiple languages\n\nAdded \"audioFeedback\" section with titles, descriptions, warnings, recommendations, and solutions in the following locale files:\n- fil, ta, te, sv, uk, vi, and th."
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6gfVXY",
+    "number": 61,
+    "title": "Fix audio echo issues and refactor audio system",
+    "body": "## Summary\n- Fixed audio echo issues by implementing proper echo cancellation in the audio pipeline\n- Refactored audio system to use modern Web Audio APIs without wavtools dependency\n- Added dynamic audio device switching support during active sessions\n- Added virtual speaker support for Electron environments\n\n## Changes\n- Removed wavtools dependency and migrated to modern audio APIs\n- Fixed Int16Array to base64 conversion in GeminiClient\n- Added support for locale format in PalabraAI queue status detection\n- Implemented dynamic audio device switching without interrupting active sessions\n- Added virtual speaker support for Electron environments\n\n## Test plan\n- [x] Test audio recording and playback without echo issues\n- [ ] Verify dynamic device switching works during active sessions\n- [ ] Test all AI providers (OpenAI, Gemini, PalabraAI) work correctly\n- [ ] Verify virtual speaker functionality in Electron app\n- [ ] Test browser extension functionality remains intact\n\nFixes #55\n\n🤖 Generated with [Claude Code](https://claude.ai/code)",
+    "createdAt": "2025-07-24T16:41:15Z",
+    "updatedAt": "2025-07-24T17:20:10Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/61",
+    "full": {
+      "comments": [],
+      "reviews": [],
+      "review_threads": [],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: remove BrowserAudioService and ElectronAudioService classes\n\n- Deleted `BrowserAudioService` implementation and associated functionalities for browser-based audio handling.\n- Removed `ElectronAudioService` implementation for Electron-specific audio handling.\n- Removed support for virtual audio devices, Web Audio API functionality, and device selection utilities in both services."
+          }
+        },
+        {
+          "commit": {
+            "message": "perf: reduce buffering and timeout intervals for faster audio streaming\n\n- Decreased minimum buffer size from 0.2s to 0.1s.\n- Reduced flush timeout from 300ms to 100ms.\n- Lowered queue check interval from 100ms to 10ms."
+          }
+        },
+        {
+          "commit": {
+            "message": "perf: optimize audio chunk playback with event-driven queue and element pooling\n\n- Replace polling-based queue scheduling with event-driven approach\n- Implement Audio element pooling to reduce object creation overhead\n- Reduce buffer size from 0.5s to 0.1s for faster playback startup\n- Decrease timeout intervals for more responsive audio streaming\n- Eliminate CPU-intensive setInterval polling (was 10ms intervals)\n- Process next queue item immediately when audio ends via onended event\n\nThis significantly reduces stuttering in delta chunk audio playback\nwhile maintaining smooth performance for inline-play-button usage.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: simplify pulseaudio-utils to only handle virtual device creation\n\n- Remove all audio routing and monitoring functions (connectAudioPorts, connectVirtualSpeakerToOutput, disconnectVirtualSpeakerFromOutputs)\n- Keep only essential virtual device management: create, remove, check availability, and cleanup\n- Add simplified connectVirtualDevices function to ensure virtual mic and speaker are connected\n- Remove corresponding IPC handlers in main.js and preload.js\n- Reduce codebase from ~664 lines to ~274 lines\n\nThis prepares for migrating audio routing to Web Audio API while keeping PulseAudio for virtual device creation only.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: audio visualization and device switching issues\n\n- Fix audio visualization disappearing when toggling Monitor On/Off\n  - Use Web Audio API GainNode for volume control instead of audio element volume\n  - Ensure analyser always receives audio data for consistent visualization\n  - Remove Monitor state dependency from visualization display logic\n\n- Prevent audio service reinitialization on state changes\n  - Remove unnecessary useEffect dependencies (isMonitorDeviceOn, refreshDevices)\n  - Keep audio connections stable during Monitor toggle and device switching\n\n- Fix audio output device switching errors\n  - Use AudioContext.setSinkId() instead of individual audio element setSinkId\n  - Resolve AbortError when switching devices on connected audio elements\n\n- Ensure default audio device is properly set on initialization\n  - Connect to default output device before first audio playback\n  - Fix async state update timing issues\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: remove audio element pooling to fix connection issues\n\n- Removed audio element pool and maxPoolSize configuration\n- Create new audio elements for each playback instead of reusing\n- Simplified cleanup logic by removing pool management\n- Fixed MediaElementSourceNode connection errors\n- Removed unnecessary connectedAudioElements WeakSet\n- Added proper error handling for queue continuation\n\nThis change prevents \"HTMLMediaElement already connected\" errors that occurred when reusing pooled audio elements.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: add missing addToPassthroughBuffer method to ModernAudioPlayer\n\n- Fixes TypeError when enabling Original Audio Passthrough\n- Implements immediate playback for low-latency monitoring\n- Uses existing queue system with dedicated 'passthrough' track ID\n- Respects global volume multiplier for monitor control\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: resolve audio initialization errors and improve stability\n\n- Fix race condition in AudioContext initialization by making ModernAudioPlayer.connect() idempotent\n- Fix recursive call in refreshDevices function that could cause infinite loops\n- Handle concurrent setSinkId calls with Promise-based approach\n- Remove unused shouldPlay parameter from addToPassthroughBuffer method\n- Update JSDoc comments to reflect correct parameter types\n- Make ModernBrowserAudioService initialization idempotent\n\nThese changes resolve the \"Failed to set output device\" error during startup\nand improve overall audio system stability, especially in React StrictMode.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: add CLAUDE.md project documentation for AI assistance\n\nAdd comprehensive project documentation to guide Claude AI when working\nwith the Sokuji codebase. This includes architecture overview, development\ncommands, key patterns, and common tasks.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: prevent automatic connections between virtual mic and physical devices\n\n- Add detailed logging to trace PulseAudio/PipeWire command execution\n- Disconnect unwanted automatic connections after virtual mic creation\n- Only connect virtual speaker monitor to virtual mic, not physical mics\n- Add 100ms delay for connection stabilization\n- Improve connection verification with pw-link output logging\n\nThis prevents audio feedback loops where the virtual mic receives input\nfrom both the AI-processed audio (virtual speaker monitor) and the\nphysical microphone simultaneously.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "docs: update documentation to reflect modern audio architecture\n\n- Update README.md to remove virtual device references\n- Update CLAUDE.md with modern audio pipeline description\n- Add CHANGELOG entry for audio architecture overhaul\n- Update audio flow analysis with new ModernAudioRecorder/Player\n- Remove outdated virtual device dependencies\n- Document cross-platform compatibility improvements\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: remove wavtools dependency and use modern audio APIs\n\n- Removed entire wavtools library to simplify codebase\n- Created decodeAudioToWav utility function to replace WavRecorder.decode()\n- Updated MainPanel.tsx to use new audio utility function\n- Fixed decodeAudioData type error by converting Blob to ArrayBuffer\n- Fixed WAV header byteRate calculation to use correct sample rate\n\nThis completes the migration to modern audio architecture and removes\nlegacy dependencies.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add virtual speaker support for Electron environments\n\n- Introduced `virtualSpeakerPlayer` to ModernBrowserAudioService for Electron usage\n- Automatically detects and configures virtual speaker devices\n- Ensures volume controls and streaming audio synchronization with virtual speaker\n- Updated passthrough, interrupt, and device clearing methods to include virtual speaker logic\n- Improved logging and error handling for virtual speaker configuration\n\nThis enhances functionality in Electron by enabling virtual speaker integration for improved audio playback scenarios."
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: add dynamic audio device switching and update documentation\n\n- Add dynamic recording device switching during active sessions\n- Remove automatic passthrough safety checks per user request\n- Update default passthrough volume from 0.2 to 0.3\n- Fix infinite loop in device switching useEffect\n- Add comprehensive documentation for device switching feature\n\nChanges:\n- Implement switchRecordingDevice() method in ModernBrowserAudioService\n- Track current recording device for seamless switching\n- Update MainPanel to detect device changes via useEffect\n- Use deviceId string in React dependencies to prevent re-renders\n- Remove isSafeForPassthrough() safety checks\n- Update CLAUDE.md with device switching information\n- Update audio-flow-analysis.md to reflect current implementation\n- Create new app-audio-device-switching.md documentation\n- Remove unused ModernPassthrough.js file\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: support locale format in PalabraAI queue status detection\n\nUpdate isQueueStatusMessage to accept both:\n- Simple language codes (e.g., en, zh, es)\n- Locale format with region codes (e.g., en-us, zh-cn, es-mx)\n\nThis ensures queue status messages are properly recognized regardless\nof the language code format used by the PalabraAI API.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: correct Int16Array to base64 conversion in GeminiClient\n\nFix audio data corruption in GeminiClient.appendInputAudio() by properly\naccessing the underlying ArrayBuffer of Int16Array before base64 conversion.\n\nThe previous implementation passed Int16Array directly to arrayBufferToBase64()\nwhich expected an ArrayBuffer, causing data loss and preventing Gemini from\nresponding to audio input.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: passthrough audio issues in Extension environment\n\n- Fixed passthrough audio not reaching virtual microphone by adding sendPcmDataToTabs call\n- Fixed passthrough audio queueing by recognizing 'passthrough' trackId as immediate playback\n- Fixed volume control by pre-applying volume to PCM data before sending to virtual microphone\n- Updated audio flow documentation to explain Electron vs Extension differences\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "feat: replace deprecated ScriptProcessor with AudioWorklet API\n\n- Create AudioWorklet processor for real-time audio recording\n- Update ModernAudioRecorder to use AudioWorklet when supported\n- Add fallback to ScriptProcessor for older browsers\n- Update extension manifest to include worklet resources\n- Maintain same API and functionality for consumers\n\nThis change improves performance and removes deprecation warnings\nwhile maintaining backward compatibility.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "refactor: simplify audio feedback warning UI and translations\n\n- Simplify warning content hierarchy to reduce redundancy\n- Remove duplicate speaker mode warning in title\n- Consolidate device info display without redundant labels\n- Streamline solutions presentation with primary/alternative structure\n- Update all 30 language translations with simplified messages\n- Remove unnecessary fields: inputDevice, outputDevice, recommendation\n- Add new speakerModeDescription and orTry fields for better UX\n\nThis improves user experience by presenting clearer, more actionable\nfeedback warnings without information overload.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  },
+  {
+    "id": "PR_kwDOOZeWys6hkqGb",
+    "number": 62,
+    "title": "feat: implement comprehensive PostHog analytics tracking",
+    "body": "## Summary\n\nThis PR implements a comprehensive set of key product metrics for PostHog tracking throughout the Sokuji real-time translation application.\n\n### Changes Made:\n\n- **Enhanced Analytics Event Definitions** - Expanded to 40+ event types with detailed properties\n- **Audio Device Management Tracking** - Track device changes, passthrough toggles, and virtual device warnings\n- **Settings Modification Tracking** - Monitor provider switches, language changes, and API validations\n- **API Error and Performance Tracking** - Measure connection latency, translation times, and error rates\n- **Extension-Specific Events** - Standardized popup tracking with proper event naming\n- **User Interaction Events** - Track session controls, push-to-talk usage, and panel views\n- **Performance Metrics** - Periodic audio quality measurements during active sessions\n- **Comprehensive Documentation** - Created detailed analytics event documentation\n\n### Key Features:\n\n✅ Privacy-first approach with automatic data sanitization\n✅ Contextual tracking (e.g., actions during active sessions)\n✅ Performance monitoring for critical operations\n✅ Error intelligence with severity levels\n✅ Complete user journey tracking\n\n### Files Changed:\n\n- `src/lib/analytics.ts` - Enhanced event definitions\n- `src/components/AudioPanel/AudioPanel.tsx` - Audio device tracking\n- `src/components/SettingsPanel/SettingsPanel.tsx` - Settings tracking\n- `src/components/SettingsPanel/ProviderSpecificSettings.tsx` - Language tracking\n- `src/components/MainPanel/MainPanel.tsx` - Session and performance tracking\n- `src/components/MainLayout/MainLayout.tsx` - Panel view tracking\n- `extension/popup.js` - Extension event tracking\n- `docs/ANALYTICS_EVENTS.md` - Comprehensive documentation\n\n## Test Plan\n\n- [ ] Test app startup/shutdown events\n- [ ] Verify onboarding flow tracking\n- [ ] Test translation session events (start, translations, end)\n- [ ] Verify audio device change tracking\n- [ ] Test settings modification events\n- [ ] Verify error tracking for API failures\n- [ ] Test extension popup events\n- [ ] Verify performance metrics are collected\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\n<!-- This is an auto-generated comment: release notes by coderabbit.ai -->\n## Summary by CodeRabbit\n\n* **New Features**\n  * Introduced comprehensive analytics tracking across multiple components, including detailed event logging for translation sessions, audio device changes, panel views, push-to-talk usage, and settings changes.\n  * Standardized analytics event naming conventions, especially within the browser extension interface.\n\n* **Documentation**\n  * Added a detailed documentation file outlining all analytics events, their categories, properties, and privacy considerations.\n\n* **Refactor**\n  * Expanded and refined the analytics event schema to support richer, more granular event types and properties.\n  * Updated internal logging for analytics events to use debug-level output.\n<!-- end of auto-generated comment: release notes by coderabbit.ai -->",
+    "createdAt": "2025-07-31T16:52:29Z",
+    "updatedAt": "2025-07-31T18:30:26Z",
+    "url": "https://github.com/kizuna-ai-lab/sokuji/pull/62",
+    "full": {
+      "comments": [
+        {
+          "body": "@coderabbitai review",
+          "author": {
+            "login": "jiangzhuo"
+          }
+        },
+        {
+          "body": "<!-- This is an auto-generated reply by CodeRabbit -->\n<details>\n<summary>✅ Actions performed</summary>\n\nReview triggered.\n\n> Note: CodeRabbit is an incremental review system and does not re-review already reviewed commits. This command is applicable only when automatic reviews are paused.\n\n</details>",
+          "author": {
+            "login": "coderabbitai"
+          }
+        },
+        {
+          "body": "<!-- This is an auto-generated comment: summarize by coderabbit.ai -->\n<!-- walkthrough_start -->\n\n## Walkthrough\n\nThe changes introduce comprehensive analytics and telemetry event tracking across the Sokuji application and its browser extension. This includes the addition of a detailed analytics event documentation file, extensive expansion and refinement of the analytics event schema, and the integration of event tracking into multiple React components and the browser extension popup. Event names, properties, and tracking points have been standardized and enriched throughout the codebase.\n\n## Changes\n\n| Cohort / File(s)                                                                 | Change Summary |\n|----------------------------------------------------------------------------------|----------------|\n| **Analytics Documentation**<br>`docs/ANALYTICS_EVENTS.md`                        | Added a detailed documentation file listing all analytics events, their properties, categories, and privacy considerations for the Sokuji application. |\n| **Analytics Schema and Utilities**<br>`src/lib/analytics.ts`                     | Major expansion and refinement of the analytics event schema, adding new event types, enriching existing events with more properties, and improving type safety. Changed analytics logging from `console.log` to `console.debug`. |\n| **Extension Analytics Event Standardization**<br>`extension/popup.js`             | Standardized extension analytics event names with an \"extension_\" prefix and updated event property structures for popup and site navigation events. Updated function signatures to include current hostname. |\n| **Audio Panel Analytics**<br>`src/components/AudioPanel/AudioPanel.tsx`           | Added analytics event tracking for audio device changes, virtual device warnings, passthrough toggling, and volume slider interactions. |\n| **Main Layout Panel Tracking**<br>`src/components/MainLayout/MainLayout.tsx`      | Introduced analytics tracking for panel open/close events, including view duration measurement for each panel. |\n| **Main Panel Analytics and Telemetry**<br>`src/components/MainPanel/MainPanel.tsx`| Integrated detailed analytics and telemetry tracking for translation completion, connection lifecycle, error handling, push-to-talk usage, audio device changes, and periodic audio quality metrics. Added new refs and modified multiple functions to support tracking. |\n| **Settings Panel Analytics**<br>`src/components/SettingsPanel/SettingsPanel.tsx`  | Added analytics tracking for API key validation, provider switching, and UI language changes. |\n| **Provider-Specific Settings Analytics**<br>`src/components/SettingsPanel/ProviderSpecificSettings.tsx` | Added analytics tracking for source and target language changes, including old and new values. |\n\n## Sequence Diagram(s)\n\n```mermaid\nsequenceDiagram\n    participant User\n    participant UIComponent\n    participant AnalyticsHook\n    participant AnalyticsBackend\n\n    User->>UIComponent: Interacts (e.g., changes language, toggles panel)\n    UIComponent->>AnalyticsHook: trackEvent(eventName, properties)\n    AnalyticsHook->>AnalyticsBackend: Send event payload\n    AnalyticsBackend-->>AnalyticsHook: Ack/Store event\n```\n\n```mermaid\nsequenceDiagram\n    participant User\n    participant ExtensionPopup\n    participant AnalyticsHook\n    participant AnalyticsBackend\n\n    User->>ExtensionPopup: Opens popup or navigates site\n    ExtensionPopup->>AnalyticsHook: trackEvent('extension_*', properties)\n    AnalyticsHook->>AnalyticsBackend: Send event payload\n```\n\n## Estimated code review effort\n\n🎯 4 (Complex) | ⏱️ ~40 minutes\n\n## Poem\n\n> In the garden of code, where analytics bloom,  \n> Rabbits hop and track each room.  \n> Every button, click, and sound,  \n> Now leaves a footprint on the ground.  \n> With schemas neat and docs anew,  \n> This bunny cheers, “Great job, crew!”  \n> 🐇✨📊\n\n<!-- walkthrough_end -->\n\n<!-- announcements_start -->\n\n> [!NOTE]\n> <details open=\"true\">\n> <summary>⚡️ Unit Test Generation is now available in beta!</summary>\n> \n> Learn more [here](https://docs.coderabbit.ai/finishing-touches/unit-test-generation), or try it out under \"Finishing Touches\" below.\n> \n> </details>\n\n<!-- announcements_end -->\n\n---\n\n<details>\n<summary>📜 Recent review details</summary>\n\n**Configuration used: CodeRabbit UI**\n**Review profile: CHILL**\n**Plan: Pro**\n\n\n<details>\n<summary>📥 Commits</summary>\n\nReviewing files that changed from the base of the PR and between 734600b022fa7b7253b6e52970e25a5a0ef9958c and 768d3d2eefb823850a1b1049a6880be8224176b2.\n\n</details>\n\n<details>\n<summary>📒 Files selected for processing (2)</summary>\n\n* `extension/popup.js` (12 hunks)\n* `src/components/MainLayout/MainLayout.tsx` (2 hunks)\n\n</details>\n\n<details>\n<summary>🚧 Files skipped from review as they are similar to previous changes (2)</summary>\n\n* src/components/MainLayout/MainLayout.tsx\n* extension/popup.js\n\n</details>\n\n<details>\n<summary>⏰ Context from checks skipped due to timeout of 90000ms. You can increase the timeout in your CodeRabbit configuration to a maximum of 15 minutes (900000ms). (1)</summary>\n\n* GitHub Check: build\n\n</details>\n\n</details>\n<!-- internal state start -->\n\n\n<!-- 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 -->\n\n<!-- internal state end -->\n<!-- finishing_touch_checkbox_start -->\n\n<details>\n<summary>✨ Finishing Touches</summary>\n\n- [ ] <!-- {\"checkboxId\": \"7962f53c-55bc-4827-bfbf-6a18da830691\"} --> 📝 Generate Docstrings\n<details>\n<summary>🧪 Generate unit tests</summary>\n\n- [ ] <!-- {\"checkboxId\": \"f47ac10b-58cc-4372-a567-0e02b2c3d479\", \"radioGroupId\": \"utg-output-choice-group-unknown_comment_id\"} -->   Create PR with unit tests\n- [ ] <!-- {\"checkboxId\": \"07f1e7d6-8a8e-4e23-9900-8731c2c87f58\", \"radioGroupId\": \"utg-output-choice-group-unknown_comment_id\"} -->   Post copyable unit tests in a comment\n- [ ] <!-- {\"checkboxId\": \"6ba7b810-9dad-11d1-80b4-00c04fd430c8\", \"radioGroupId\": \"utg-output-choice-group-unknown_comment_id\"} -->   Commit unit tests in branch `feature/comprehensive-posthog-analytics`\n\n</details>\n\n</details>\n\n<!-- finishing_touch_checkbox_end -->\n<!-- tips_start -->\n\n---\n\n\n\n<details>\n<summary>🪧 Tips</summary>\n\n### Chat\n\nThere are 3 ways to chat with [CodeRabbit](https://coderabbit.ai?utm_source=oss&utm_medium=github&utm_campaign=kizuna-ai-lab/sokuji&utm_content=62):\n\n- Review comments: Directly reply to a review comment made by CodeRabbit. Example:\n  - `I pushed a fix in commit <commit_id>, please review it.`\n  - `Explain this complex logic.`\n  - `Open a follow-up GitHub issue for this discussion.`\n- Files and specific lines of code (under the \"Files changed\" tab): Tag `@coderabbitai` in a new review comment at the desired location with your query. Examples:\n  - `@coderabbitai explain this code block.`\n  -\t`@coderabbitai modularize this function.`\n- PR comments: Tag `@coderabbitai` in a new PR comment to ask questions about the PR branch. For the best results, please provide a very specific query, as very limited context is provided in this mode. Examples:\n  - `@coderabbitai gather interesting stats about this repository and render them as a table. Additionally, render a pie chart showing the language distribution in the codebase.`\n  - `@coderabbitai read src/utils.ts and explain its main purpose.`\n  - `@coderabbitai read the files in the src/scheduler package and generate a class diagram using mermaid and a README in the markdown format.`\n  - `@coderabbitai help me debug CodeRabbit configuration file.`\n\n### Support\n\nNeed help? Create a ticket on our [support page](https://www.coderabbit.ai/contact-us/support) for assistance with any issues or questions.\n\nNote: Be mindful of the bot's finite context window. It's strongly recommended to break down tasks such as reading entire modules into smaller chunks. For a focused discussion, use review comments to chat about specific files and their changes, instead of using the PR comments.\n\n### CodeRabbit Commands (Invoked using PR comments)\n\n- `@coderabbitai pause` to pause the reviews on a PR.\n- `@coderabbitai resume` to resume the paused reviews.\n- `@coderabbitai review` to trigger an incremental review. This is useful when automatic reviews are disabled for the repository.\n- `@coderabbitai full review` to do a full review from scratch and review all the files again.\n- `@coderabbitai summary` to regenerate the summary of the PR.\n- `@coderabbitai generate docstrings` to [generate docstrings](https://docs.coderabbit.ai/finishing-touches/docstrings) for this PR.\n- `@coderabbitai generate sequence diagram` to generate a sequence diagram of the changes in this PR.\n- `@coderabbitai generate unit tests` to generate unit tests for this PR.\n- `@coderabbitai resolve` resolve all the CodeRabbit review comments.\n- `@coderabbitai configuration` to show the current CodeRabbit configuration for the repository.\n- `@coderabbitai help` to get help.\n\n### Other keywords and placeholders\n\n- Add `@coderabbitai ignore` anywhere in the PR description to prevent this PR from being reviewed.\n- Add `@coderabbitai summary` to generate the high-level summary at a specific location in the PR description.\n- Add `@coderabbitai` anywhere in the PR title to generate the title automatically.\n\n### CodeRabbit Configuration File (`.coderabbit.yaml`)\n\n- You can programmatically configure CodeRabbit by adding a `.coderabbit.yaml` file to the root of your repository.\n- Please see the [configuration documentation](https://docs.coderabbit.ai/guides/configure-coderabbit) for more information.\n- If your editor has YAML language server enabled, you can add the path at the top of this file to enable auto-completion and validation: `# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json`\n\n### Documentation and Community\n\n- Visit our [Documentation](https://docs.coderabbit.ai) for detailed information on how to use CodeRabbit.\n- Join our [Discord Community](http://discord.gg/coderabbit) to get help, request features, and share feedback.\n- Follow us on [X/Twitter](https://twitter.com/coderabbitai) for updates and announcements.\n\n</details>\n\n<!-- tips_end -->",
+          "author": {
+            "login": "coderabbitai"
+          }
+        }
+      ],
+      "reviews": [
+        {
+          "body": "**Actionable comments posted: 3**\n\n<details>\n<summary>🧹 Nitpick comments (5)</summary><blockquote>\n\n<details>\n<summary>src/components/SettingsPanel/SettingsPanel.tsx (1)</summary><blockquote>\n\n`147-153`: **Consider improving error type determination**\n\nThe current implementation determines error types by checking if the message contains 'Invalid'. This approach is fragile and depends on message content.\n\n\nConsider having `contextValidateApiKey()` return structured error information:\n```typescript\n// Track API key validation\ntrackEvent('api_key_validated', {\n  provider: commonSettings.provider || Provider.OPENAI,\n  success: result.valid === true,\n  error_type: result.errorType || (result.valid === false ? 'validation_error' : undefined)\n});\n```\n\n</blockquote></details>\n<details>\n<summary>src/components/AudioPanel/AudioPanel.tsx (1)</summary><blockquote>\n\n`51-54`: **Consider tracking user's response to virtual device warning**\n\nCurrently, `action_taken` is always set to 'ignored'. Consider tracking if users change to a different device after seeing the warning for more complete analytics.\n\n\nYou could track 'changed_device' if the user selects a different device within a certain timeframe after dismissing the warning.\n\n\nAlso applies to: 70-73\n\n</blockquote></details>\n<details>\n<summary>extension/popup.js (1)</summary><blockquote>\n\n`217-221`: **Event property inconsistency with hostname tracking.**\n\nThe `browser_type` property is tracked, but the `hostname` property is set to `null` when there's no tab info. This creates an inconsistency - consider using a more descriptive value like `'unknown'` or `'no_tab'` instead of `null` for better analytics clarity.\n\n```diff\n-      hostname: null,\n+      hostname: 'no_tab',\n```\n\n</blockquote></details>\n<details>\n<summary>src/components/MainPanel/MainPanel.tsx (2)</summary><blockquote>\n\n`286-302`: **Consider consolidating duplicate latency tracking.**\n\nThe implementation correctly tracks translation completion with latency. However, you're tracking latency twice - once in `translation_completed` and again in `latency_measurement`. Consider if both are necessary or if they serve different analytics purposes.\n\n\nIf the latency data serves the same purpose in both events, consider removing the duplicate:\n```diff\n-            trackEvent('latency_measurement', {\n-              operation: 'translation',\n-              latency_ms: translationLatency,\n-              provider: commonSettings.provider\n-            });\n```\n\n---\n\n`323-327`: **Replace placeholder values with actual metrics.**\n\nThe audio quality tracking interval is properly implemented with cleanup, but the `quality_score` (100) and `latency` (0) are hardcoded placeholders. These should be replaced with actual calculated metrics for meaningful analytics.\n\nTODO comments indicate these are placeholders. Please implement actual quality metrics calculation or add a tracking issue for this.\n\nWould you like me to help implement actual audio quality metrics calculation or create an issue to track this task?\n\n\nAlso applies to: 518-532\n\n</blockquote></details>\n\n</blockquote></details>\n\n<details>\n<summary>📜 Review details</summary>\n\n**Configuration used: CodeRabbit UI**\n**Review profile: CHILL**\n**Plan: Pro**\n\n\n<details>\n<summary>📥 Commits</summary>\n\nReviewing files that changed from the base of the PR and between f3569c693adfc801099ab1b869e33f727ec8e413 and 734600b022fa7b7253b6e52970e25a5a0ef9958c.\n\n</details>\n\n<details>\n<summary>📒 Files selected for processing (8)</summary>\n\n* `docs/ANALYTICS_EVENTS.md` (1 hunks)\n* `extension/popup.js` (8 hunks)\n* `src/components/AudioPanel/AudioPanel.tsx` (4 hunks)\n* `src/components/MainLayout/MainLayout.tsx` (2 hunks)\n* `src/components/MainPanel/MainPanel.tsx` (10 hunks)\n* `src/components/SettingsPanel/ProviderSpecificSettings.tsx` (7 hunks)\n* `src/components/SettingsPanel/SettingsPanel.tsx` (5 hunks)\n* `src/lib/analytics.ts` (4 hunks)\n\n</details>\n\n<details>\n<summary>🧰 Additional context used</summary>\n\n<details>\n<summary>🧬 Code Graph Analysis (3)</summary>\n\n<details>\n<summary>src/components/MainLayout/MainLayout.tsx (1)</summary><blockquote>\n\n<details>\n<summary>src/lib/analytics.ts (1)</summary>\n\n* `useAnalytics` (267-370)\n\n</details>\n\n</blockquote></details>\n<details>\n<summary>src/components/SettingsPanel/ProviderSpecificSettings.tsx (1)</summary><blockquote>\n\n<details>\n<summary>src/lib/analytics.ts (1)</summary>\n\n* `useAnalytics` (267-370)\n\n</details>\n\n</blockquote></details>\n<details>\n<summary>src/components/AudioPanel/AudioPanel.tsx (2)</summary><blockquote>\n\n<details>\n<summary>src/lib/analytics.ts (1)</summary>\n\n* `useAnalytics` (267-370)\n\n</details>\n<details>\n<summary>src/contexts/SessionContext.tsx (1)</summary>\n\n* `useSession` (16-22)\n\n</details>\n\n</blockquote></details>\n\n</details>\n\n</details>\n\n<details>\n<summary>🔇 Additional comments (22)</summary><blockquote>\n\n<details>\n<summary>src/lib/analytics.ts (2)</summary>\n\n`4-208`: **Comprehensive and well-structured analytics event schema expansion!**\n\nThe expanded event interface provides excellent coverage across all aspects of the application. The property types are well-defined with appropriate use of optional fields and union types.\n\n---\n\n`276-276`: **Good practice: Using console.debug for analytics tracking**\n\nAppropriate change to use `console.debug` instead of `console.log` for analytics event tracking. This reduces log noise in production while maintaining visibility during development.\n\n</details>\n<details>\n<summary>src/components/SettingsPanel/SettingsPanel.tsx (2)</summary>\n\n`203-213`: **Well-implemented provider switch tracking**\n\nThe tracking correctly captures the old provider value before the change and includes all relevant context including session status.\n\n---\n\n`367-378`: **Proper UI language change tracking**\n\nThe implementation correctly captures the language transition and properly categorizes it as a 'ui' language change.\n\n</details>\n<details>\n<summary>src/components/MainLayout/MainLayout.tsx (1)</summary>\n\n`52-89`: **Clean integration of panel tracking in toggle functions**\n\nThe tracking is properly integrated into each toggle function, ensuring accurate duration measurements and maintaining panel exclusivity.\n\n</details>\n<details>\n<summary>docs/ANALYTICS_EVENTS.md (1)</summary>\n\n`1-328`: **Excellent analytics documentation!**\n\nThis comprehensive documentation provides clear guidance for developers on analytics event usage. The organization by category, detailed property descriptions, and privacy considerations section are particularly valuable.\n\n</details>\n<details>\n<summary>src/components/AudioPanel/AudioPanel.tsx (3)</summary>\n\n`57-62`: **Proper device change tracking implementation**\n\nThe tracking correctly captures user-initiated device selections with all relevant context including session status.\n\n\n\n\nAlso applies to: 76-81\n\n---\n\n`270-276`: **Correct passthrough toggle tracking**\n\nThe implementation properly tracks the toggle state change and includes the current volume level for context.\n\n---\n\n`294-306`: **Smart implementation of volume tracking**\n\nGood decision to track on `mouseUp` to avoid excessive events during dragging. The event properties provide comprehensive context.\n\n</details>\n<details>\n<summary>src/components/SettingsPanel/ProviderSpecificSettings.tsx (1)</summary>\n\n`8-8`: **Analytics tracking implementation looks good!**\n\nThe language change tracking is well-implemented with proper capture of old/new values and language types. The edge case handling for source/target language conflicts is particularly well done, tracking both changes separately when needed.\n\n\n\n\nAlso applies to: 45-45, 106-139, 155-166, 501-513, 529-540\n\n</details>\n<details>\n<summary>extension/popup.js (4)</summary>\n\n`233-238`: **LGTM! Consistent event naming convention applied.**\n\nThe event name change from `popup_opened` to `extension_popup_opened` follows the new standardized naming convention correctly.\n\n---\n\n`257-260`: **LGTM! Event naming follows the established pattern.**\n\nThe standardized event name `extension_popup_supported_state_shown` is consistent with the new naming convention.\n\n---\n\n`280-283`: **LGTM! Consistent naming convention maintained.**\n\nThe event name `extension_popup_unsupported_state_shown` follows the standardized naming pattern.\n\n---\n\n`312-315`: **LGTM! Enhanced error tracking with additional context.**\n\nThe event name `extension_popup_error` is more concise, and the addition of `error_message` alongside `error_type` provides better debugging capabilities.\n\n</details>\n<details>\n<summary>src/components/MainPanel/MainPanel.tsx (8)</summary>\n\n`181-186`: **LGTM! Well-structured refs for analytics tracking.**\n\nThe addition of `pushToTalkStartTimeRef` and `audioQualityIntervalRef` refs is appropriate for tracking timing and intervals without causing re-renders.\n\n---\n\n`213-219`: **LGTM! Comprehensive API error tracking.**\n\nThe error tracking captures essential information including provider, error message, and distinguishes between client and server errors appropriately.\n\n---\n\n`223-228`: **LGTM! Connection lifecycle tracking implemented correctly.**\n\nThe disconnection tracking provides good visibility into connection status changes.\n\n---\n\n`463-491`: **LGTM! Excellent connection tracking with proper error handling.**\n\nThe implementation correctly measures connection latency and tracks both successful connections and failures with appropriate event types and error details.\n\n---\n\n`533-544`: **LGTM! Comprehensive error tracking for session initialization.**\n\nThe error tracking includes all necessary context: error type, message, component, severity, provider, and recoverability status.\n\n---\n\n`587-588`: **LGTM! Well-implemented push-to-talk usage tracking.**\n\nThe PTT tracking correctly measures hold duration using refs and only tracks when there's an active session.\n\n\n\nAlso applies to: 640-648\n\n---\n\n`1246-1262`: **LGTM! Comprehensive audio device change tracking.**\n\nThe implementation properly tracks both successful and failed device changes with relevant context including device type, name, and whether the change occurred during an active session.\n\n---\n\n`1453-1465`: **LGTM! User action tracking implemented correctly.**\n\nThe session control tracking captures the user's action (start/stop) and method (button) before executing the corresponding function, providing good analytics on user interactions.\n\n</details>\n\n</blockquote></details>\n\n</details>\n\n<!-- This is an auto-generated comment by CodeRabbit for review status -->",
+          "author": {
+            "login": "coderabbitai"
+          },
+          "inline_comments": []
+        }
+      ],
+      "review_threads": [
+        {
+          "comments": {
+            "nodes": [
+              {
+                "body": "_⚠️ Potential issue_\n\n**Incorrect site tracking in side panel events.**\n\nThe `site` property is using `window.location.hostname`, which returns the extension popup's hostname (likely empty or a chrome-extension:// URL), not the actual website where translation will occur. This should use the hostname from the active tab instead.\n\n```diff\n-          site: window.location.hostname\n+          site: hostname // Use the hostname variable from line 226\n```\n\nApply the same fix to both occurrences (lines 395 and 420).\n\n\nAlso applies to: 418-421\n\n<details>\n<summary>🤖 Prompt for AI Agents</summary>\n\n```\nIn extension/popup.js around lines 393 to 396 and 418 to 421, the site property\nin the trackEvent calls incorrectly uses window.location.hostname, which refers\nto the extension popup's URL instead of the active tab's URL. To fix this,\nretrieve the hostname from the active browser tab's URL and use that value for\nthe site property in both trackEvent calls at these locations.\n```\n\n</details>\n\n<!-- fingerprinting:phantom:medusa:lion -->\n\n<!-- This is an auto-generated comment by CodeRabbit -->\n\n✅ Addressed in commit 768d3d2",
+                "author": {
+                  "login": "coderabbitai"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "comments": {
+            "nodes": [
+              {
+                "body": "_⚠️ Potential issue_\n\n**Fix incorrect from_site tracking in navigation event.**\n\nThe `from_site` property uses `window.location.hostname`, which is the popup's hostname rather than the current website. This should track the actual site the user is navigating from.\n\n```diff\n-        from_site: window.location.hostname,\n+        from_site: siteUrl, // Current implementation doesn't have access to current tab hostname\n```\n\nConsider passing the current tab's hostname to the click handler or storing it in a variable accessible to this function.\n\n\n> Committable suggestion skipped: line range outside the PR's diff.\n\n<details>\n<summary>🤖 Prompt for AI Agents</summary>\n\n```\nIn extension/popup.js around lines 522 to 526, the from_site property in the\ntrackEvent call incorrectly uses window.location.hostname, which refers to the\npopup's hostname instead of the current website. To fix this, modify the code to\nobtain the hostname of the current active tab (e.g., by passing it as an\nargument to the click handler or storing it in a variable accessible here) and\nuse that hostname as the from_site value in the event tracking.\n```\n\n</details>\n\n<!-- fingerprinting:phantom:medusa:lion -->\n\n<!-- This is an auto-generated comment by CodeRabbit -->\n\n✅ Addressed in commit 768d3d2",
+                "author": {
+                  "login": "coderabbitai"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "comments": {
+            "nodes": [
+              {
+                "body": "_⚠️ Potential issue_\n\n**Fix type safety issue in panel tracking**\n\nThe type assertion `as any` on line 29 bypasses TypeScript's type safety. Since `currentPanelRef` could contain any string value, it should be properly typed.\n\n\n```diff\n- const currentPanelRef = useRef<string | null>(null);\n+ const currentPanelRef = useRef<'settings' | 'audio' | 'logs' | 'main' | null>(null);\n```\n\nAnd remove the type assertion:\n```diff\n- panel_name: currentPanelRef.current as any,\n+ panel_name: currentPanelRef.current,\n```\n\n\n> Committable suggestion skipped: line range outside the PR's diff.\n\n<details>\n<summary>🤖 Prompt for AI Agents</summary>\n\n```\nIn src/components/MainLayout/MainLayout.tsx between lines 24 and 49, the use of\n'as any' to cast currentPanelRef.current bypasses TypeScript's type safety. To\nfix this, properly type currentPanelRef to only allow the expected panel names\nor null, ensuring it matches the type of panelName ('settings' | 'audio' |\n'logs' | 'main' | null). Remove the 'as any' assertion and update the ref's type\ndeclaration accordingly to maintain strict type safety.\n```\n\n</details>\n\n<!-- fingerprinting:phantom:medusa:lion -->\n\n<!-- This is an auto-generated comment by CodeRabbit -->\n\n✅ Addressed in commit 768d3d2",
+                "author": {
+                  "login": "coderabbitai"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "commits": [
+        {
+          "commit": {
+            "message": "feat: implement comprehensive PostHog analytics tracking\n\n- Enhanced analytics event definitions with 40+ event types\n- Added audio device management tracking (device changes, passthrough, warnings)\n- Implemented settings modification tracking (provider switches, language changes, API validation)\n- Added API error and performance tracking (connection latency, translation metrics)\n- Updated extension popup events to use standardized naming\n- Implemented user interaction tracking (session controls, push-to-talk, panel views)\n- Added periodic audio quality metrics during active sessions\n- Created comprehensive documentation for all analytics events\n\nAll events include privacy-first data sanitization and contextual properties\nfor meaningful product insights.\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: correct useSession import and update debug logging\n\n- Fixed TypeScript error by importing useSession instead of useSessionContext\n- Changed console.log to console.debug for analytics tracking\n- Minor formatting adjustments from linter\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        },
+        {
+          "commit": {
+            "message": "fix: correct hostname tracking in extension popup analytics\n\n- Pass actual hostname parameter to event handlers instead of using window.location.hostname\n- Ensure accurate site tracking for navigation and side panel events\n- Fix TypeScript type safety for panel names in MainLayout\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+          }
+        }
+      ]
+    },
+    "security_mentions": []
+  }
+]
